@@ -6,49 +6,68 @@
   <title>Carlos' Discount Codes</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
-      background-color: #f4f4f4;
-      color: #333;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to right, #ece9e6, #ffffff);
       margin: 0;
       padding: 0;
+      color: #333;
     }
     header {
-      background-color: #2c3e50;
+      background-color: #1abc9c;
       color: white;
       text-align: center;
-      padding: 20px;
+      padding: 30px 20px;
+    }
+    header h1 {
+      margin-bottom: 10px;
     }
     .container {
-      max-width: 800px;
+      max-width: 1000px;
       margin: auto;
       padding: 20px;
     }
     .card {
       background-color: white;
-      padding: 20px;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      border-radius: 12px;
+      overflow: hidden;
+      margin-bottom: 30px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transition: transform 0.2s ease;
     }
-    .card h2 {
+    .card:hover {
+      transform: scale(1.02);
+    }
+    .card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+    }
+    .card-content {
+      padding: 20px;
+    }
+    .card-content h2 {
       margin-top: 0;
+    }
+    .card-content p {
+      margin: 5px 0;
     }
     .button {
       display: inline-block;
-      margin-top: 10px;
-      padding: 10px 15px;
-      background-color: #3498db;
+      margin-top: 15px;
+      padding: 10px 20px;
+      background-color: #1abc9c;
       color: white;
       text-decoration: none;
-      border-radius: 5px;
+      border-radius: 6px;
+      font-weight: bold;
     }
     .button:hover {
-      background-color: #2980b9;
+      background-color: #159c88;
     }
     footer {
       text-align: center;
       font-size: 14px;
-      padding: 20px;
+      padding: 30px 10px;
       color: #777;
     }
   </style>
@@ -56,37 +75,49 @@
 <body>
   <header>
     <h1>🎁 Carlos' Discount Codes</h1>
-    <p>Grab these exclusive deals from your favorite brands!</p>
+    <p>Save big with exclusive promo codes on top brands!</p>
   </header>
 
   <div class="container">
 
     <div class="card">
-      <h2>Della Home</h2>
-      <p><strong>Coupon Code:</strong> CARLOS</p>
-      <p><strong>Discount:</strong> 5% Off Storewide</p>
-      <a href="https://dellahome.com/?ref=carlos" target="_blank" class="button">Shop Now</a>
+      <img src="https://cdn.shopify.com/s/files/1/0014/3514/0188/files/logo_03b5a9c3-e94b-41ed-9181-f3c9f21ff3e8_480x480.png" alt="Della Home" />
+      <div class="card-content">
+        <h2>Della Home</h2>
+        <p><strong>Code:</strong> CARLOS</p>
+        <p><strong>Discount:</strong> 5% Off Storewide</p>
+        <a href="https://dellahome.com/?ref=carlos" target="_blank" class="button">Shop Della Home</a>
+      </div>
     </div>
 
     <div class="card">
-      <h2>Ryse</h2>
-      <p><strong>Coupon Code:</strong> CARLOSLUGO</p>
-      <p><strong>Discount:</strong> 15% Off Storewide</p>
-      <a href="https://www.helloryse.com/CARLOSLUGO" target="_blank" class="button">Shop Now</a>
+      <img src="https://cdn.shopify.com/s/files/1/0551/9251/5965/files/Ryse_Nutrition_Logo_150x.png" alt="Ryse" />
+      <div class="card-content">
+        <h2>Ryse</h2>
+        <p><strong>Code:</strong> CARLOSLUGO</p>
+        <p><strong>Discount:</strong> 15% Off Storewide</p>
+        <a href="https://www.helloryse.com/CARLOSLUGO" target="_blank" class="button">Shop Ryse</a>
+      </div>
     </div>
 
     <div class="card">
-      <h2>Minimotors USA</h2>
-      <p><strong>Coupon Code:</strong> CARLOS2098</p>
-      <p><strong>Discount:</strong> $20 Off Storewide</p>
-      <a href="https://minimotorsusa.com/?ref=carlos" target="_blank" class="button">Shop Now</a>
+      <img src="https://minimotorsusa.com/cdn/shop/files/minimotors-logo.png?v=1614297593" alt="Minimotors USA" />
+      <div class="card-content">
+        <h2>Minimotors USA</h2>
+        <p><strong>Code:</strong> CARLOS2098</p>
+        <p><strong>Discount:</strong> $20 Off Storewide</p>
+        <a href="https://minimotorsusa.com/?ref=carlos" target="_blank" class="button">Shop Minimotors</a>
+      </div>
     </div>
 
     <div class="card">
-      <h2>Salus Saunas</h2>
-      <p><strong>Coupon Code:</strong> CARLOS100</p>
-      <p><strong>Discount:</strong> $100 Off Storewide</p>
-      <a href="https://www.salussaunas.com/discount/CARLOS100" target="_blank" class="button">Shop Now</a>
+      <img src="https://www.salussaunas.com/cdn/shop/files/salus-logo-header.png?v=1614696541" alt="Salus Saunas" />
+      <div class="card-content">
+        <h2>Salus Saunas</h2>
+        <p><strong>Code:</strong> CARLOS100</p>
+        <p><strong>Discount:</strong> $100 Off Storewide</p>
+        <a href="https://www.salussaunas.com/discount/CARLOS100" target="_blank" class="button">Shop Salus Saunas</a>
+      </div>
     </div>
 
   </div>
@@ -96,3 +127,4 @@
   </footer>
 </body>
 </html>
+
