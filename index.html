@@ -5,87 +5,151 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Carlos' Discount Codes</title>
   <style>
+    /* Animaciones */
+    @keyframes fadeIn {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Body styling */
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to right, #ece9e6, #ffffff);
+      background: linear-gradient(135deg, #f3f4f7, #dde1e7);
       margin: 0;
       padding: 0;
       color: #333;
-      line-height: 1.4; /* Espacio entre líneas más pequeño */
+      line-height: 1.5;
+      animation: fadeIn 1s ease-out;
     }
+
+    /* Header styling */
     header {
-      background-color: #1abc9c;
+      background: linear-gradient(135deg, #00b894, #1abc9c);
       color: white;
       text-align: center;
-      padding: 30px 20px;
+      padding: 60px 20px;
+      box-shadow: 0 8px 15px rgba(0,0,0,0.1);
+      border-bottom: 4px solid #16a085;
+      animation: fadeIn 1s ease-out 0.5s;
     }
     header h1 {
+      font-size: 2.5rem;
       margin-bottom: 10px;
+      text-transform: uppercase;
     }
+
+    /* Main container */
     .container {
-      max-width: 800px;
-      margin: auto;
-      padding: 20px;
+      max-width: 900px;
+      margin: 30px auto;
+      padding: 30px;
     }
+
+    /* Card styling */
     .card {
       background-color: white;
       border-radius: 12px;
       margin-bottom: 30px;
-      padding: 20px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-      transition: transform 0.2s ease;
+      padding: 25px;
+      box-shadow: 0 8px 18px rgba(0, 0, 0, 0.1);
+      transition: transform 0.3s ease-in-out, box-shadow 0.3s ease;
+      animation: fadeIn 1.5s ease-out;
     }
     .card:hover {
-      transform: scale(1.02);
+      transform: translateY(-10px);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
     }
+
     .card h2 {
       margin-top: 0;
+      font-size: 1.8rem;
+      color: #1abc9c;
     }
+
+    .card p {
+      font-size: 1.1rem;
+      color: #555;
+    }
+
     .button {
       display: inline-block;
-      margin-top: 15px;
-      padding: 10px 20px;
+      margin-top: 20px;
+      padding: 12px 30px;
       background-color: #1abc9c;
       color: white;
       text-decoration: none;
       border-radius: 6px;
       font-weight: bold;
+      transition: background-color 0.3s ease;
     }
+
     .button:hover {
-      background-color: #159c88;
+      background-color: #16a085;
     }
+
+    /* Contact section */
     .contact-section {
-      background-color: #f9f9f9;
-      padding: 20px;
+      background: #f0f0f0;
+      padding: 30px;
       border-radius: 10px;
-      margin-top: 30px;
-      text-align: center;
+      margin-top: 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      animation: fadeIn 2s ease-out 1s;
     }
+
     .contact-section h3 {
       color: #333;
+      font-size: 1.8rem;
     }
+
     .contact-section p {
-      color: #555;
-      font-size: 16px;
-      line-height: 1.4; /* También ajusté el espacio entre párrafos aquí */
+      color: #666;
+      font-size: 1.1rem;
+      margin-bottom: 20px;
     }
+
     .contact-button {
-      margin-top: 20px;
-      padding: 10px 20px;
+      padding: 12px 30px;
       background-color: #ff7043;
       color: white;
       text-decoration: none;
       border-radius: 6px;
       font-weight: bold;
+      transition: background-color 0.3s ease;
     }
+
     .contact-button:hover {
       background-color: #e64a19;
     }
+
+    /* Footer */
     footer {
       text-align: center;
       font-size: 14px;
       padding: 30px 10px;
       color: #777;
+      background: #fafafa;
+      box-shadow: 0 -8px 15px rgba(0, 0, 0, 0.1);
+      position: relative;
+      bottom: 0;
+      width: 100%;
+    }
+
+    /* Responsive adjustments */
+    @media screen and (max-width: 768px) {
+      .container {
+        padding: 15px;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      .card h2 {
+        font-size: 1.5rem;
+      }
+      .button {
+        padding: 10px 25px;
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -134,11 +198,6 @@
   </div>
 
   <footer>
-    © 2025 Carlos. All rights reserved.
-  </footer>
-</body>
-</html>
-
     © 2025 Carlos. All rights reserved.
   </footer>
 </body>
