@@ -30,7 +30,7 @@ Welcome to my curated list of **exclusive discount and promo codes** from truste
 ## 📬 Contact
 
 Have a question or partnership inquiry?  
-📧 **[carlos@example.com](mailto:carlos@example.com)**
+📧 **[carlos@example.com](mailto:carlosdavid145@gmail.com)**
 
 ---
 
