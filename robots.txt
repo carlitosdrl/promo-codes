@@ -1,4 +1,3 @@
 User-agent: *
-Disallow:
-
-Sitemap: https://carlitosdrl.github.io/promo-codes/sitemap.xml
+Allow: /
+Sitemap: https://shopwithcarlos.xyz/sitemap.xml
