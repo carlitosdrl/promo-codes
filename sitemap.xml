@@ -1,16 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+    <!-- creado con Free Online Sitemap Generator www.xml-sitemaps.com -->
 
+    <!-- URL del dominio que compraste -->
+    <url>
+        <loc>https://shopwithcarlos.xyz/</loc>
+        <lastmod>2025-05-13T20:00:14+00:00</lastmod>
+    </url>
 
-<url>
-  <loc>https://shopwithcarlos.xyz/</loc>
-  <lastmod>2025-05-13T20:00:14+00:00</lastmod>
-</url>
-
-
+    <!-- URL del directorio de GitHub -->
+    <url>
+        <loc>https://carlitosdrl.github.io/promo-codes/</loc>
+        <lastmod>2025-05-13T20:00:14+00:00</lastmod>
+    </url>
+    
 </urlset>
