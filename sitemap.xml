@@ -16,5 +16,11 @@
         <loc>https://carlitosdrl.github.io/promo-codes/</loc>
         <lastmod>2025-05-13T20:00:14+00:00</lastmod>
     </url>
+
+    <!-- URL del directorio de GitHub -->
+    <url>
+        <loc>https://carloscodes.vercel.app/</loc>
+        <lastmod>2025-05-13T20:00:14+00:00</lastmod>
+    </url>
     
 </urlset>
