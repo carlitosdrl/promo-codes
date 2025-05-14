@@ -1,2 +1,8 @@
 User-agent: Googlebot
 Allow: /sitemap.xml
+
+User-agent: *
+Disallow: /admin/
+Disallow: /private/
+
+Sitemap: https://shopwithcarlos.xyz/sitemap.xml
