@@ -16,6 +16,9 @@ Welcome to my curated list of **exclusive discount and promo codes** from truste
 - **[Salus Saunas](https://www.salussaunas.com/discount/CARLOS100)**  
   🏷️ *Coupon Code:* `CARLOS100` – Enjoy **$100 Off Storewide**
 
+- **[Armada Scooters](https://armadascooters.com/?ref=10050581)**
+  🏷️ *Coupon Code:* `CARLOS100` – Enjoy **$100 Off Storewide**
+
 ---
 
 ## 🔍 Why Use These Promo Codes?
@@ -36,7 +39,7 @@ Have a question or partnership inquiry?
 
 ## 🌐 SEO Keywords
 
-> promo codes, coupon codes, discounts, della home promo, ryse coupon, minimotors discount, salus saunas code, verified coupons, online store deals, storewide offers
+> promo codes, coupon codes, discounts, della home promo, ryse coupon, minimotors discount, salus saunas code, verified coupons, online store deals, storewide offers, promo, discount, code, armada scooters, discount coides
 
 ---
 
