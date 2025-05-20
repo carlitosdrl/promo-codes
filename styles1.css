@@ -24,24 +24,26 @@ body {
   flex-grow: 1;
 }
 
-/* Header */
+/* Header - ahora blanco con detalles verdes */
 .header {
   position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 1rem 2rem;
-  background: #2a5d34; /* verde oscuro */
-  color: #ffffff; /* texto blanco */
+  background: #ffffff; /* blanco */
+  color: #2a5d34; /* verde oscuro para texto */
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgb(42 93 52 / 0.4);
+  box-shadow: 0 4px 12px rgb(42 93 52 / 0.15); /* sombra sutil verde */
   gap: 20px;
+  border: 2px solid #3a8d4a; /* borde verde vibrante */
 }
 
 .logo {
   flex: 0 0 auto; /* tamaño fijo */
   height: 90px;
   width: auto;
+  filter: drop-shadow(0 0 3px #3a8d4a); /* ligero resplandor verde */
 }
 
 .header-text {
@@ -54,14 +56,14 @@ body {
   font-weight: 600;
   font-size: 2.25rem;
   margin-bottom: 0.5rem;
-  color: #ffffff;
+  color: #2a5d34; /* verde oscuro */
 }
 
 .header-text p {
   font-weight: 300;
   font-size: 1.1rem;
   white-space: normal; /* permite salto de línea */
-  color: #ffffff;
+  color: #3a8d4a; /* verde vibrante */
 }
 
 /* Cards para secciones */
@@ -71,23 +73,25 @@ body {
   padding: 1.8rem 2rem;
   margin-bottom: 1.8rem;
   box-shadow: 0 4px 10px rgb(0 0 0 / 0.08);
+  border-left: 6px solid #3a8d4a; /* barra verde en el lateral para detalle */
   transition: transform 0.3s ease;
 }
 
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgb(58 141 74 / 0.3); /* sombra verde al hover */
 }
 
 .card h2 {
   margin-bottom: 1rem;
-  color: #000000; /* negro */
+  color: #2a5d34; /* verde oscuro */
   font-weight: 600;
 }
 
 /* Listas ordenadas */
 ol {
   padding-left: 1.2rem;
-  color: #000000; /* negro */
+  color: #2a5d34; /* verde oscuro */
 }
 
 /* Enlaces */
@@ -132,7 +136,7 @@ a:focus {
 /* Bloques de citas */
 blockquote {
   font-style: italic;
-  color: #333333; /* gris oscuro */
+  color: #2a5d34; /* verde oscuro */
   border-left: 4px solid #3a8d4a; /* verde para contraste */
   padding-left: 1rem;
   margin: 1rem 0 1.5rem 0;
@@ -155,17 +159,19 @@ details {
   box-shadow: 0 2px 8px rgb(0 0 0 / 0.05);
   cursor: pointer;
   transition: box-shadow 0.3s ease;
+  border: 1px solid #3a8d4a;
 }
 
 details[open] {
-  box-shadow: 0 6px 12px rgb(0 0 0 / 0.1);
+  box-shadow: 0 6px 12px rgb(58 141 74 / 0.3);
+  border-color: #246228;
 }
 
 summary {
   font-weight: 600;
   font-size: 1.05rem;
   outline: none;
-  color: #000000; /* negro */
+  color: #2a5d34; /* verde oscuro */
 }
 
 details p {
@@ -202,12 +208,14 @@ details p {
     flex-direction: column;
     padding: 1rem;
     text-align: center;
+    border: 2px solid #3a8d4a;
   }
 
   .logo {
     flex: 0 0 auto;
     height: 70px;
     margin-bottom: 0.75rem;
+    filter: drop-shadow(0 0 2px #3a8d4a);
   }
 
   .header-text {
