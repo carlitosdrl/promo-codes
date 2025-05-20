@@ -8,7 +8,7 @@
 body {
   font-family: 'Poppins', sans-serif;
   background-color: #f0f7f4; /* verde muy claro */
-  color: #2d3a2e; /* verde oscuro suave */
+  color: #000000; /* texto negro para todo menos header */
   line-height: 1.6;
   font-size: 16px;
   min-height: 100vh;
@@ -27,11 +27,16 @@ body {
 /* Header */
 .header {
   background: #2a5d34; /* verde oscuro */
-  color: #e0f2e9; /* verde muy claro */
+  color: #ffffff; /* texto blanco */
   padding: 2rem 1rem;
   text-align: center;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgb(42 93 52 / 0.4);
+}
+
+.header h1,
+.header p {
+  color: #ffffff; /* asegurar que todos los textos sean blancos */
 }
 
 .header h1 {
