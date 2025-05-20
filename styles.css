@@ -4,16 +4,16 @@ body {
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  background: #f4f6f8; /* tono muy claro, casi blanco */
+  background: #f4f6f8;
   color: #222;
 }
 
 header {
-  background-color: #1b3a2d; /* verde oscuro */
-  color: #e0f2f1; /* verde muy claro para contraste */
+  background-color: #1b3a2d; /* verde grama oscuro */
+  color: #e0f2f1;
   text-align: center;
   padding: 50px 20px;
-  box-shadow: 0 2px 8px rgba(27, 58, 45, 0.5); /* sombra suave verde */
+  box-shadow: 0 2px 8px rgba(27, 58, 45, 0.5);
   border-bottom-left-radius: 20px;
   border-bottom-right-radius: 20px;
 }
@@ -81,7 +81,7 @@ header {
 }
 
 .button:hover {
-  background-color: #14532d; /* un verde aún más oscuro */
+  background-color: #14532d; /* un verde más oscuro para hover */
   box-shadow: 0 6px 12px rgba(20, 83, 45, 0.5);
 }
 
