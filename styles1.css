@@ -29,7 +29,6 @@ body {
   background: #2a5d34; /* verde oscuro */
   color: #ffffff; /* texto blanco */
   padding: 2rem 1rem;
-  text-align: center;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgb(42 93 52 / 0.4);
 }
