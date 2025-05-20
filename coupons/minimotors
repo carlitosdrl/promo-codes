@@ -1,0 +1,31 @@
+<title>Minimotors USA Promo – Save on Dualtron Scooters | Shop With Carlos</title>
+<meta name="description" content="Get 5% off electric scooters from Minimotors USA with promo code CARLOS. Premium performance & reliability.">
+<meta name="keywords" content="Minimotors USA, Dualtron scooters, electric scooter discount, Minimotors promo code">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Minimotors USA Scooters",
+  "image": "https://shopwithcarlos.xyz/images/minimotors.jpg",
+  "description": "Save on high-performance electric scooters from Minimotors USA. Use code CARLOS at checkout.",
+  "brand": { "@type": "Brand", "name": "Minimotors USA" },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "345"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://minimotorsusa.com/?ref=carlos",
+    "priceCurrency": "USD",
+    "price": "0.00",
+    "availability": "https://schema.org/InStock",
+    "priceValidUntil": "2025-12-31"
+  }
+}
+</script>
+
+<h1>5% Off Dualtron Electric Scooters – Minimotors USA</h1>
+<p>Looking for performance and style? <strong>Minimotors USA</strong> is the top choice for electric scooters. Use code <strong>CARLOS</strong> for 5% off your new ride.</p>
+<a href="https://minimotorsusa.com/?ref=carlos" class="button">Get Your Scooter Now</a>
