@@ -198,9 +198,9 @@ details p {
   }
 
 .header {
-  display: flex;
-  align-items: center; /* centra verticalmente */
-  gap: 15px;           /* espacio entre logo y texto */
+  display: flex;              /* Layout horizontal */
+  align-items: flex-start;    /* Alinea el logo y el texto al tope, no centrados verticalmente */
+  gap: 15px;                  /* Espacio entre logo y texto */
 }
 
 .logo {
@@ -209,7 +209,8 @@ details p {
 }
 
 .header-text {
-  /* opcional: para controlar ancho o estilos del texto */
+  /* Para asegurarnos que el texto no se alinee centrado o con margin automático */
+  margin: 0;
 }
   
 }
