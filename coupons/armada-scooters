@@ -1,0 +1,31 @@
+<title>Armada Scooters Promo – Save on Japanese Electric Scooters | Shop With Carlos</title>
+<meta name="description" content="Discover high-quality Japanese electric scooters from Armada. Use promo code CARLOS for 5% off on all Armada scooters.">
+<meta name="keywords" content="Armada Scooters, Japanese electric scooters, Armada promo code, electric scooter discount">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Armada Electric Scooters",
+  "image": "https://shopwithcarlos.xyz/images/armada-scooters.jpg",
+  "description": "Ride smoothly with Armada's premium Japanese electric scooters. Use code CARLOS for 5% discount on your purchase.",
+  "brand": { "@type": "Brand", "name": "Armada Scooters" },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "reviewCount": "220"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://armadascooters.com/?ref=carlos",
+    "priceCurrency": "USD",
+    "price": "0.00",
+    "availability": "https://schema.org/InStock",
+    "priceValidUntil": "2025-12-31"
+  }
+}
+</script>
+
+<h1>Save 5% on Armada Japanese Electric Scooters</h1>
+<p>Experience the precision and quality of Japanese engineering with <strong>Armada Scooters</strong>. Use promo code <strong>CARLOS</strong> at checkout for a 5% discount.</p>
+<a href="https://armadascooters.com/?ref=carlos" class="button">Shop Armada Scooters Now</a>
