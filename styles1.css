@@ -64,6 +64,9 @@ body {
 .header-text p {
   font-weight: 300;
   font-size: 1.1rem;
+  white-space: nowrap;        /* Evita salto de línea */
+  overflow: hidden;           /* Oculta texto que no quepa */
+  text-overflow: ellipsis;    /* Muestra "..." si es muy largo */
 }
 
 /* Cards para secciones */
