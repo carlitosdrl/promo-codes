@@ -198,15 +198,13 @@ details p {
   }
 
 .header {
+  position: relative; /* para que absolute funcione */
   display: flex;
-  align-items: center; /* Centra verticalmente logo y texto */
-  justify-content: center; /* Centra el contenido en el contenedor */
-  position: relative; /* Para que podamos posicionar el logo */
+  justify-content: center; /* centra el contenido principal */
+  align-items: center;
   padding: 2rem 1rem;
-  gap: 15px;
 }
 
-/* Logo alineado a la izquierda con posición absoluta */
 .logo {
   position: absolute;
   left: 1rem;
@@ -214,11 +212,11 @@ details p {
   width: auto;
 }
 
-/* El texto debe ocupar todo el ancho, para que se centre */
 .header-text {
-  flex: 1; /* Ocupa el espacio disponible */
+  flex: 1; /* ocupa todo el espacio restante */
   text-align: center;
   margin: 0;
 }
+
   
 }
