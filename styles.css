@@ -1,115 +1,100 @@
-/* Color verde principal */
-:root {
-  --primary-green: #2a5d34;
-}
-
-/* Body */
+/* Estilos generales */
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f9f9f9;
   margin: 0;
   padding: 0;
+  background-color: #f9f9f9;
   color: #333;
 }
 
 /* Header */
 .header {
-  background-color: var(--primary-green);
+  background-color: #2a5d34; /* verde principal */
   color: white;
+  padding: 2rem;
   text-align: center;
-  padding: 2rem 1rem;
 }
 
-/* Header title */
 .header-title {
   margin: 0;
-  font-size: 2.5rem;
-  font-weight: 700;
+  font-weight: 600;
+  font-size: 2rem;
 }
 
-/* Header description */
 .header-description {
-  font-weight: 400;
-  font-size: 1.2rem;
   margin-top: 0.5rem;
+  font-weight: 300;
 }
 
-/* Main container */
+/* Contenedor principal */
 .main-container {
   max-width: 900px;
   margin: 2rem auto;
   padding: 0 1rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
 }
 
-/* Cards */
+/* Tarjetas */
 .card {
   background-color: white;
-  padding: 1.5rem 2rem;
-  margin-bottom: 1.5rem;
   border-radius: 8px;
+  padding: 1.5rem;
   box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
-/* Titles with links */
+.card h2 {
+  margin-top: 0;
+  font-weight: 600;
+}
+
+/* Links en los títulos de las tarjetas */
 .card h2 a {
-  color: var(--primary-green);
-  font-weight: 700;
-  font-size: 1.8rem;
+  color: #2a5d34; /* verde principal */
   text-decoration: none;
-  cursor: pointer;
-  transition: color 0.3s ease, transform 0.2s ease;
-  display: inline-block;
+  transition: color 0.3s ease;
 }
 
 .card h2 a:hover {
-  color: #1f4427; /* verde más oscuro */
+  color: #1f4427; /* verde más oscuro para hover */
   text-decoration: underline;
-  transform: scale(1.05);
 }
 
-/* Paragraphs inside cards */
-.card p {
-  margin: 0.5rem 0;
-  font-weight: 400;
-  color: #555;
-}
-
-/* Buttons */
+/* Botones */
 .button {
-  background-color: var(--primary-green);
-  color: white;
-  border: none;
-  padding: 0.7rem 1.5rem;
-  font-size: 1rem;
-  font-weight: 600;
-  border-radius: 5px;
-  cursor: pointer;
-  text-decoration: none;
   display: inline-block;
-  transition: background-color 0.3s ease;
   margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #2a5d34; /* verde principal */
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
 }
 
 .button:hover {
-  background-color: #1f4427; /* verde más oscuro en hover */
+  background-color: #1f4427; /* verde más oscuro para hover */
 }
 
 /* Footer */
 .footer {
+  background-color: #eee;
   text-align: center;
-  padding: 1.5rem 1rem;
-  background-color: #f1f1f1;
-  color: #777;
+  padding: 1rem;
   font-size: 0.9rem;
+  margin-top: 3rem;
+  color: #555;
 }
 
 .footer-links a {
-  color: var(--primary-green);
+  color: #2a5d34; /* verde principal */
   text-decoration: none;
   margin: 0 0.5rem;
-  font-weight: 600;
 }
 
 .footer-links a:hover {
   text-decoration: underline;
 }
+
