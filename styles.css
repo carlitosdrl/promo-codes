@@ -51,13 +51,13 @@ body {
 
 /* Links en los títulos de las tarjetas */
 .card h2 a {
-  color: green;
+  color: #2a5d34; /* verde principal */
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .card h2 a:hover {
-  color: darkgreen;
+  color: #1f4427; /* verde más oscuro para hover */
   text-decoration: underline;
 }
 
