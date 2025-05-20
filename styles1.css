@@ -26,26 +26,43 @@ body {
 
 /* Header */
 .header {
+  position: relative; /* para que el absolute del logo funcione */
+  display: flex;
+  justify-content: center; /* centra el contenido principal */
+  align-items: center;
+  padding: 2rem 1rem;
   background: #2a5d34; /* verde oscuro */
   color: #ffffff; /* texto blanco */
-  text-align: center;
-  padding: 2rem 1rem;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgb(42 93 52 / 0.4);
+  gap: 15px;
 }
 
-.header h1,
-.header p {
-  color: #ffffff; /* texto blanco en header */
+.logo {
+  position: absolute;
+  left: 1rem;
+  height: 60px;
+  width: auto;
 }
 
-.header h1 {
+.header-text {
+  flex: 1;
+  text-align: center;
+  margin: 0;
+}
+
+.header-text h1,
+.header-text p {
+  color: #ffffff;
+}
+
+.header-text h1 {
   font-weight: 600;
   font-size: 2.25rem;
   margin-bottom: 0.5rem;
 }
 
-.header p {
+.header-text p {
   font-weight: 300;
   font-size: 1.1rem;
 }
@@ -66,33 +83,33 @@ body {
 
 .card h2 {
   margin-bottom: 1rem;
-  color: #000000; /* negro */
+  color: #000000;
   font-weight: 600;
 }
 
 /* Listas ordenadas */
 ol {
   padding-left: 1.2rem;
-  color: #000000; /* negro */
+  color: #000000;
 }
 
 /* Enlaces */
 a {
-  color: #3a8d4a; /* verde brillante */
+  color: #3a8d4a;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 a:hover,
 a:focus {
-  color: #246228; /* verde oscuro */
+  color: #246228;
   outline: none;
 }
 
 /* Botón principal */
 .button {
   display: inline-block;
-  background: #3a8d4a; /* verde vibrante */
+  background: #3a8d4a;
   color: #fff;
   font-weight: 600;
   padding: 1rem 2.2rem;
@@ -118,8 +135,8 @@ a:focus {
 /* Bloques de citas */
 blockquote {
   font-style: italic;
-  color: #333333; /* gris oscuro */
-  border-left: 4px solid #3a8d4a; /* verde para contraste */
+  color: #333333;
+  border-left: 4px solid #3a8d4a;
   padding-left: 1rem;
   margin: 1rem 0 1.5rem 0;
 }
@@ -128,7 +145,7 @@ blockquote cite {
   display: block;
   text-align: right;
   font-style: normal;
-  color: #555555; /* gris medio */
+  color: #555555;
   margin-top: 0.5rem;
 }
 
@@ -151,12 +168,12 @@ summary {
   font-weight: 600;
   font-size: 1.05rem;
   outline: none;
-  color: #000000; /* negro */
+  color: #000000;
 }
 
 details p {
   margin-top: 0.7rem;
-  color: #333333; /* gris oscuro */
+  color: #333333;
   font-weight: 400;
 }
 
@@ -185,38 +202,4 @@ details p {
 /* Responsive */
 @media (max-width: 600px) {
   .header h1 {
-    font-size: 1.75rem;
-  }
-
-  .button {
-    max-width: 100%;
-    padding: 1rem;
-  }
-
-  .card {
-    padding: 1.5rem 1rem;
-  }
-
-.header {
-  position: relative; /* para que absolute funcione */
-  display: flex;
-  justify-content: center; /* centra el contenido principal */
-  align-items: center;
-  padding: 2rem 1rem;
-}
-
-.logo {
-  position: absolute;
-  left: 1rem;
-  height: 60px;
-  width: auto;
-}
-
-.header-text {
-  flex: 1; /* ocupa todo el espacio restante */
-  text-align: center;
-  margin: 0;
-}
-
-  
-}
+    font-size: 1.
