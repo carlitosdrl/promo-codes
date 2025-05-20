@@ -196,4 +196,16 @@ details p {
   .card {
     padding: 1.5rem 1rem;
   }
+
+.header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.logo {
+  height: 60px;
+  width: auto;
+}
+  
 }
