@@ -4,84 +4,101 @@ body {
   font-family: 'Poppins', sans-serif;
   font-size: 16px;
   line-height: 1.5;
-  background: #f9f9f9;
-  color: #333;
+  background: #f4f6f8; /* tono muy claro, casi blanco */
+  color: #222;
 }
 
 header {
-  background: linear-gradient(135deg, #00c9ff, #92fe9d);
-  color: #fff;
+  background-color: #1b3a2d; /* verde oscuro */
+  color: #e0f2f1; /* verde muy claro para contraste */
   text-align: center;
-  padding: 40px 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 50px 20px;
+  box-shadow: 0 2px 8px rgba(27, 58, 45, 0.5); /* sombra suave verde */
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
 }
 
 .header-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   margin: 0;
+  font-weight: 700;
+  letter-spacing: 1px;
 }
 
 .header-description {
-  font-size: 1rem;
+  font-size: 1.1rem;
   margin-top: 10px;
+  opacity: 0.8;
 }
 
 .main-container {
   max-width: 1200px;
-  margin: 30px auto;
-  padding: 20px;
+  margin: 40px auto;
+  padding: 0 20px;
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 24px;
 }
 
 .card {
-  background: #fff;
-  border-radius: 10px;
-  padding: 20px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  transition: transform 0.3s;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 4px 16px rgba(27, 58, 45, 0.1);
+  transition: box-shadow 0.3s ease, transform 0.3s ease;
+  cursor: pointer;
 }
 
 .card:hover {
-  transform: translateY(-5px);
+  box-shadow: 0 8px 24px rgba(27, 58, 45, 0.25);
+  transform: translateY(-8px);
 }
 
 .card h2 {
-  font-size: 1.5rem;
-  color: #00c9ff;
+  font-size: 1.75rem;
+  color: #1b3a2d;
+  margin-bottom: 12px;
 }
 
 .card p {
-  margin: 10px 0;
+  margin: 12px 0;
+  color: #444;
+  font-size: 1rem;
 }
 
 .button {
   display: inline-block;
-  margin-top: 15px;
-  padding: 10px 20px;
-  background: #00c9ff;
-  color: #fff;
-  border-radius: 5px;
+  margin-top: 18px;
+  padding: 12px 28px;
+  background-color: #1b3a2d;
+  color: #e0f2f1;
+  border-radius: 8px;
   text-decoration: none;
-  font-weight: bold;
-  transition: background 0.3s;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+  box-shadow: 0 4px 8px rgba(27, 58, 45, 0.3);
 }
 
 .button:hover {
-  background: #008cbf;
+  background-color: #14532d; /* un verde aún más oscuro */
+  box-shadow: 0 6px 12px rgba(20, 83, 45, 0.5);
 }
 
 .footer {
   text-align: center;
-  padding: 20px;
-  background: #333;
-  color: #fff;
+  padding: 24px 20px;
+  background-color: #1b3a2d;
+  color: #e0f2f1;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  font-size: 0.9rem;
 }
 
 .footer a {
-  color: #00c9ff;
+  color: #a5d6a7;
   text-decoration: none;
+  font-weight: 600;
 }
 
 .footer a:hover {
