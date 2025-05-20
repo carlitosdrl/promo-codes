@@ -7,8 +7,8 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f9fafb;
-  color: #333;
+  background-color: #f0f7f4; /* verde muy claro */
+  color: #2d3a2e; /* verde oscuro suave */
   line-height: 1.6;
   font-size: 16px;
   min-height: 100vh;
@@ -26,12 +26,12 @@ body {
 
 /* Header */
 .header {
-  background: #2c3e50;
-  color: #fff;
+  background: #2a5d34; /* verde oscuro */
+  color: #e0f2e9; /* verde muy claro */
   padding: 2rem 1rem;
   text-align: center;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgb(44 62 80 / 0.3);
+  box-shadow: 0 4px 12px rgb(42 93 52 / 0.4);
 }
 
 .header h1 {
@@ -47,11 +47,11 @@ body {
 
 /* Cards para secciones */
 .card {
-  background: #fff;
+  background: #ffffff;
   border-radius: 10px;
   padding: 1.8rem 2rem;
   margin-bottom: 1.8rem;
-  box-shadow: 0 4px 10px rgb(0 0 0 / 0.08);
+  box-shadow: 0 4px 10px rgb(45 58 46 / 0.08);
   transition: transform 0.3s ease;
 }
 
@@ -61,42 +61,42 @@ body {
 
 .card h2 {
   margin-bottom: 1rem;
-  color: #2c3e50;
+  color: #2a5d34;
   font-weight: 600;
 }
 
 /* Listas ordenadas */
 ol {
   padding-left: 1.2rem;
-  color: #555;
+  color: #4a5d43;
 }
 
 /* Enlaces */
 a {
-  color: #3498db;
+  color: #3a8d4a; /* verde brillante */
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 a:hover,
 a:focus {
-  color: #1d6fa5;
+  color: #246228; /* verde oscuro */
   outline: none;
 }
 
 /* Botón principal */
 .button {
   display: inline-block;
-  background: #e67e22;
+  background: #3a8d4a; /* verde vibrante */
   color: #fff;
   font-weight: 600;
   padding: 1rem 2.2rem;
   text-align: center;
   border-radius: 40px;
-  box-shadow: 0 6px 15px rgb(230 126 34 / 0.4);
+  box-shadow: 0 6px 15px rgb(58 141 74 / 0.4);
   margin: 2rem auto;
   cursor: pointer;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
   font-size: 1.15rem;
   text-decoration: none;
   display: block;
@@ -105,15 +105,16 @@ a:focus {
 
 .button:hover,
 .button:focus {
-  background: #d35400;
+  background: #246228;
+  box-shadow: 0 8px 20px rgb(36 98 40 / 0.6);
   outline: none;
 }
 
 /* Bloques de citas */
 blockquote {
   font-style: italic;
-  color: #555;
-  border-left: 4px solid #e67e22;
+  color: #4a5d43;
+  border-left: 4px solid #3a8d4a;
   padding-left: 1rem;
   margin: 1rem 0 1.5rem 0;
 }
@@ -122,13 +123,13 @@ blockquote cite {
   display: block;
   text-align: right;
   font-style: normal;
-  color: #888;
+  color: #7b8f7a;
   margin-top: 0.5rem;
 }
 
 /* FAQ details */
 details {
-  background: #fff;
+  background: #ffffff;
   border-radius: 8px;
   margin-bottom: 1rem;
   padding: 1rem 1.5rem;
@@ -145,18 +146,19 @@ summary {
   font-weight: 600;
   font-size: 1.05rem;
   outline: none;
+  color: #2a5d34;
 }
 
 details p {
   margin-top: 0.7rem;
-  color: #444;
+  color: #3a553f;
   font-weight: 400;
 }
 
 /* Footer */
 .footer {
-  background: #2c3e50;
-  color: #bbb;
+  background: #2a5d34;
+  color: #c2d8c4;
   padding: 1.5rem 1rem;
   text-align: center;
   font-size: 0.9rem;
@@ -164,14 +166,14 @@ details p {
 }
 
 .footer-links a {
-  color: #bbb;
+  color: #c2d8c4;
   margin: 0 0.5rem;
   font-weight: 500;
 }
 
 .footer-links a:hover,
 .footer-links a:focus {
-  color: #fff;
+  color: #e0f2e9;
   outline: none;
 }
 
