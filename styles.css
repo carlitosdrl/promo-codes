@@ -1,112 +1,59 @@
-/* Global Styles */
+/* Estilos generales */
 body {
-  margin: 0;
   font-family: 'Poppins', sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  background: #f4f6f8;
-  color: #000; /* letras negras */
+  margin: 0;
+  padding: 0;
+  background-color: #f9f9f9;
+  color: #333;
 }
 
-header {
-  background-color: #2a5d34; /* verde grama medio */
-  color: #fff; /* letras blancas */
+/* Header */
+.header {
+  background-color: #004d40;
+  color: white;
+  padding: 2rem;
   text-align: center;
-  padding: 50px 20px;
-  box-shadow: 0 2px 8px rgba(42, 93, 52, 0.5);
-  border-bottom-left-radius: 20px;
-  border-bottom-right-radius: 20px;
 }
 
 .header-title {
-  font-size: 2.5rem;
   margin: 0;
-  font-weight: 700;
-  letter-spacing: 1px;
+  font-weight: 600;
+  font-size: 2rem;
 }
 
 .header-description {
-  font-size: 1.1rem;
-  margin-top: 10px;
-  opacity: 0.9;
+  margin-top: 0.5rem;
+  font-weight: 300;
 }
 
+/* Contenedor principal */
 .main-container {
-  max-width: 1200px;
-  margin: 40px auto;
-  padding: 0 20px;
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 24px;
+  gap: 1.5rem;
 }
 
+/* Tarjetas */
 .card {
-  background: #ffffff;
-  border-radius: 16px;
-  padding: 24px;
-  box-shadow: 0 4px 16px rgba(42, 93, 52, 0.1);
-  transition: box-shadow 0.3s ease, transform 0.3s ease;
-  cursor: pointer;
-  color: #000; /* texto negro en tarjetas */
-}
-
-.card:hover {
-  box-shadow: 0 8px 24px rgba(42, 93, 52, 0.25);
-  transform: translateY(-8px);
+  background-color: white;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
 }
 
 .card h2 {
-  font-size: 1.75rem;
-  color: #2a5d34;
-  margin-bottom: 12px;
-}
-
-.card p {
-  margin: 12px 0;
-  font-size: 1rem;
-}
-
-.button {
-  display: inline-block;
-  margin-top: 18px;
-  padding: 12px 28px;
-  background-color: #2a5d34;
-  color: #fff;
-  border-radius: 8px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
-  box-shadow: 0 4px 8px rgba(42, 93, 52, 0.3);
-}
-
-.button:hover {
-  background-color: #1f4a29; /* verde más oscuro en hover */
-  box-shadow: 0 6px 12px rgba(31, 74, 41, 0.5);
-}
-
-.footer {
-  text-align: center;
-  padding: 24px 20px;
-  background-color: #2a5d34;
-  color: #fff;
-  border-top-left-radius: 20px;
-  border-top-right-radius: 20px;
-  font-size: 0.9rem;
-}
-
-.footer a {
-  color: #a5d6a7;
-  text-decoration: none;
+  margin-top: 0;
   font-weight: 600;
 }
 
-.footer a:hover {
-  text-decoration: underline;
-
+/* Links en los títulos de las tarjetas */
 .card h2 a {
   color: green;
   text-decoration: none;
+  transition: color 0.3s ease;
 }
 
 .card h2 a:hover {
@@ -114,4 +61,39 @@ header {
   text-decoration: underline;
 }
 
+/* Botones */
+.button {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.6rem 1.2rem;
+  background-color: #00796b;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.button:hover {
+  background-color: #004d40;
+}
+
+/* Footer */
+.footer {
+  background-color: #eee;
+  text-align: center;
+  padding: 1rem;
+  font-size: 0.9rem;
+  margin-top: 3rem;
+  color: #555;
+}
+
+.footer-links a {
+  color: #00796b;
+  text-decoration: none;
+  margin: 0 0.5rem;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
 }
