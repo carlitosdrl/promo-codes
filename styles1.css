@@ -28,6 +28,7 @@ body {
 .header {
   background: #2a5d34; /* verde oscuro */
   color: #ffffff; /* texto blanco */
+  text-align: center;
   padding: 2rem 1rem;
   border-radius: 8px;
   box-shadow: 0 4px 12px rgb(42 93 52 / 0.4);
