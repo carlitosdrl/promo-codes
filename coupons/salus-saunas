@@ -1,0 +1,31 @@
+<title>Salus Saunas Discount – 5% Off Home Saunas | Shop With Carlos</title>
+<meta name="description" content="Relax at home with Salus Saunas. Use code CARLOS for 5% off infrared and traditional saunas. US-made wellness.">
+<meta name="keywords" content="Salus Saunas promo, home sauna discount, infrared sauna, traditional sauna, Salus coupon code">
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Salus Home Saunas",
+  "image": "https://shopwithcarlos.xyz/images/salus-saunas.jpg",
+  "description": "Enjoy spa-like relaxation at home with Salus Saunas. Save 5% using code CARLOS at checkout.",
+  "brand": { "@type": "Brand", "name": "Salus Saunas" },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "168"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://salussaunas.com/?ref=carlos",
+    "priceCurrency": "USD",
+    "price": "0.00",
+    "availability": "https://schema.org/InStock",
+    "priceValidUntil": "2025-12-31"
+  }
+}
+</script>
+
+<h1>Relax and Save – Salus Saunas Promo Code</h1>
+<p><strong>Salus Saunas</strong> offers premium-quality traditional and infrared saunas. Use code <strong>CARLOS</strong> to get 5% off your order and bring wellness home.</p>
+<a href="https://salussaunas.com/?ref=carlos" class="button">Shop Salus Saunas Now</a>
