@@ -199,13 +199,17 @@ details p {
 
 .header {
   display: flex;
-  align-items: center;
-  gap: 15px;
+  align-items: center; /* centra verticalmente */
+  gap: 15px;           /* espacio entre logo y texto */
 }
 
 .logo {
   height: 60px;
   width: auto;
+}
+
+.header-text {
+  /* opcional: para controlar ancho o estilos del texto */
 }
   
 }
