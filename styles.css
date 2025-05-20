@@ -103,4 +103,15 @@ header {
 
 .footer a:hover {
   text-decoration: underline;
+
+.card h2 a {
+  color: green;
+  text-decoration: none;
+}
+
+.card h2 a:hover {
+  color: darkgreen;
+  text-decoration: underline;
+}
+
 }
