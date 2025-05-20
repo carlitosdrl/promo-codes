@@ -198,18 +198,26 @@ details p {
   }
 
 .header {
-  display: flex;              /* Layout horizontal */
-  align-items: flex-start;    /* Alinea el logo y el texto al tope, no centrados verticalmente */
-  gap: 15px;                  /* Espacio entre logo y texto */
+  display: flex;
+  align-items: center; /* Centra verticalmente logo y texto */
+  justify-content: center; /* Centra el contenido en el contenedor */
+  position: relative; /* Para que podamos posicionar el logo */
+  padding: 2rem 1rem;
+  gap: 15px;
 }
 
+/* Logo alineado a la izquierda con posición absoluta */
 .logo {
+  position: absolute;
+  left: 1rem;
   height: 60px;
   width: auto;
 }
 
+/* El texto debe ocupar todo el ancho, para que se centre */
 .header-text {
-  /* Para asegurarnos que el texto no se alinee centrado o con margin automático */
+  flex: 1; /* Ocupa el espacio disponible */
+  text-align: center;
   margin: 0;
 }
   
