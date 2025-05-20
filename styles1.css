@@ -36,7 +36,7 @@ body {
 
 .header h1,
 .header p {
-  color: #ffffff; /* asegurar que todos los textos sean blancos */
+  color: #ffffff; /* texto blanco en header */
 }
 
 .header h1 {
@@ -56,7 +56,7 @@ body {
   border-radius: 10px;
   padding: 1.8rem 2rem;
   margin-bottom: 1.8rem;
-  box-shadow: 0 4px 10px rgb(45 58 46 / 0.08);
+  box-shadow: 0 4px 10px rgb(0 0 0 / 0.08);
   transition: transform 0.3s ease;
 }
 
@@ -66,14 +66,14 @@ body {
 
 .card h2 {
   margin-bottom: 1rem;
-  color: #2a5d34;
+  color: #000000; /* negro */
   font-weight: 600;
 }
 
 /* Listas ordenadas */
 ol {
   padding-left: 1.2rem;
-  color: #4a5d43;
+  color: #000000; /* negro */
 }
 
 /* Enlaces */
@@ -118,8 +118,8 @@ a:focus {
 /* Bloques de citas */
 blockquote {
   font-style: italic;
-  color: #4a5d43;
-  border-left: 4px solid #3a8d4a;
+  color: #333333; /* gris oscuro */
+  border-left: 4px solid #3a8d4a; /* verde para contraste */
   padding-left: 1rem;
   margin: 1rem 0 1.5rem 0;
 }
@@ -128,7 +128,7 @@ blockquote cite {
   display: block;
   text-align: right;
   font-style: normal;
-  color: #7b8f7a;
+  color: #555555; /* gris medio */
   margin-top: 0.5rem;
 }
 
@@ -151,12 +151,12 @@ summary {
   font-weight: 600;
   font-size: 1.05rem;
   outline: none;
-  color: #2a5d34;
+  color: #000000; /* negro */
 }
 
 details p {
   margin-top: 0.7rem;
-  color: #3a553f;
+  color: #333333; /* gris oscuro */
   font-weight: 400;
 }
 
