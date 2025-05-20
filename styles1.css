@@ -7,8 +7,8 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #f0f7f4;
-  color: #000000;
+  background-color: #f0f7f4; /* verde muy claro */
+  color: #000000; /* texto negro para todo menos header */
   line-height: 1.6;
   font-size: 16px;
   min-height: 100vh;
@@ -30,24 +30,24 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 1rem 1rem;
-  background: #2a5d34;
-  color: #ffffff;
+  padding: 1rem 2rem;
+  background: #2a5d34; /* verde oscuro */
+  color: #ffffff; /* texto blanco */
   border-radius: 8px;
   box-shadow: 0 4px 12px rgb(42 93 52 / 0.4);
-  gap: 15px;
+  gap: 20px;
 }
 
 .logo {
-  position: absolute;
-  left: 1rem;
+  flex: 0 0 auto; /* tamaño fijo */
   height: 90px;
   width: auto;
 }
 
 .header-text {
+  flex: 1; /* ocupa todo el espacio restante */
   text-align: center;
-  max-width: 700px;
+  padding-left: 1rem;
 }
 
 .header-text h1 {
@@ -60,7 +60,7 @@ body {
 .header-text p {
   font-weight: 300;
   font-size: 1.1rem;
-  white-space: normal; /* Permite salto de línea para subtítulo completo */
+  white-space: normal; /* permite salto de línea */
   color: #ffffff;
 }
 
@@ -80,33 +80,33 @@ body {
 
 .card h2 {
   margin-bottom: 1rem;
-  color: #000000;
+  color: #000000; /* negro */
   font-weight: 600;
 }
 
 /* Listas ordenadas */
 ol {
   padding-left: 1.2rem;
-  color: #000000;
+  color: #000000; /* negro */
 }
 
 /* Enlaces */
 a {
-  color: #3a8d4a;
+  color: #3a8d4a; /* verde brillante */
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 a:hover,
 a:focus {
-  color: #246228;
+  color: #246228; /* verde oscuro */
   outline: none;
 }
 
 /* Botón principal */
 .button {
   display: inline-block;
-  background: #3a8d4a;
+  background: #3a8d4a; /* verde vibrante */
   color: #fff;
   font-weight: 600;
   padding: 1rem 2.2rem;
@@ -132,8 +132,8 @@ a:focus {
 /* Bloques de citas */
 blockquote {
   font-style: italic;
-  color: #333333;
-  border-left: 4px solid #3a8d4a;
+  color: #333333; /* gris oscuro */
+  border-left: 4px solid #3a8d4a; /* verde para contraste */
   padding-left: 1rem;
   margin: 1rem 0 1.5rem 0;
 }
@@ -142,7 +142,7 @@ blockquote cite {
   display: block;
   text-align: right;
   font-style: normal;
-  color: #555555;
+  color: #555555; /* gris medio */
   margin-top: 0.5rem;
 }
 
@@ -165,12 +165,12 @@ summary {
   font-weight: 600;
   font-size: 1.05rem;
   outline: none;
-  color: #000000;
+  color: #000000; /* negro */
 }
 
 details p {
   margin-top: 0.7rem;
-  color: #333333;
+  color: #333333; /* gris oscuro */
   font-weight: 400;
 }
 
@@ -199,18 +199,20 @@ details p {
 /* Responsive */
 @media (max-width: 600px) {
   .header {
-    justify-content: flex-start;
-    padding-left: 1rem;
+    flex-direction: column;
+    padding: 1rem;
+    text-align: center;
   }
 
   .logo {
-    position: static;
+    flex: 0 0 auto;
     height: 70px;
-    margin-right: 1rem;
+    margin-bottom: 0.75rem;
   }
 
   .header-text {
-    text-align: left;
+    flex: none;
+    padding-left: 0;
     max-width: 100%;
   }
 
