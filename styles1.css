@@ -1,0 +1,192 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #f9fafb;
+  color: #333;
+  line-height: 1.6;
+  font-size: 16px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Contenedor principal */
+.main-container {
+  max-width: 900px;
+  margin: 2rem auto;
+  padding: 0 1rem;
+  flex-grow: 1;
+}
+
+/* Header */
+.header {
+  background: #2c3e50;
+  color: #fff;
+  padding: 2rem 1rem;
+  text-align: center;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgb(44 62 80 / 0.3);
+}
+
+.header h1 {
+  font-weight: 600;
+  font-size: 2.25rem;
+  margin-bottom: 0.5rem;
+}
+
+.header p {
+  font-weight: 300;
+  font-size: 1.1rem;
+}
+
+/* Cards para secciones */
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 1.8rem 2rem;
+  margin-bottom: 1.8rem;
+  box-shadow: 0 4px 10px rgb(0 0 0 / 0.08);
+  transition: transform 0.3s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card h2 {
+  margin-bottom: 1rem;
+  color: #2c3e50;
+  font-weight: 600;
+}
+
+/* Listas ordenadas */
+ol {
+  padding-left: 1.2rem;
+  color: #555;
+}
+
+/* Enlaces */
+a {
+  color: #3498db;
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover,
+a:focus {
+  color: #1d6fa5;
+  outline: none;
+}
+
+/* Botón principal */
+.button {
+  display: inline-block;
+  background: #e67e22;
+  color: #fff;
+  font-weight: 600;
+  padding: 1rem 2.2rem;
+  text-align: center;
+  border-radius: 40px;
+  box-shadow: 0 6px 15px rgb(230 126 34 / 0.4);
+  margin: 2rem auto;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  font-size: 1.15rem;
+  text-decoration: none;
+  display: block;
+  max-width: 220px;
+}
+
+.button:hover,
+.button:focus {
+  background: #d35400;
+  outline: none;
+}
+
+/* Bloques de citas */
+blockquote {
+  font-style: italic;
+  color: #555;
+  border-left: 4px solid #e67e22;
+  padding-left: 1rem;
+  margin: 1rem 0 1.5rem 0;
+}
+
+blockquote cite {
+  display: block;
+  text-align: right;
+  font-style: normal;
+  color: #888;
+  margin-top: 0.5rem;
+}
+
+/* FAQ details */
+details {
+  background: #fff;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 8px rgb(0 0 0 / 0.05);
+  cursor: pointer;
+  transition: box-shadow 0.3s ease;
+}
+
+details[open] {
+  box-shadow: 0 6px 12px rgb(0 0 0 / 0.1);
+}
+
+summary {
+  font-weight: 600;
+  font-size: 1.05rem;
+  outline: none;
+}
+
+details p {
+  margin-top: 0.7rem;
+  color: #444;
+  font-weight: 400;
+}
+
+/* Footer */
+.footer {
+  background: #2c3e50;
+  color: #bbb;
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-size: 0.9rem;
+  margin-top: auto;
+}
+
+.footer-links a {
+  color: #bbb;
+  margin: 0 0.5rem;
+  font-weight: 500;
+}
+
+.footer-links a:hover,
+.footer-links a:focus {
+  color: #fff;
+  outline: none;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .header h1 {
+    font-size: 1.75rem;
+  }
+
+  .button {
+    max-width: 100%;
+    padding: 1rem;
+  }
+
+  .card {
+    padding: 1.5rem 1rem;
+  }
+}
