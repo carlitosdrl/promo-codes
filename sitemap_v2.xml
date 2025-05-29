@@ -1,26 +1,47 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-        xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-                            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-    <!-- creado con Free Online Sitemap Generator www.xml-sitemaps.com -->
+<urlset
+      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
+            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
 
-    <!-- URL del dominio que compraste -->
-    <url>
-        <loc>https://shopwithcarlos.xyz/</loc>
-        <lastmod>2025-05-13T20:00:14+00:00</lastmod>
-    </url>
 
-    <!-- URL del directorio de GitHub -->
-    <url>
-        <loc>https://carlitosdrl.github.io/promo-codes/</loc>
-        <lastmod>2025-05-13T20:00:14+00:00</lastmod>
-    </url>
+<url>
+  <loc>https://shopwithcarlos.xyz/</loc>
+  <lastmod>2025-05-29T05:39:46+00:00</lastmod>
+  <priority>1.00</priority>
+</url>
+<url>
+  <loc>https://shopwithcarlos.xyz/coupons/della-home</loc>
+  <lastmod>2025-05-29T05:39:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://shopwithcarlos.xyz/coupons/ryse</loc>
+  <lastmod>2025-05-29T05:39:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://shopwithcarlos.xyz/coupons/minimotors</loc>
+  <lastmod>2025-05-29T05:39:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://shopwithcarlos.xyz/coupons/salus-saunas</loc>
+  <lastmod>2025-05-29T05:39:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://shopwithcarlos.xyz/coupons/armada-scooters</loc>
+  <lastmod>2025-05-29T05:39:47+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
+<url>
+  <loc>https://shopwithcarlos.xyz/coupons/xsto-store</loc>
+  <lastmod>2025-05-29T05:39:48+00:00</lastmod>
+  <priority>0.80</priority>
+</url>
 
-    <!-- URL del directorio de GitHub -->
-    <url>
-        <loc>https://carloscodes.vercel.app/</loc>
-        <lastmod>2025-05-13T20:00:14+00:00</lastmod>
-    </url>
-    
+
 </urlset>
