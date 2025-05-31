@@ -26,14 +26,31 @@ body {
   font-weight: 300;
 }
 
-.header-flex {
+.header-top {
   display: flex;
   align-items: center;
   gap: 20px;
+  flex-wrap: wrap;
 }
 
-.logo {
+.site-logo {
   height: 60px;
+  width: auto;
+}
+
+.header-text {
+  flex: 1;
+}
+
+.header-title {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.header-description {
+  margin: 5px 0 0 0;
+  font-size: 1rem;
+  color: #666;
 }
 
 /* Contenedor principal */
