@@ -14,14 +14,14 @@ body {
   padding: 2rem;
 }
 
-/* Contenedor que alinea logo + contenido */
+/* Contenedor que agrupa logo + texto */
 .header-top {
   display: flex;
-  align-items: flex-start;
-  gap: 1.5rem;
+  align-items: center; /* centra verticalmente logo y texto */
+  gap: 2rem;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  text-align: left;
+  justify-content: center; /* centro horizontal en pantallas grandes */
+  text-align: center;
 }
 
 /* Logo */
@@ -30,15 +30,17 @@ body {
 }
 
 .site-logo {
-  height: 80px; /* Puedes ajustar este tamaño */
+  height: 80px;
 }
 
-/* Contenido del header a la derecha del logo */
+/* Contenido textual del header */
 .header-content {
   flex: 1;
-  min-width: 250px;
+  min-width: 280px;
+  text-align: center; /* asegura centrado del texto */
 }
 
+/* Títulos y descripciones */
 .header-title {
   margin: 0;
   font-weight: 600;
@@ -81,15 +83,14 @@ body {
   font-weight: 600;
 }
 
-/* Links en los títulos de las tarjetas */
 .card h2 a {
-  color: #2a5d34; /* verde principal */
+  color: #2a5d34;
   text-decoration: none;
   transition: color 0.3s ease;
 }
 
 .card h2 a:hover {
-  color: #1f4427; /* verde más oscuro para hover */
+  color: #1f4427;
   text-decoration: underline;
 }
 
@@ -98,7 +99,7 @@ body {
   display: inline-block;
   margin-top: 1rem;
   padding: 0.6rem 1.2rem;
-  background-color: #2a5d34; /* verde principal */
+  background-color: #2a5d34;
   color: white;
   border-radius: 4px;
   text-decoration: none;
@@ -107,7 +108,7 @@ body {
 }
 
 .button:hover {
-  background-color: #1f4427; /* verde más oscuro para hover */
+  background-color: #1f4427;
 }
 
 /* Footer */
@@ -121,7 +122,7 @@ body {
 }
 
 .footer-links a {
-  color: #2a5d34; /* verde principal */
+  color: #2a5d34;
   text-decoration: none;
   margin: 0 0.5rem;
 }
