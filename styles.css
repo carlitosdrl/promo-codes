@@ -33,26 +33,6 @@ body {
   flex-wrap: wrap;
 }
 
-.site-logo {
-  height: 100px;
-  width: auto;
-}
-
-.header-text {
-  flex: 1;
-}
-
-.header-title {
-  margin: 0;
-  font-size: 1.8rem;
-}
-
-.header-description {
-  margin: 5px 0 0 0;
-  font-size: 1rem;
-  color: #666;
-}
-
 /* Contenedor principal */
 .main-container {
   max-width: 900px;
@@ -123,5 +103,50 @@ body {
 
 .footer-links a:hover {
   text-decoration: underline;
+}
+
+.header {
+  background-color: #f9f9f9;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.05);
+  max-width: 960px;
+  margin: auto;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.site-logo {
+  height: 80px;
+  width: auto;
+  flex-shrink: 0;
+}
+
+.text-content {
+  flex: 1;
+  min-width: 250px;
+}
+
+.header-title {
+  font-size: 1.8rem;
+  margin: 0;
+  font-weight: 700;
+}
+
+.header-description {
+  font-size: 1rem;
+  margin-top: 5px;
+  color: #555;
+}
+
+.intro {
+  margin-top: 20px;
+  font-size: 1rem;
+  color: #333;
 }
 
