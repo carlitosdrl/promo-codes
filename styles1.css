@@ -24,7 +24,7 @@ body {
   flex-grow: 1;
 }
 
-/* Header elegante, más ancho */
+/* Header aún más ancho, logo a la izquierda, texto centrado */
 .header {
   display: flex;
   align-items: center;
@@ -37,31 +37,33 @@ body {
   margin-top: 2rem;
   margin-bottom: 2.5rem;
   border: 1.5px solid #333;
-  text-align: left;
-  gap: 40px;
-  max-width: 1200px;      /* MÁS ANCHO */
+  gap: 48px;
+  max-width: 1600px;      /* MÁS ANCHO TODAVÍA */
   margin-left: auto;
   margin-right: auto;
 }
 
+/* Logo a la izquierda */
 .logo-link {
   display: flex;
   align-items: center;
-  margin-right: 2rem;
+  margin-right: 2.5rem;
 }
 
 .logo {
-  width: 120px;
+  width: 140px;   /* un poco más grande */
   height: auto;
   display: block;
 }
 
+/* Texto centrado en el header */
 .header-content {
   flex: 1;
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;     /* CENTRA el contenido horizontalmente */
   justify-content: center;
+  text-align: center;      /* CENTRA el texto */
 }
 
 .header-title, .header-description, .intro p {
@@ -70,7 +72,7 @@ body {
 
 .header-title {
   font-weight: 700;
-  font-size: 2.5rem;
+  font-size: 2.7rem;
   letter-spacing: 0.5px;
   color: #fff;
   margin-bottom: 0.7rem;
@@ -240,20 +242,30 @@ details p {
 }
 
 /* Responsive */
+@media (max-width: 900px) {
+  .header {
+    max-width: 100%;
+    gap: 24px;
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+  }
+  .logo {
+    width: 90px;
+  }
+}
 @media (max-width: 600px) {
   .header {
     flex-direction: column;
-    align-items: flex-start;
-    padding: 1.2rem 0.5rem 1rem 0.5rem;
+    align-items: center;
     gap: 10px;
     max-width: 100%;
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
   }
   .logo-link {
     margin-right: 0;
     margin-bottom: 1rem;
   }
   .logo {
-    width: 90px;
+    width: 80px;
   }
   .header-title {
     font-size: 1.45rem;
