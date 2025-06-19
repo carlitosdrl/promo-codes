@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="description" content="Anthbot offers smart stair climbing robots and transport tools. Use our exclusive code to get $100 off your order and make heavy lifting effortless." />
   <meta name="keywords" content="Anthbot promo code, stair climbing robot, electric trolley, material handling, Anthbot coupon, discount code" />
-  <title>Anthbot Coupon Code – Save $100 on Smart Stair Climbers</title>
+  <title>Use code CARLOS100 at Anthbot</title>
   <link rel="canonical" href="https://shopwithcarlos.xyz/stores/anthbot.com" />
   <link rel="stylesheet" href="/styles1.css" />
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
@@ -108,7 +108,7 @@
       <img src="/images/anthbot.png" alt="Anthbot Logo" class="logo" />
     </a>
     <div class="header-content">
-      <h1>Anthbot Coupon Code - Get $100 Off Robotic Stair Climbers</h1>
+      <h1>Anthbot Coupon Code & Promo Codes - 100$ Off (<div id="monthly-seal" class="seal"></div>)</h1>
       <p>Looking for an Anthbot discount code? Use promo code <strong>CARLOS100</strong> at checkout to save $100 on robotic stair climbers and mobility tools.</p>
       <div id="verification-seal" class="seal"></div>
     </div>
@@ -174,6 +174,10 @@
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   const formattedDate = today.toLocaleDateString('en-US', options);
   document.getElementById('verification-seal').innerHTML = `✅ Verified on ${formattedDate}`;
+  
+  const monthYearOptions = { month: 'long', year: 'numeric' };
+  const monthYear = today.toLocaleDateString('en-US', monthYearOptions);
+  document.getElementById('monthly-seal').innerHTML = `${monthYear}`;
 </script>
 </body>
 </html>
