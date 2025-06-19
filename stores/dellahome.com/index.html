@@ -3,8 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Save 5% on premium home furniture at Della Home with our exclusive promo code. Modern designs, fast shipping, and top reviews. Get yours now!" />
-  <title>Della Home Coupon Code – Save 5% on Stylish Furniture</title>
+  <meta name="description" content="Get 5% off on premium home furniture at Della Home with our exclusive promo code CARLOS. Modern designs, fast shipping, and top reviews. Limited time Della Home coupon code 2025." />
+  <meta name="keywords" content="Della Home promo code, Della Home coupon code, Della Home discount, Della Home discount code 2025, Della Home coupon 2025" />
+  <title>Della Home Promo Code & Coupon – Save 5% on Stylish Furniture | Discount Code 2025</title>
   <link rel="canonical" href="https://shopwithcarlos.xyz/stores/dellahome.com" />
   <link rel="stylesheet" href="/styles1.css" />
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
@@ -30,7 +31,7 @@
     "@type": "Product",
     "name": "Della Home Furniture",
     "image": "https://shopwithcarlos.xyz/images/della-home.jpg",
-    "description": "Premium home furniture and decor with modern aesthetics. Use coupon code CARLOS for 5% off storewide.",
+    "description": "Get 5% off on premium home furniture at Della Home with our exclusive promo code CARLOS. Modern designs, fast shipping, and top reviews. Limited time Della Home coupon code 2025.",
     "brand": { "@type": "Brand", "name": "Della Home" },
     "aggregateRating": {
       "@type": "AggregateRating",
@@ -104,11 +105,15 @@
 <body>
   <header class="header">
     <a href="https://shopwithcarlos.xyz/">
-      <img src="/images/della-home.png" alt="Della Home Logo" class="logo" />
+      <img src="/images/della-home.png" alt="Della Home Coupon Code & Promo Code Logo" class="logo" />
     </a>
     <div class="header-content">
-      <h1>Della Home Coupon Code - Get 5% Off Della Home Furniture</h1>
-      <p>Looking for a Della Home coupon code, discount code or promo code? Use code <strong>CARLOS</strong> at checkout to enjoy exclusive savings on premium furniture.</p>
+      <h1>
+        Della Home Coupon Code & Promo Code - Get 5% Off
+        (<span id="monthly-seal" class="seal-inline"></span>)
+      </h1>
+      <p>Looking for a Della Home coupon code? Use promo code <strong>CARLOS</strong> at checkout to enjoy exclusive savings on premium furniture.</p>
+      <div id="verification-seal" class="seal"></div>
     </div>
   </header>
 
@@ -119,9 +124,9 @@
     </section>
 
     <section class="card">
-      <h2>How to Use the Promo Code/Discount Code/Coupon Code</h2>
+      <h2>How to Use the Promo Code</h2>
       <ol>
-        <li>Visit <a href="https://dellahome.com/discount/CARLOS?ref=carlos" target="_blank" rel="noopener noreferrer">Della Home</a></li>
+        <li>Visit <a href="https://dellahome.com/discount/CARLOS?ref=carlos" target="_blank" rel="noopener noreferrer sponsored">Della Home</a></li>
         <li>Add your favorite items to the cart</li>
         <li>At checkout, enter the code <strong>CARLOS</strong></li>
         <li>Enjoy 5% off your entire purchase!</li>
@@ -136,13 +141,13 @@
       </blockquote>
     </section>
 
-    <a href="https://dellahome.com/discount/CARLOS?ref=carlos" target="_blank" rel="noopener noreferrer" class="button">Shop Now with 5% Off</a>
+    <a href="https://dellahome.com/discount/CARLOS?ref=carlos" target="_blank" rel="noopener noreferrer sponsored" class="button">Buy at Della Home with 5% Off</a>
   </main>
 
   <section>
     <h2>Frequently Asked Questions about Della Home</h2>
     <details>
-      <summary>How do I apply the discount code, promo code?</summary>
+      <summary>How do I apply the promo code?</summary>
       <p>Simply add your favorite items to the cart and enter the code <strong>CARLOS</strong> at checkout to get 5% off your purchase.</p>
     </details>
     <details>
@@ -161,11 +166,24 @@
 
   <footer class="footer">
     <p>© 2025 Carlos Lugo. All rights reserved.</p>
+    <p style="font-size: 0.9rem; color: #555">
+    *ShopWithCarlos may receive a commission for purchases made through these links.
+    </p>
     <div class="footer-links">
       <a href="mailto:carlosdavid145@gmail.com">Contact</a> |
       <a href="#">Privacy Policy</a> |
       <a href="#">Terms of Use</a>
     </div>
   </footer>
+<script>
+  const today = new Date();
+  const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+  const formattedDate = today.toLocaleDateString('en-US', options);
+  document.getElementById('verification-seal').innerHTML = `Verified on ${formattedDate}`;
+  
+  const monthYearOptions = { month: 'long', year: 'numeric' };
+  const monthYear = today.toLocaleDateString('en-US', monthYearOptions);
+  document.getElementById('monthly-seal').innerHTML = `${monthYear}`;
+</script>
 </body>
 </html>
