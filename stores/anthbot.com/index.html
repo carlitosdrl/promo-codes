@@ -176,7 +176,7 @@
   const today = new Date();
   const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
   const formattedDate = today.toLocaleDateString('en-US', options);
-  document.getElementById('verification-seal').innerHTML = `✅ Verified on ${formattedDate}`;
+  document.getElementById('verification-seal').innerHTML = `Verified on ${formattedDate}`;
   
   const monthYearOptions = { month: 'long', year: 'numeric' };
   const monthYear = today.toLocaleDateString('en-US', monthYearOptions);
