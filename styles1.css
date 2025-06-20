@@ -332,24 +332,4 @@ details p {
   text-decoration: underline;
 }
 
-/* Parrafos introductorios */
-.main-container > p,
-.main-container > strong {
-  font-size: 1.05rem;
-  color: #ccc;
-  margin-bottom: 1.2rem;
-  display: block;
-  text-align: center;
 }
-
-/* Responsive mejorado */
-@media (max-width: 600px) {
-  .main-container h1 {
-    font-size: 1.8rem;
-  }
-
-  .main-container h2 {
-    font-size: 1.2rem;
-  }
-  
- }
