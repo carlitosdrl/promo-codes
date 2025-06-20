@@ -1,88 +1,180 @@
-/* Estilos para la Política de Privacidad adaptados al diseño oscuro */
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* Sección principal */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #171717;
+  color: #ececec;
+  line-height: 1.6;
+  font-size: 16px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Contenedor principal */
 .main-container {
-  flex: 1;
-  padding: 2rem 1rem;
-  max-width: 960px;
-  margin: 0 auto;
-  display: block;
+  max-width: 900px;
+  margin: 2.5rem auto;
+  padding: 0 1.5rem;
+  flex-grow: 1;
 }
 
-/* Títulos */
-h1 {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 1rem;
-  text-align: center;
-  color: #ffffff;
-}
-
-h2 {
-  font-size: 1.4rem;
-  font-weight: 600;
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(90deg, #232526 0%, #393939 100%);
+  color: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 32px rgba(0,0,0,0.20);
+  padding: 2.2rem 2.5rem 1.3rem 2.5rem;
   margin-top: 2rem;
-  margin-bottom: 0.75rem;
-  color: #ffffff;
-  border-bottom: 1px solid #333;
-  padding-bottom: 0.25rem;
+  margin-bottom: 2.5rem;
+  border: 1.5px solid #333;
+  gap: 48px;
+  max-width: 1600px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
-/* Texto y párrafos */
-p {
+.header-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.header-title {
+  font-weight: 700;
+  font-size: 2.7rem;
+  letter-spacing: 0.5px;
+  color: #fff;
+  margin-bottom: 0.7rem;
+  text-shadow: 0 2px 24px rgba(0,0,0,0.24);
+}
+
+.header strong {
+  color: #bdbdbd;
   font-weight: 300;
+  font-size: 1.12rem;
+}
+
+/* Tabla de contenidos (nav toc) */
+.toc {
+  background: #232323;
+  border-radius: 12px;
+  max-width: 900px;
+  margin: 0 auto 2.5rem auto;
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+  border: 1.5px solid #333;
+}
+
+.toc ul {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem 1rem;
+  justify-content: center;
+}
+
+.toc li {
+  flex: 1 1 180px;
+  min-width: 150px;
+}
+
+.toc a {
+  color: #bdbdbd;
+  font-weight: 500;
   font-size: 1rem;
-  color: #d0d0d0;
-  margin-bottom: 1rem;
-  line-height: 1.7;
+  text-decoration: none;
+  transition: color 0.18s;
 }
 
-/* Listas */
-ul {
-  margin-left: 1.5rem;
-  margin-bottom: 1rem;
-  color: #d0d0d0;
+.toc a:hover,
+.toc a:focus {
+  color: #fff;
+  outline: none;
+  text-decoration: underline;
 }
 
-ul li {
-  margin-bottom: 0.5rem;
+/* Secciones principales */
+section {
+  background: #212121;
+  border-radius: 12px;
+  padding: 2rem 2.5rem;
+  margin-bottom: 2.5rem;
+  box-shadow: 0 4px 18px rgba(0,0,0,0.15);
+  border: 1.5px solid #333;
+}
+
+section h2 {
+  margin-bottom: 1rem;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.9rem;
+  letter-spacing: 0.04em;
+}
+
+section p, section li, section strong {
+  color: #e0e0e0;
+  font-weight: 400;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+section strong {
+  color: #fff;
+  font-weight: 600;
+}
+
+section ul {
+  margin-left: 1.3rem;
+  margin-bottom: 1rem;
   list-style-type: disc;
+}
+
+section ul li {
+  margin-bottom: 0.5rem;
 }
 
 /* Enlaces */
 a {
   color: #bdbdbd;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color 0.18s;
 }
 
 a:hover,
 a:focus {
-  color: #ffffff;
+  color: #fff;
+  outline: none;
   text-decoration: underline;
 }
 
-/* Strong y negritas */
-strong {
-  color: #ffffff;
-  font-weight: 500;
+/* Dirección */
+address {
+  color: #bdbdbd;
+  font-style: normal;
+  line-height: 1.5;
+  margin-top: 0.5rem;
 }
 
-/* Responsive para móvil */
-@media (max-width: 480px) {
-  h1 {
-    font-size: 1.5rem;
-  }
-
-  h2 {
-    font-size: 1.2rem;
-  }
-
-  p, ul li {
-    font-size: 0.95rem;
-  }
-
-  .main-container {
-    padding: 1.5rem 0.75rem;
-  }
+/* Footer */
+.footer {
+  background: #111;
+  color: #bdbdbd;
+  padding: 1.4rem 1rem;
+  text-align: center;
+  font-size: 0.95rem;
+  margin-top: auto;
+  border-top: 2px solid #191919;
 }
