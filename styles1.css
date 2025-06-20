@@ -241,47 +241,7 @@ details p {
   outline: none;
 }
 
-/* Responsive */
-@media (max-width: 900px) {
-  .header {
-    max-width: 100%;
-    gap: 24px;
-    padding: 1.2rem 0.5rem 1rem 0.5rem;
-  }
-  .logo {
-    width: 90px;
-  }
-}
-@media (max-width: 600px) {
-  .header {
-    flex-direction: column;
-    align-items: center;
-    gap: 10px;
-    max-width: 100%;
-    padding: 1.2rem 0.5rem 1rem 0.5rem;
-  }
-  .logo-link {
-    margin-right: 0;
-    margin-bottom: 1rem;
-  }
-  .logo {
-    width: 80px;
-  }
-  .header-title {
-    font-size: 1.45rem;
-  }
-  .main-container {
-    padding: 0 0.2rem;
-  }
-  .button {
-    max-width: 100%;
-    padding: 1rem;
-  }
-  .card {
-    padding: 1.2rem 0.8rem;
-  }
-
-/* Estilos mejorados para Privacy Policy */
+/* Estilos mejorados para Privacy Policy (fuera del media query) */
 .main-container h1 {
   font-size: 2.4rem;
   color: #fff;
@@ -332,88 +292,73 @@ details p {
   text-decoration: underline;
 }
 
-/* ----------------------------- */
-/* Estilos para Páginas de Texto Largo (ej. Política de Privacidad) */
-/* ----------------------------- */
-
-.legal-container {
+/* Estilos para el nav TOC */
+nav.toc {
+  background: #232323;
+  padding: 1rem 1.5rem;
+  border-radius: 10px;
   max-width: 900px;
-  margin: 3rem auto;
-  padding: 0 1.5rem;
-  line-height: 1.8;
-  font-size: 1rem;
-  color: #d4d4d4;
+  margin: 0 auto 2rem auto;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
 }
 
-.legal-container h1 {
-  font-size: 2.3rem;
-  font-weight: 700;
-  color: #ffffff;
-  margin-bottom: 1.6rem;
-  text-align: center;
-  border-bottom: 2px solid #333;
-  padding-bottom: 0.7rem;
+nav.toc ul {
+  list-style: none;
 }
 
-.legal-container h2 {
-  font-size: 1.5rem;
-  font-weight: 600;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  color: #ffffff;
-  border-bottom: 1px solid #2a2a2a;
-  padding-bottom: 0.4rem;
+nav.toc ul li {
+  margin-bottom: 0.5rem;
 }
 
-.legal-container p {
-  margin-bottom: 1rem;
-  font-weight: 300;
-  color: #d0d0d0;
-}
-
-.legal-container ul {
-  margin-left: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-
-.legal-container ul li {
-  margin-bottom: 0.6rem;
-  list-style-type: disc;
-  color: #cfcfcf;
-}
-
-.legal-container a {
+nav.toc ul li a {
   color: #76c7ff;
-  text-decoration: underline dotted;
-  transition: color 0.3s ease;
-}
-
-.legal-container a:hover {
-  color: #fff;
-  text-decoration: underline;
-}
-
-.legal-container strong {
-  color: #ffffff;
+  text-decoration: none;
   font-weight: 500;
 }
 
-/* Opcional: sección "volver arriba" */
-.back-to-top {
-  text-align: right;
-  margin-top: 2rem;
-}
-
-.back-to-top a {
-  font-size: 0.9rem;
-  color: #999;
-  text-decoration: none;
-}
-
-.back-to-top a:hover {
+nav.toc ul li a:hover,
+nav.toc ul li a:focus {
   color: #fff;
   text-decoration: underline;
 }
 
-
+/* Responsive */
+@media (max-width: 900px) {
+  .header {
+    max-width: 100%;
+    gap: 24px;
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+  }
+  .logo {
+    width: 90px;
+  }
+}
+@media (max-width: 600px) {
+  .header {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    max-width: 100%;
+    padding: 1.2rem 0.5rem 1rem 0.5rem;
+  }
+  .logo-link {
+    margin-right: 0;
+    margin-bottom: 1rem;
+  }
+  .logo {
+    width: 80px;
+  }
+  .header-title {
+    font-size: 1.45rem;
+  }
+  .main-container {
+    padding: 0 0.2rem;
+  }
+  .button {
+    max-width: 100%;
+    padding: 1rem;
+  }
+  .card {
+    padding: 1.2rem 0.8rem;
+  }
 }
