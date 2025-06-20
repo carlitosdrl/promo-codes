@@ -332,4 +332,88 @@ details p {
   text-decoration: underline;
 }
 
+/* ----------------------------- */
+/* Estilos para Páginas de Texto Largo (ej. Política de Privacidad) */
+/* ----------------------------- */
+
+.legal-container {
+  max-width: 900px;
+  margin: 3rem auto;
+  padding: 0 1.5rem;
+  line-height: 1.8;
+  font-size: 1rem;
+  color: #d4d4d4;
+}
+
+.legal-container h1 {
+  font-size: 2.3rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.6rem;
+  text-align: center;
+  border-bottom: 2px solid #333;
+  padding-bottom: 0.7rem;
+}
+
+.legal-container h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  color: #ffffff;
+  border-bottom: 1px solid #2a2a2a;
+  padding-bottom: 0.4rem;
+}
+
+.legal-container p {
+  margin-bottom: 1rem;
+  font-weight: 300;
+  color: #d0d0d0;
+}
+
+.legal-container ul {
+  margin-left: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.legal-container ul li {
+  margin-bottom: 0.6rem;
+  list-style-type: disc;
+  color: #cfcfcf;
+}
+
+.legal-container a {
+  color: #76c7ff;
+  text-decoration: underline dotted;
+  transition: color 0.3s ease;
+}
+
+.legal-container a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.legal-container strong {
+  color: #ffffff;
+  font-weight: 500;
+}
+
+/* Opcional: sección "volver arriba" */
+.back-to-top {
+  text-align: right;
+  margin-top: 2rem;
+}
+
+.back-to-top a {
+  font-size: 0.9rem;
+  color: #999;
+  text-decoration: none;
+}
+
+.back-to-top a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+
 }
