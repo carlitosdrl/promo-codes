@@ -19,29 +19,34 @@ jobs:
       - name: 📦 Instalar dependencias
         run: pip install google-api-python-client google-auth google-auth-httplib2 google-auth-oauthlib
 
-      - name: 🛡️ Crear archivo de credenciales (sa.json)
-        run: echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" > sa.json
-
-      - name: 📝 Crear archivo check_gsc_access.py
+      - name: 🔐 Decodificar archivo de credenciales desde base64
         run: |
-          echo "from google.oauth2 import service_account" > check_gsc_access.py
-          echo "from googleapiclient.discovery import build" >> check_gsc_access.py
-          echo "" >> check_gsc_access.py
-          echo "SCOPES = [\"https://www.googleapis.com/auth/webmasters\"]" >> check_gsc_access.py
-          echo "SERVICE_ACCOUNT_FILE = \"sa.json\"" >> check_gsc_access.py
-          echo "" >> check_gsc_access.py
-          echo "print(\"📂 Cargando credenciales...\")" >> check_gsc_access.py
-          echo "try:" >> check_gsc_access.py
-          echo "    credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)" >> check_gsc_access.py
-          echo "    service = build(\"webmasters\", \"v3\", credentials=credentials)" >> check_gsc_access.py
-          echo "    print(\"🔍 Consultando propiedades de Search Console...\")" >> check_gsc_access.py
-          echo "    site_list = service.sites().list().execute()" >> check_gsc_access.py
-          echo "    print(\"\\n📋 Propiedades visibles por esta cuenta de servicio:\\n\")" >> check_gsc_access.py
-          echo "    for site in site_list.get(\"siteEntry\", []):" >> check_gsc_access.py
-          echo "        print(f\"- {site['siteUrl']} (Permiso: {site['permissionLevel']})\")" >> check_gsc_access.py
-          echo "except Exception as e:" >> check_gsc_access.py
-          echo "    print(\"❌ Error:\", e)" >> check_gsc_access.py
-          echo "    exit(1)" >> check_gsc_access.py
+          echo "${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON_BASE64 }}" | base64 --decode > sa.json
 
-      - name: 🚀 Ejecutar chequeo de acceso
+      - name: 📝 Crear script de verificación
+        run: |
+          cat <<EOF > check_gsc_access.py
+from google.oauth2 import service_account
+from googleapiclient.discovery import build
+
+SCOPES = ["https://www.googleapis.com/auth/webmasters"]
+SERVICE_ACCOUNT_FILE = "sa.json"
+
+print("📂 Cargando credenciales...")
+try:
+    credentials = service_account.Credentials.from_service_account_file(
+        SERVICE_ACCOUNT_FILE, scopes=SCOPES
+    )
+    service = build("webmasters", "v3", credentials=credentials)
+    print("🔍 Consultando propiedades de Search Console...")
+    site_list = service.sites().list().execute()
+    print("\\n📋 Propiedades visibles por esta cuenta de servicio:\\n")
+    for site in site_list.get("siteEntry", []):
+        print(f"- {site['siteUrl']} (Permiso: {site['permissionLevel']})")
+except Exception as e:
+    print("❌ Error:", e)
+    exit(1)
+EOF
+
+      - name: 🚀 Ejecutar verificación
         run: python check_gsc_access.py
