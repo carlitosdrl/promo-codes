@@ -1,29 +1,25 @@
-name: Google Indexing API
+name: Indexing API
 
 on:
-  workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
-  index:
+  indexing:
     runs-on: ubuntu-latest
-
     steps:
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-    - name: Probar acceso a Search Console
-      run: python check_gsc_access.py
-    
-    - name: Checkout
-      uses: actions/checkout@v3
+      - name: Crear archivo sa.json desde secret base64
+        run: |
+          echo "$GOOGLE_SERVICE_ACCOUNT_JSON_BASE64" | base64 -d > sa.json
 
-    - name: Crear sa.json desde secret base64
-      run: |
-        echo "${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON_BASE64 }}" | base64 --decode > sa.json
+      - name: Instalar dependencias Python
+        run: pip install google-auth google-api-python-client
 
-    - name: Instalar dependencias
-      run: |
-        python -m pip install --upgrade pip
-        pip install google-auth google-api-python-client
-
-    - name: Ejecutar script de indexación
-      run: python indexing_script.py
-
+      - name: Ejecutar script de indexing
+        run: python index.py
+        env:
+          GOOGLE_APPLICATION_CREDENTIALS: sa.json
