@@ -8,6 +8,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+
+    - name: Probar acceso a Search Console
+      run: python check_gsc_access.py
+    
     - name: Checkout
       uses: actions/checkout@v3
 
