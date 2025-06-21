@@ -1,8 +1,15 @@
 User-agent: Googlebot
-Allow: /sitemap.xml
+Disallow: /admin/
+Disallow: /private/
+Allow: /
+
+User-agent: Bingbot
+Disallow: /admin/
+Disallow: /private/
+Allow: /
 
 User-agent: *
 Disallow: /admin/
 Disallow: /private/
 
-Sitemap: https://shopwithcarlos.xyz/sitemap.xml
+Sitemap: https://shopwithcarlos.xyz/sitemap_v2.xml
