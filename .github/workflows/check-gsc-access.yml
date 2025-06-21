@@ -1,0 +1,47 @@
+name: Verificar acceso a Search Console
+
+on:
+  workflow_dispatch:
+
+jobs:
+  check-access:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Clonar repositorio
+        uses: actions/checkout@v3
+
+      - name: 🐍 Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.11'
+
+      - name: 📦 Instalar dependencias
+        run: pip install google-api-python-client google-auth google-auth-httplib2 google-auth-oauthlib
+
+      - name: 🛡️ Crear archivo de credenciales (sa.json)
+        run: echo "${{ secrets.GOOGLE_APPLICATION_CREDENTIALS }}" > sa.json
+
+      - name: 📝 Crear archivo check_gsc_access.py
+        run: |
+          echo "from google.oauth2 import service_account" > check_gsc_access.py
+          echo "from googleapiclient.discovery import build" >> check_gsc_access.py
+          echo "" >> check_gsc_access.py
+          echo "SCOPES = [\"https://www.googleapis.com/auth/webmasters\"]" >> check_gsc_access.py
+          echo "SERVICE_ACCOUNT_FILE = \"sa.json\"" >> check_gsc_access.py
+          echo "" >> check_gsc_access.py
+          echo "print(\"📂 Cargando credenciales...\")" >> check_gsc_access.py
+          echo "try:" >> check_gsc_access.py
+          echo "    credentials = service_account.Credentials.from_service_account_file(SERVICE_ACCOUNT_FILE, scopes=SCOPES)" >> check_gsc_access.py
+          echo "    service = build(\"webmasters\", \"v3\", credentials=credentials)" >> check_gsc_access.py
+          echo "    print(\"🔍 Consultando propiedades de Search Console...\")" >> check_gsc_access.py
+          echo "    site_list = service.sites().list().execute()" >> check_gsc_access.py
+          echo "    print(\"\\n📋 Propiedades visibles por esta cuenta de servicio:\\n\")" >> check_gsc_access.py
+          echo "    for site in site_list.get(\"siteEntry\", []):" >> check_gsc_access.py
+          echo "        print(f\"- {site['siteUrl']} (Permiso: {site['permissionLevel']})\")" >> check_gsc_access.py
+          echo "except Exception as e:" >> check_gsc_access.py
+          echo "    print(\"❌ Error:\", e)" >> check_gsc_access.py
+          echo "    exit(1)" >> check_gsc_access.py
+
+      - name: 🚀 Ejecutar chequeo de acceso
+        run: python check_gsc_access.py
