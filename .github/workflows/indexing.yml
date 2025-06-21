@@ -1,7 +1,7 @@
 name: Google Indexing API
 
 on:
-  workflow_dispatch:   # Esto permite correrlo manualmente desde GitHub
+  workflow_dispatch:
 
 jobs:
   indexing:
@@ -11,19 +11,18 @@ jobs:
     - name: Checkout repo
       uses: actions/checkout@v3
 
-    - name: Setup Python
-      uses: actions/setup-python@v4
-      with:
-        python-version: '3.11'
+    - name: Crear archivo sa.json con credenciales
+      run: |
+        echo "${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}" > sa.json
 
-    - name: Write service account JSON to file
-      run: printf '%s' "${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}" > sa.json
+    - name: Verificar contenido de sa.json
+      run: head -20 sa.json
 
-    - name: Install dependencies
+    - name: Instalar dependencias Python
       run: |
         python -m pip install --upgrade pip
-        pip install google-api-python-client google-auth
+        pip install google-auth google-auth-httplib2 google-auth-oauthlib google-api-python-client
 
-    - name: Run indexing script
-      run: |
-        python index.py
+    - name: Ejecutar script Python de indexación
+      run: python index.py
+
