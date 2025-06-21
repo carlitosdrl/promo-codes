@@ -1,2 +1,0 @@
-    - name: Probar acceso a Search Console
-      run: python check_gsc_access.py
