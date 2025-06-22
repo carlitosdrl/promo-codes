@@ -612,9 +612,7 @@
     <section class="card">
       <h2><a href="https://shopwithcarlos.xyz/stores/dellahome.com/" target="_blank" rel="noopener noreferrer sponsored">Della Home</a></h2>
       <p>Premium home furniture and decor with modern aesthetics.</p>
-      <p><strong>Coupon Code:</strong> 
-      <span class="coupon-code" tabindex="0" role="button" aria-label="Copy coupon code CARLOS" title="Click to copy">CARLOS</span>
-      </p>
+      <p><strong>Coupon Code:</strong> CARLOS</p>
       <p><strong>Discount:</strong> 5% Off Storewide</p>
       <a href="https://dellahome.com/discount/CARLOS?ref=carlos" target="_blank" class="button">Shop Now</a>
     </section>
@@ -710,29 +708,6 @@
       <a href="/terms-use/">Terms of Use</a>
     </div>
   </footer>
-
-<script>
-  document.querySelectorAll('.coupon-code').forEach(el => {
-    el.addEventListener('click', () => {
-      copyText(el);
-    });
-    el.addEventListener('keydown', e => {
-      if (e.key === 'Enter' || e.key === ' ') {
-        e.preventDefault();
-        copyText(el);
-      }
-    });
-
-    function copyText(element) {
-      const code = element.textContent;
-      navigator.clipboard.writeText(code).then(() => {
-        alert('Coupon code copied: ' + code);
-      }).catch(() => {
-        alert('Failed to copy coupon code');
-      });
-    }
-  });
-</script>
 
   
 </body>
