@@ -177,5 +177,15 @@ a:focus {
     padding: 0.5rem 1rem;
   }
 
+.coupon-code {
+  cursor: pointer;
+  color: #007BFF;
+  text-decoration: underline;
+}
+.coupon-code:focus {
+  outline: 2px solid #0056b3;
+  outline-offset: 2px;
+}
+
  
 }
