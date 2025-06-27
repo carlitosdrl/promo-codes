@@ -43,460 +43,489 @@
 
   <!-- EXISTING SHOPS JSON-LD HERE (Della Home, Ryse, Minimotors, Salus Saunas, Armada, XSTO) -->
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "Della Home Furniture",
-    "image": "https://shopwithcarlos.xyz/images/della-home.png",
-    "description": "Premium home furniture and decor with modern aesthetics. Use coupon code CARLOS for 5% off storewide.",
-    "brand": { "@type": "Brand", "name": "Della Home" },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.6",
-      "reviewCount": "132"
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Della Home Furniture",
+  "image": "https://shopwithcarlos.xyz/images/della-home.png",
+  "description": "Premium home furniture and decor with modern aesthetics. Use coupon code CARLOS for 5% off storewide.",
+  "brand": { "@type": "Brand", "name": "Della Home" },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.6",
+    "reviewCount": "132"
+  },
+  "review": {
+    "@type": "Review",
+    "author": { "@type": "Person", "name": "Julia" },
+    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+    "reviewBody": "Beautiful and high-quality furniture. Fast shipping too!"
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://dellahome.com/discount/CARLOS?ref=carlos",
+    "priceCurrency": "USD",
+    "price": "0.00",
+    "priceValidUntil": "2025-12-31",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "merchantReturnDays": 30,
+      "returnMethod": "Mail",
+      "returnFees": "BuyerPays",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "applicableCountry": "US",
+      "returnPolicyCountry": "US"
     },
-    "review": {
-      "@type": "Review",
-      "author": { "@type": "Person", "name": "Julia" },
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-      "reviewBody": "Beautiful and high-quality furniture. Fast shipping too!"
-    },
-    "offers": {
-      "@type": "Offer",
-      "url": "https://dellahome.com/discount/CARLOS?ref=carlos",
-      "priceCurrency": "USD",
-      "price": "0.00",
-      "priceValidUntil": "2025-12-31",
-      "availability": "https://schema.org/InStock",
-      "itemCondition": "https://schema.org/NewCondition",
-      "hasMerchantReturnPolicy": {
-        "@type": "MerchantReturnPolicy",
-        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-        "applicableCountry": "US",
-        "returnPolicyCountry": "US",
-        "returnPolicyDays": 30
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": { "@type": "MonetaryAmount", "value": "10.00", "currency": "USD" },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "d" },
+        "transitTime": { "@type": "QuantitativeValue", "minValue": 2, "maxValue": 4, "unitCode": "d" }
       },
-      "shippingDetails": {
-        "@type": "OfferShippingDetails",
-        "shippingRate": { "@type": "MonetaryAmount", "value": "10.00", "currency": "USD" },
-        "deliveryTime": {
-          "@type": "ShippingDeliveryTime",
-          "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "d" },
-          "transitTime": { "@type": "QuantitativeValue", "minValue": 2, "maxValue": 4, "unitCode": "d" }
-        },
-        "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" }
-      }
+      "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" }
     }
   }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "Ryse Smart Blinds",
-    "image": "https://shopwithcarlos.xyz/images/ryse.png",
-    "description": "Smart home automation with motorized blinds. Use code CARLOSLUGO for 15% off storewide.",
-    "brand": { "@type": "Brand", "name": "Ryse" },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.8",
-      "reviewCount": "98"
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Ryse Smart Blinds",
+  "image": "https://shopwithcarlos.xyz/images/ryse.png",
+  "description": "Smart home automation with motorized blinds. Use code CARLOSLUGO for 15% off storewide.",
+  "brand": { "@type": "Brand", "name": "Ryse" },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.8",
+    "reviewCount": "98"
+  },
+  "review": {
+    "@type": "Review",
+    "author": { "@type": "Person", "name": "Liam" },
+    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+    "reviewBody": "Very smooth automation, works perfectly with Alexa."
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.helloryse.com/CARLOSLUGO",
+    "priceCurrency": "USD",
+    "price": "0.00",
+    "priceValidUntil": "2025-12-31",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "merchantReturnDays": 30,
+      "returnMethod": "Mail",
+      "returnFees": "BuyerPays",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "applicableCountry": "US",
+      "returnPolicyCountry": "US"
     },
-    "review": {
-      "@type": "Review",
-      "author": { "@type": "Person", "name": "Liam" },
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-      "reviewBody": "Very smooth automation, works perfectly with Alexa."
-    },
-    "offers": {
-      "@type": "Offer",
-      "url": "https://www.helloryse.com/CARLOSLUGO",
-      "priceCurrency": "USD",
-      "price": "0.00",
-      "priceValidUntil": "2025-12-31",
-      "availability": "https://schema.org/InStock",
-      "itemCondition": "https://schema.org/NewCondition",
-      "hasMerchantReturnPolicy": {
-        "@type": "MerchantReturnPolicy",
-        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-        "applicableCountry": "US",
-        "returnPolicyCountry": "US",
-        "returnPolicyDays": 30
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": { "@type": "MonetaryAmount", "value": "8.00", "currency": "USD" },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "d" },
+        "transitTime": { "@type": "QuantitativeValue", "minValue": 2, "maxValue": 3, "unitCode": "d" }
       },
-      "shippingDetails": {
-        "@type": "OfferShippingDetails",
-        "shippingRate": { "@type": "MonetaryAmount", "value": "8.00", "currency": "USD" },
-        "deliveryTime": {
-          "@type": "ShippingDeliveryTime",
-          "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "d" },
-          "transitTime": { "@type": "QuantitativeValue", "minValue": 2, "maxValue": 3, "unitCode": "d" }
-        },
-        "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" }
-      }
+      "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" }
     }
   }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "Dualtron USA",
-    "image": "https://shopwithcarlos.xyz/images/minimotors.png",
-    "description": "High-performance electric scooters and e-mobility products. Use code CARLOS2098 to save $20.",
-    "brand": { "@type": "Brand", "name": "Dualtron USA" },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.5",
-      "reviewCount": "200"
+}
+</script>
+
+  
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Dualtron USA",
+  "image": "https://shopwithcarlos.xyz/images/dualtron.png",
+  "description": "High-performance electric scooters and e-mobility products. Use code CARLOS2098 to save $20.",
+  "brand": { "@type": "Brand", "name": "Dualtron USA" },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.5",
+    "reviewCount": "200"
+  },
+  "review": {
+    "@type": "Review",
+    "author": { "@type": "Person", "name": "Alex" },
+    "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5" },
+    "reviewBody": "Fast and durable scooter. Battery life is solid."
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://dualtronusa.com/discount/CARLOS2098?ref=carlos",
+    "priceCurrency": "USD",
+    "price": "0.00",
+    "priceValidUntil": "2025-12-31",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "merchantReturnDays": 30,
+      "returnMethod": "Mail",
+      "returnFees": "BuyerPays",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "applicableCountry": "US",
+      "returnPolicyCountry": "US"
     },
-    "review": {
-      "@type": "Review",
-      "author": { "@type": "Person", "name": "Alex" },
-      "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5" },
-      "reviewBody": "Fast and durable scooter. Battery life is solid."
-    },
-    "offers": {
-      "@type": "Offer",
-      "url": "https://dualtronusa.com/discount/CARLOS2098?ref=carlos",
-      "priceCurrency": "USD",
-      "price": "0.00",
-      "priceValidUntil": "2025-12-31",
-      "availability": "https://schema.org/InStock",
-      "itemCondition": "https://schema.org/NewCondition",
-      "hasMerchantReturnPolicy": {
-        "@type": "MerchantReturnPolicy",
-        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-        "applicableCountry": "US",
-        "returnPolicyCountry": "US",
-        "returnPolicyDays": 30
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": { "@type": "MonetaryAmount", "value": "15.00", "currency": "USD" },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 3, "unitCode": "d" },
+        "transitTime": { "@type": "QuantitativeValue", "minValue": 3, "maxValue": 5, "unitCode": "d" }
       },
-      "shippingDetails": {
-        "@type": "OfferShippingDetails",
-        "shippingRate": { "@type": "MonetaryAmount", "value": "15.00", "currency": "USD" },
-        "deliveryTime": {
-          "@type": "ShippingDeliveryTime",
-          "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 3, "unitCode": "d" },
-          "transitTime": { "@type": "QuantitativeValue", "minValue": 3, "maxValue": 5, "unitCode": "d" }
-        },
-        "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" }
-      }
+      "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" }
     }
   }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "Salus Saunas",
-    "image": "https://shopwithcarlos.xyz/images/salus-saunas.png",
-    "description": "Luxury saunas for wellness and relaxation. Use coupon code CARLOS100 to get $100 off storewide.",
-    "brand": { "@type": "Brand", "name": "Salus Saunas" },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "75"
+}
+</script>
+
+  
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Salus Saunas",
+  "image": "https://shopwithcarlos.xyz/images/salus-saunas.png",
+  "description": "Luxury saunas for wellness and relaxation. Use coupon code CARLOS100 to get $100 off storewide.",
+  "brand": { "@type": "Brand", "name": "Salus Saunas" },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "75"
+  },
+  "review": {
+    "@type": "Review",
+    "author": { "@type": "Person", "name": "Maria" },
+    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+    "reviewBody": "Amazing sauna experience. Very luxurious and easy to install."
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.salussaunas.com/discount/CARLOS100",
+    "priceCurrency": "USD",
+    "price": "0.00",
+    "priceValidUntil": "2025-12-31",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "merchantReturnDays": 30,
+      "returnMethod": "Mail",
+      "returnFees": "BuyerPays",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "applicableCountry": "US",
+      "returnPolicyCountry": "US"
     },
-    "review": {
-      "@type": "Review",
-      "author": { "@type": "Person", "name": "Maria" },
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-      "reviewBody": "Amazing sauna experience. Very luxurious and easy to install."
-    },
-    "offers": {
-      "@type": "Offer",
-      "url": "https://www.salussaunas.com/discount/CARLOS100",
-      "priceCurrency": "USD",
-      "price": "0.00",
-      "priceValidUntil": "2025-12-31",
-      "availability": "https://schema.org/InStock",
-      "itemCondition": "https://schema.org/NewCondition",
-      "hasMerchantReturnPolicy": {
-        "@type": "MerchantReturnPolicy",
-        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-        "applicableCountry": "US",
-        "returnPolicyCountry": "US",
-        "returnPolicyDays": 30
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": { "@type": "MonetaryAmount", "value": "12.00", "currency": "USD" },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "d" },
+        "transitTime": { "@type": "QuantitativeValue", "minValue": 3, "maxValue": 5, "unitCode": "d" }
       },
-      "shippingDetails": {
-        "@type": "OfferShippingDetails",
-        "shippingRate": { "@type": "MonetaryAmount", "value": "12.00", "currency": "USD" },
-        "deliveryTime": {
-          "@type": "ShippingDeliveryTime",
-          "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "d" },
-          "transitTime": { "@type": "QuantitativeValue", "minValue": 3, "maxValue": 5, "unitCode": "d" }
-        },
-        "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" }
-      }
+      "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" }
     }
   }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "Armada Scooters",
-    "image": "https://shopwithcarlos.xyz/images/armada.png",
-    "description": "Electric scooters, e-bikes, mopeds, and motorcycles. Use code CARLOS100 for $100 off your purchase.",
-    "brand": { "@type": "Brand", "name": "Armada Scooters" },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.7",
-      "reviewCount": "120"
+}
+</script>
+
+  
+ <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Armada Scooters",
+  "image": "https://shopwithcarlos.xyz/images/armada.png",
+  "description": "Electric scooters, e-bikes, mopeds, and motorcycles. Use code CARLOS100 for $100 off your purchase.",
+  "brand": { "@type": "Brand", "name": "Armada Scooters" },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "reviewCount": "120"
+  },
+  "review": {
+    "@type": "Review",
+    "author": { "@type": "Person", "name": "James" },
+    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+    "reviewBody": "Best e-bike I’ve owned. Strong and efficient ride."
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://armadascooters.com/?ref=10050581",
+    "priceCurrency": "USD",
+    "price": "0.00",
+    "priceValidUntil": "2025-12-31",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "merchantReturnDays": 30,
+      "returnMethod": "Mail",
+      "returnFees": "BuyerPays",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "applicableCountry": "US",
+      "returnPolicyCountry": "US"
     },
-    "review": {
-      "@type": "Review",
-      "author": { "@type": "Person", "name": "James" },
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-      "reviewBody": "Best e-bike I’ve owned. Strong and efficient ride."
-    },
-    "offers": {
-      "@type": "Offer",
-      "url": "https://armadascooters.com/?ref=10050581",
-      "priceCurrency": "USD",
-      "price": "0.00",
-      "priceValidUntil": "2025-12-31",
-      "availability": "https://schema.org/InStock",
-      "itemCondition": "https://schema.org/NewCondition",
-      "hasMerchantReturnPolicy": {
-        "@type": "MerchantReturnPolicy",
-        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-        "applicableCountry": "US",
-        "returnPolicyCountry": "US",
-        "returnPolicyDays": 30
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": { "@type": "MonetaryAmount", "value": "14.00", "currency": "USD" },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "d" },
+        "transitTime": { "@type": "QuantitativeValue", "minValue": 3, "maxValue": 6, "unitCode": "d" }
       },
-      "shippingDetails": {
-        "@type": "OfferShippingDetails",
-        "shippingRate": { "@type": "MonetaryAmount", "value": "14.00", "currency": "USD" },
-        "deliveryTime": {
-          "@type": "ShippingDeliveryTime",
-          "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "d" },
-          "transitTime": { "@type": "QuantitativeValue", "minValue": 3, "maxValue": 6, "unitCode": "d" }
-        },
-        "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" }
-      }
+      "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" }
     }
   }
-  </script>
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "XSTO Stair Climbing Carts",
-    "image": "https://shopwithcarlos.xyz/images/xsto.png",
-    "description": "Electric stair climbing carts designed for efficiency and safety. Use coupon code SAVE100 to get $100 off your purchase.",
-    "brand": {
-      "@type": "Brand",
-      "name": "XSTO Store"
+}
+</script>
+
+ <script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "XSTO Stair Climbing Carts",
+  "image": "https://shopwithcarlos.xyz/images/xsto.png",
+  "description": "Electric stair climbing carts designed for efficiency and safety. Use coupon code SAVE100 to get $100 off your purchase.",
+  "brand": {
+    "@type": "Brand",
+    "name": "XSTO Store"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.6",
+    "reviewCount": "85"
+  },
+  "review": {
+    "@type": "Review",
+    "author": {
+      "@type": "Person",
+      "name": "Daniel"
     },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.6",
-      "reviewCount": "85"
+    "reviewRating": {
+      "@type": "Rating",
+      "ratingValue": "5",
+      "bestRating": "5"
     },
-    "review": {
-      "@type": "Review",
-      "author": {
-        "@type": "Person",
-        "name": "Daniel"
-      },
-      "reviewRating": {
-        "@type": "Rating",
-        "ratingValue": "5",
-        "bestRating": "5"
-      },
-      "reviewBody": "These stair climbers are game-changers for my delivery business. Highly recommend."
+    "reviewBody": "These stair climbers are game-changers for my delivery business. Highly recommend."
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://xstostore.com/?ref=carlos",
+    "priceCurrency": "USD",
+    "price": "0.00",
+    "priceValidUntil": "2025-12-31",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "merchantReturnDays": 30,
+      "returnMethod": "Mail",
+      "returnFees": "BuyerPays",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "applicableCountry": "US",
+      "returnPolicyCountry": "US"
     },
-    "offers": {
-      "@type": "Offer",
-      "url": "https://xstostore.com/?ref=carlos",
-      "priceCurrency": "USD",
-      "price": "0.00",
-      "priceValidUntil": "2025-12-31",
-      "availability": "https://schema.org/InStock",
-      "itemCondition": "https://schema.org/NewCondition",
-      "hasMerchantReturnPolicy": {
-        "@type": "MerchantReturnPolicy",
-        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-        "applicableCountry": "US",
-        "returnPolicyCountry": "US",
-        "returnPolicyDays": 30
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": {
+        "@type": "MonetaryAmount",
+        "value": "20.00",
+        "currency": "USD"
       },
-      "shippingDetails": {
-        "@type": "OfferShippingDetails",
-        "shippingRate": {
-          "@type": "MonetaryAmount",
-          "value": "20.00",
-          "currency": "USD"
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 1,
+          "maxValue": 2,
+          "unitCode": "d"
         },
-        "deliveryTime": {
-          "@type": "ShippingDeliveryTime",
-          "handlingTime": {
-            "@type": "QuantitativeValue",
-            "minValue": 1,
-            "maxValue": 2,
-            "unitCode": "d"
-          },
-          "transitTime": {
-            "@type": "QuantitativeValue",
-            "minValue": 3,
-            "maxValue": 6,
-            "unitCode": "d"
-          }
-        },
-        "shippingDestination": {
-          "@type": "DefinedRegion",
-          "addressCountry": "US"
+        "transitTime": {
+          "@type": "QuantitativeValue",
+          "minValue": 3,
+          "maxValue": 6,
+          "unitCode": "d"
         }
-      }
-    }
-  }
-  </script>
-
-  <!-- NEW SHOPS JSON-LD -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "Anthbot",
-    "image": "https://shopwithcarlos.xyz/images/anthbot.png",
-    "description": "Smart stair climbing robots and transport tools. Use coupon code CARLOS100 for $100 off.",
-    "brand": { "@type": "Brand", "name": "Anthbot" },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.7",
-      "reviewCount": "54"
-    },
-    "review": {
-      "@type": "Review",
-      "author": { "@type": "Person", "name": "Oscar" },
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-      "reviewBody": "Super useful for heavy lifting up stairs. Easy to use."
-    },
-    "offers": {
-      "@type": "Offer",
-      "url": "https://us.anthbot.com/?ref=carlos",
-      "priceCurrency": "USD",
-      "price": "0.00",
-      "priceValidUntil": "2025-12-31",
-      "availability": "https://schema.org/InStock",
-      "itemCondition": "https://schema.org/NewCondition",
-      "hasMerchantReturnPolicy": {
-        "@type": "MerchantReturnPolicy",
-        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-        "applicableCountry": "US",
-        "returnPolicyCountry": "US",
-        "returnPolicyDays": 30
       },
-      "shippingDetails": {
-        "@type": "OfferShippingDetails",
-        "shippingRate": { "@type": "MonetaryAmount", "value": "22.00", "currency": "USD" },
-        "deliveryTime": {
-          "@type": "ShippingDeliveryTime",
-          "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "d" },
-          "transitTime": { "@type": "QuantitativeValue", "minValue": 3, "maxValue": 7, "unitCode": "d" }
-        },
-        "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" }
+      "shippingDestination": {
+        "@type": "DefinedRegion",
+        "addressCountry": "US"
       }
     }
   }
-  </script>
+}
+</script>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "Babyark Car Seat",
-    "image": "https://shopwithcarlos.xyz/images/babyark.png",
-    "description": "Safest car seat, combining smart technology and military-grade materials. Use code REFERARK for $100 off.",
-    "brand": { "@type": "Brand", "name": "Babyark" },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.9",
-      "reviewCount": "39"
-    },
-    "review": {
-      "@type": "Review",
-      "author": { "@type": "Person", "name": "Linda" },
-      "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
-      "reviewBody": "Peace of mind with this seat. Feels super secure and high-tech."
-    },
-    "offers": {
-      "@type": "Offer",
-      "url": "https://babyarkdabc3.referralrock.com/l/CARLOSLUGO69/",
-      "priceCurrency": "USD",
-      "price": "0.00",
-      "priceValidUntil": "2025-12-31",
-      "availability": "https://schema.org/InStock",
-      "itemCondition": "https://schema.org/NewCondition",
-      "hasMerchantReturnPolicy": {
-        "@type": "MerchantReturnPolicy",
-        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-        "applicableCountry": "US",
-        "returnPolicyCountry": "US",
-        "returnPolicyDays": 30
-      },
-      "shippingDetails": {
-        "@type": "OfferShippingDetails",
-        "shippingRate": { "@type": "MonetaryAmount", "value": "20.00", "currency": "USD" },
-        "deliveryTime": {
-          "@type": "ShippingDeliveryTime",
-          "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "d" },
-          "transitTime": { "@type": "QuantitativeValue", "minValue": 2, "maxValue": 5, "unitCode": "d" }
-        },
-        "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" }
-      }
-    }
-  }
-  </script>
 
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Product",
-    "name": "HVAC Home Supply",
-    "image": "https://shopwithcarlos.xyz/images/hvac.png",
-    "description": "HVAC tools, accessories, and systems. Use coupon code CARLOS for 3% off.",
-    "brand": { "@type": "Brand", "name": "HVAC Home Supply" },
-    "aggregateRating": {
-      "@type": "AggregateRating",
-      "ratingValue": "4.5",
-      "reviewCount": "62"
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Anthbot",
+  "image": "https://shopwithcarlos.xyz/images/anthbot.png",
+  "description": "Smart stair climbing robots and transport tools. Use coupon code CARLOS100 for $100 off.",
+  "brand": { "@type": "Brand", "name": "Anthbot" },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.7",
+    "reviewCount": "54"
+  },
+  "review": {
+    "@type": "Review",
+    "author": { "@type": "Person", "name": "Oscar" },
+    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+    "reviewBody": "Super useful for heavy lifting up stairs. Easy to use."
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://us.anthbot.com/?ref=carlos",
+    "priceCurrency": "USD",
+    "price": "0.00",
+    "priceValidUntil": "2025-12-31",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "merchantReturnDays": 30,
+      "returnMethod": "Mail",
+      "returnFees": "BuyerPays",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "applicableCountry": "US",
+      "returnPolicyCountry": "US"
     },
-    "review": {
-      "@type": "Review",
-      "author": { "@type": "Person", "name": "Mike" },
-      "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5" },
-      "reviewBody": "Great selection and fast shipping for HVAC parts."
-    },
-    "offers": {
-      "@type": "Offer",
-      "url": "https://hvachomesupply.com/carlos8354621",
-      "priceCurrency": "USD",
-      "price": "0.00",
-      "priceValidUntil": "2025-12-31",
-      "availability": "https://schema.org/InStock",
-      "itemCondition": "https://schema.org/NewCondition",
-      "hasMerchantReturnPolicy": {
-        "@type": "MerchantReturnPolicy",
-        "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
-        "applicableCountry": "US",
-        "returnPolicyCountry": "US",
-        "returnPolicyDays": 30
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": { "@type": "MonetaryAmount", "value": "22.00", "currency": "USD" },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "d" },
+        "transitTime": { "@type": "QuantitativeValue", "minValue": 3, "maxValue": 7, "unitCode": "d" }
       },
-      "shippingDetails": {
-        "@type": "OfferShippingDetails",
-        "shippingRate": { "@type": "MonetaryAmount", "value": "10.00", "currency": "USD" },
-        "deliveryTime": {
-          "@type": "ShippingDeliveryTime",
-          "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "d" },
-          "transitTime": { "@type": "QuantitativeValue", "minValue": 2, "maxValue": 4, "unitCode": "d" }
-        },
-        "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" }
-      }
+      "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" }
     }
   }
-  </script>
+}
+</script>
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Babyark Car Seat",
+  "image": "https://shopwithcarlos.xyz/images/babyark.png",
+  "description": "Safest car seat, combining smart technology and military-grade materials. Use code REFERARK for $100 off.",
+  "brand": { "@type": "Brand", "name": "Babyark" },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "39"
+  },
+  "review": {
+    "@type": "Review",
+    "author": { "@type": "Person", "name": "Linda" },
+    "reviewRating": { "@type": "Rating", "ratingValue": "5", "bestRating": "5" },
+    "reviewBody": "Peace of mind with this seat. Feels super secure and high-tech."
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://babyarkdabc3.referralrock.com/l/CARLOSLUGO69/",
+    "priceCurrency": "USD",
+    "price": "0.00",
+    "priceValidUntil": "2025-12-31",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "applicableCountry": "US",
+      "returnPolicyCountry": "US",
+      "returnPolicyDays": 30,
+      "merchantReturnDays": 30,
+      "returnMethod": "Mail",
+      "returnFees": "BuyerPays"
+    },
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": { "@type": "MonetaryAmount", "value": "20.00", "currency": "USD" },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "d" },
+        "transitTime": { "@type": "QuantitativeValue", "minValue": 2, "maxValue": 5, "unitCode": "d" }
+      },
+      "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" }
+    }
+  }
+}
+</script>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "HVAC Home Supply",
+  "image": "https://shopwithcarlos.xyz/images/hvac.png",
+  "description": "HVAC tools, accessories, and systems. Use coupon code CARLOS for 3% off.",
+  "brand": { "@type": "Brand", "name": "HVAC Home Supply" },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.5",
+    "reviewCount": "62"
+  },
+  "review": {
+    "@type": "Review",
+    "author": { "@type": "Person", "name": "Mike" },
+    "reviewRating": { "@type": "Rating", "ratingValue": "4", "bestRating": "5" },
+    "reviewBody": "Great selection and fast shipping for HVAC parts."
+  },
+  "offers": {
+    "@type": "Offer",
+    "url": "https://hvachomesupply.com/carlos8354621",
+    "priceCurrency": "USD",
+    "price": "0.00",
+    "priceValidUntil": "2025-12-31",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "hasMerchantReturnPolicy": {
+      "@type": "MerchantReturnPolicy",
+      "returnPolicyCategory": "https://schema.org/MerchantReturnFiniteReturnWindow",
+      "applicableCountry": "US",
+      "returnPolicyCountry": "US",
+      "returnPolicyDays": 30,
+      "merchantReturnDays": 30,
+      "returnMethod": "Mail",
+      "returnFees": "BuyerPays"
+    },
+    "shippingDetails": {
+      "@type": "OfferShippingDetails",
+      "shippingRate": { "@type": "MonetaryAmount", "value": "10.00", "currency": "USD" },
+      "deliveryTime": {
+        "@type": "ShippingDeliveryTime",
+        "handlingTime": { "@type": "QuantitativeValue", "minValue": 1, "maxValue": 2, "unitCode": "d" },
+        "transitTime": { "@type": "QuantitativeValue", "minValue": 2, "maxValue": 4, "unitCode": "d" }
+      },
+      "shippingDestination": { "@type": "DefinedRegion", "addressCountry": "US" }
+    }
+  }
+}
+</script>
 
   <script type="application/ld+json">
   {
