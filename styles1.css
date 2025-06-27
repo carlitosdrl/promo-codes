@@ -241,4 +241,71 @@ details p {
   outline: none;
 }
 
+/* Ajustes para pantallas pequeñas (móviles) */
+@media (max-width: 600px) {
+  body {
+    font-size: 14px;
+    padding: 0 1rem;
+  }
+
+  .main-container {
+    max-width: 100%;
+    margin: 1.5rem auto;
+    padding: 0 1rem;
+  }
+
+  .header {
+    flex-direction: column;
+    padding: 1.5rem 1rem 1rem 1rem;
+    gap: 16px;
+    max-width: 100%;
+  }
+
+  .logo-link {
+    margin-right: 0;
+    justify-content: center;
+    width: 100%;
+  }
+
+  .logo {
+    width: 120px;
+  }
+
+  .header-content {
+    align-items: center;
+    text-align: center;
+  }
+
+  .header-title {
+    font-size: 1.8rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .header-description {
+    font-size: 1rem;
+  }
+
+  .card {
+    padding: 1.5rem 1.5rem 1rem 1.5rem;
+    margin-bottom: 1.5rem;
+    border-left: 4px solid #ffffff14;
+    border-right: 4px solid #ffffff14;
+  }
+
+  .card h2 {
+    font-size: 1.2rem;
+  }
+
+  .button {
+    max-width: 100%;
+    padding: 0.8rem 1.5rem;
+    font-size: 1rem;
+  }
+
+  details {
+    padding: 0.8rem 1rem;
+  }
+}
+
+
 }
