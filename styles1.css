@@ -307,5 +307,41 @@ details p {
   }
 }
 
+/* ===== Light theme overrides for home ===== */
+body { background:#fff; color:#1a1a1a; }
+.header {
+  background: linear-gradient(180deg,#ffffff 0%, #f6f8fb 100%);
+  border: 1px solid #eee; border-radius: 20px;
+  box-shadow: 0 12px 40px rgba(0,0,0,.06);
+}
+.subtitle, .meta { color:#4a4a4a; }
+
+.search-wrap { background:#fff; border-color:#eee; }
+.searchbar { background:#fff; border-color:#ddd; }
+.pill { background:#fff; border-color:#ddd; }
+.pill.active { background:#111; color:#fff; border-color:#111; }
+
+.grid { background: transparent; }
+.card.store-card { background: transparent; }
+
+/* Store card */
+.store-link {
+  background:#fff; border:1px solid #e9e9ee; border-radius:16px;
+  box-shadow: 0 6px 18px rgba(0,0,0,.05);
+}
+.store-logo {
+  background:#ffffff;   /* fondo blanco real detrás de logos PNG transparentes */
+  border: 1px solid #eef0f4;
+  border-radius: 12px;
+  padding: 18px;
+}
+.store-title { color:#1a1a1a; }
+.store-offer, .store-code { color:#2a2a2a; }
+.store-cta { color:#0f172a; }
+
+/* Footer claro */
+.footer { background:#fff; border-top:1px solid #eee; }
+.footer .footer-links a { color:#222; }
+
 
 }
