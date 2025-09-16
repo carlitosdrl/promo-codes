@@ -7,198 +7,6 @@
 
 body {
   font-family: 'Poppins', sans-serif;
-  background-color: #121212;
-  color: #ffffff;
-  line-height: 1.6;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  overflow-x: hidden;
-}
-
-/* Enlaces */
-a {
-  color: #bdbdbd;
-  text-decoration: none;
-  transition: color 0.3s ease;
-  word-break: break-word;
-}
-
-a:hover,
-a:focus {
-  color: #ffffff;
-}
-
-/* Header */
-.header {
-  background-color: #1f1f1f;
-  padding: 2rem 1rem;
-  text-align: center;
-  border-bottom: 1px solid #333333;
-}
-
-.header-title {
-  font-weight: 600;
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-  color: #ffffff;
-  max-width: 90%;
-  margin-left: auto;
-  margin-right: auto;
-  word-wrap: break-word;
-}
-
-.header-description {
-  font-weight: 300;
-  font-size: 1.2rem;
-  color: #bdbdbd;
-  margin-bottom: 1rem;
-}
-
-.intro p {
-  font-weight: 300;
-  font-size: 1rem;
-  max-width: 900px;
-  margin: 0 auto;
-  color: #e0e0e0;
-}
-
-/* Contenedor principal */
-.main-container {
-  flex: 1;
-  padding: 2rem 1rem;
-  max-width: 960px;
-  margin: 0 auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.5rem;
-}
-
-/* Tarjetas */
-.card {
-  background-color: #242424;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.card:hover,
-.card:focus-within {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.9);
-}
-
-.card h2 {
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  font-size: 1.25rem;
-  color: #ffffff;
-}
-
-.card p {
-  font-weight: 300;
-  margin-bottom: 0.5rem;
-  color: #d0d0d0;
-}
-
-.card strong {
-  color: #ffffff;
-}
-
-.button {
-  display: inline-block;
-  background-color: #ffffff;
-  color: #121212;
-  padding: 0.6rem 1.2rem;
-  border-radius: 25px;
-  font-weight: 600;
-  text-align: center;
-  transition: background-color 0.3s ease;
-  margin-top: 0.75rem;
-  border: none;
-  cursor: pointer;
-}
-
-.button:hover,
-.button:focus {
-  background-color: #e0e0e0;
-  outline: none;
-}
-
-/* Footer */
-.footer {
-  background-color: #1f1f1f;
-  padding: 1rem;
-  text-align: center;
-  border-top: 1px solid #333333;
-  font-size: 0.9rem;
-  color: #bdbdbd;
-}
-
-.footer-links a {
-  color: #bdbdbd;
-  margin: 0 0.5rem;
-  font-weight: 300;
-}
-
-.footer-links a:hover,
-.footer-links a:focus {
-  color: #ffffff;
-  text-decoration: underline;
-}
-
-/* Responsive ajustes móviles */
-@media (max-width: 480px) {
-  body {
-    font-size: 0.95rem;
-  }
-
-  .header-title {
-    font-size: 1.3rem;
-    max-width: 95%;
-  }
-
-  .header-description {
-    font-size: 1rem;
-  }
-
-  .main-container {
-    padding: 1rem 0.5rem;
-    gap: 1rem;
-  }
-
-  .card {
-    padding: 1rem;
-  }
-
-  .button {
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-  }
-
-.coupon-code {
-  cursor: pointer;
-  color: #007BFF;
-  text-decoration: underline;
-}
-.coupon-code:focus {
-  outline: 2px solid #0056b3;
-  outline-offset: 2px;
-}
-
-
-}
-
-/* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-body {
-  font-family: 'Poppins', sans-serif;
   background: #171717;
   color: #ececec;
   line-height: 1.6;
@@ -681,4 +489,196 @@ address {
   font-size: 0.95rem;
   margin-top: auto;
   border-top: 2px solid #191919;
+}
+
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: #121212;
+  color: #ffffff;
+  line-height: 1.6;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Enlaces */
+a {
+  color: #bdbdbd;
+  text-decoration: none;
+  transition: color 0.3s ease;
+  word-break: break-word;
+}
+
+a:hover,
+a:focus {
+  color: #ffffff;
+}
+
+/* Header */
+.header {
+  background-color: #1f1f1f;
+  padding: 2rem 1rem;
+  text-align: center;
+  border-bottom: 1px solid #333333;
+}
+
+.header-title {
+  font-weight: 600;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+  max-width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  word-wrap: break-word;
+}
+
+.header-description {
+  font-weight: 300;
+  font-size: 1.2rem;
+  color: #bdbdbd;
+  margin-bottom: 1rem;
+}
+
+.intro p {
+  font-weight: 300;
+  font-size: 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+  color: #e0e0e0;
+}
+
+/* Contenedor principal */
+.main-container {
+  flex: 1;
+  padding: 2rem 1rem;
+  max-width: 960px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Tarjetas */
+.card {
+  background-color: #242424;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card:hover,
+.card:focus-within {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.9);
+}
+
+.card h2 {
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  font-size: 1.25rem;
+  color: #ffffff;
+}
+
+.card p {
+  font-weight: 300;
+  margin-bottom: 0.5rem;
+  color: #d0d0d0;
+}
+
+.card strong {
+  color: #ffffff;
+}
+
+.button {
+  display: inline-block;
+  background-color: #ffffff;
+  color: #121212;
+  padding: 0.6rem 1.2rem;
+  border-radius: 25px;
+  font-weight: 600;
+  text-align: center;
+  transition: background-color 0.3s ease;
+  margin-top: 0.75rem;
+  border: none;
+  cursor: pointer;
+}
+
+.button:hover,
+.button:focus {
+  background-color: #e0e0e0;
+  outline: none;
+}
+
+/* Footer */
+.footer {
+  background-color: #1f1f1f;
+  padding: 1rem;
+  text-align: center;
+  border-top: 1px solid #333333;
+  font-size: 0.9rem;
+  color: #bdbdbd;
+}
+
+.footer-links a {
+  color: #bdbdbd;
+  margin: 0 0.5rem;
+  font-weight: 300;
+}
+
+.footer-links a:hover,
+.footer-links a:focus {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+/* Responsive ajustes móviles */
+@media (max-width: 480px) {
+  body {
+    font-size: 0.95rem;
+  }
+
+  .header-title {
+    font-size: 1.3rem;
+    max-width: 95%;
+  }
+
+  .header-description {
+    font-size: 1rem;
+  }
+
+  .main-container {
+    padding: 1rem 0.5rem;
+    gap: 1rem;
+  }
+
+  .card {
+    padding: 1rem;
+  }
+
+  .button {
+    font-size: 0.9rem;
+    padding: 0.5rem 1rem;
+  }
+
+.coupon-code {
+  cursor: pointer;
+  color: #007BFF;
+  text-decoration: underline;
+}
+.coupon-code:focus {
+  outline: 2px solid #0056b3;
+  outline-offset: 2px;
+}
+
+
 }
