@@ -16,25 +16,55 @@
   --btn-bg: #111827;          /* botón primario oscuro */
   --btn-text: #ffffff;
   --btn-hover: #0b5fff;       /* hover azul */
+
+  --radius: 16px;
 }
 
-/* Body (tema claro) */
+/* Tipografía global y renderizado */
+html{
+  font-family: 'Poppins', system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color-scheme: light;
+}
+@supports (font-variation-settings: normal){
+  html{ font-optical-sizing: auto; }
+}
 body{
-  font-family:'Poppins',sans-serif;
+  font: inherit;
   background-color: var(--bg);
   color: var(--text);
-  line-height: 1.6;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-kerning: normal;
 }
+
+/* Asegurar que TODO usa la misma fuente (incl. formularios y chips) */
+:where(input,button,select,textarea,
+       .pill,.searchbar,.button,.store-cta,
+       .store-title,.store-offer,.store-code){ font: inherit; }
+
+/* Hacer que <code>, <pre>, etc. NO cambien a monospace, para mantener Poppins */
+:where(code,pre,kbd,samp){
+  font-family: inherit;
+  font-weight: 600;
+  letter-spacing: .2px;
+  font-variant-ligatures: none;
+}
+
+/* Números bonitos (útil para % y códigos) */
+:where(.page-title,.store-offer,.store-code){ font-variant-numeric: lining-nums tabular-nums; }
 
 /* Enlaces */
 a{
   color: var(--link);
   text-decoration: none;
-  transition: color .2s ease, background-color .2s ease;
+  transition: color .2s ease, background-color .2s ease, box-shadow .2s ease;
   word-break: break-word;
 }
 a:hover,
@@ -51,29 +81,26 @@ a:focus{ outline: 2px solid var(--link-hover); outline-offset: 2px; }
   border-radius: 20px;
   margin: 0 0 1rem 0;
 }
-
 .header-title{
   font-weight: 600;
-  font-size: 2rem;
+  font-size: clamp(1.6rem, 2.5vw, 2.25rem);
   margin: 0 auto .5rem;
   color: var(--text);
   max-width: 90%;
-  word-wrap: break-word;
+  text-wrap: balance;
 }
-
 .header-description{
   font-weight: 300;
   font-size: 1.2rem;
   color: var(--muted);
   margin-bottom: 1rem;
 }
-
 .intro p{
   font-weight: 300;
   font-size: 1rem;
   max-width: 900px;
   margin: 0 auto;
-  color: #374151; /* texto de párrafo */
+  color: #374151;
 }
 
 /* Contenedor principal */
@@ -91,30 +118,29 @@ a:focus{ outline: 2px solid var(--link-hover); outline-offset: 2px; }
 .card{
   background-color: var(--card);
   padding: 1.5rem;
-  border-radius: 16px;
+  border-radius: var(--radius);
   border: 1px solid var(--card-border);
   box-shadow: var(--shadow);
-  transition: transform .2s ease, box-shadow .2s ease;
+  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
 }
 .card:hover,
 .card:focus-within{
   transform: translateY(-2px);
   box-shadow: 0 16px 38px rgba(0,0,0,.10);
+  border-color: #e0e3e8;
 }
-
 .card h2{
   font-weight: 600;
   margin-bottom: .5rem;
   font-size: 1.25rem;
   color: var(--text);
+  letter-spacing: .2px;
 }
-
 .card p{
   font-weight: 300;
   margin-bottom: .5rem;
   color: #374151;
 }
-
 .card strong{ color: var(--text); }
 
 /* Imágenes/logos dentro de cards: fondo blanco real para PNGs con transparencia */
@@ -126,26 +152,71 @@ a:focus{ outline: 2px solid var(--link-hover); outline-offset: 2px; }
   padding: 18px;
 }
 
-/* Botón primario */
+/* Línea del cupón y el chip del código */
+.store-code{ color: #374151; }
+.store-code code{
+  background: #f6f8fb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 0 .4rem;
+}
+
+/* CTA dentro de las tarjetas */
+.store-cta{
+  font-weight: 700;
+  color: var(--link);
+}
+.store-cta:hover{ color: var(--link-hover); text-decoration: underline; }
+
+/* Botón primario (si lo usas) */
 .button{
   display: inline-block;
   background-color: var(--btn-bg);
   color: var(--btn-text);
   padding: .6rem 1.2rem;
-  border-radius: 25px;
+  border-radius: 999px;
   font-weight: 600;
   text-align: center;
-  transition: background-color .2s ease, transform .07s ease;
+  transition: background-color .2s ease, transform .07s ease, box-shadow .2s ease;
   margin-top: .75rem;
   border: none;
   cursor: pointer;
+  letter-spacing: .2px;
 }
 .button:hover,
 .button:focus{
   background-color: var(--btn-hover);
   outline: none;
   transform: translateY(-1px);
+  box-shadow: 0 10px 24px rgba(11,95,255,.18);
 }
+
+/* Chips/filtros */
+.pill{
+  color: var(--text);
+  background: #fff;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  padding: .35rem .75rem;
+  font-size: .9rem;
+  cursor: pointer;
+  user-select: none;
+}
+.pill.active{
+  background: #111827;
+  color: #fff;
+  border-color: #111827;
+}
+
+/* Buscador */
+.searchbar{
+  width: 100%;
+  padding: .75rem 1rem;
+  border: 1px solid #ddd;
+  border-radius: 12px;
+  font-size: 1rem;
+}
+.searchbar::placeholder{ color: #6b7280; }
 
 /* Footer claro */
 .footer{
@@ -167,7 +238,7 @@ a:focus{ outline: 2px solid var(--link-hover); outline-offset: 2px; }
   text-decoration: underline;
 }
 
-/* Código de cupón (global, NO dentro del @media) */
+/* Código de cupón (clicable) */
 .coupon-code{
   cursor: pointer;
   color: var(--link);
@@ -181,44 +252,9 @@ a:focus{ outline: 2px solid var(--link-hover); outline-offset: 2px; }
 /* Responsive ajustes móviles */
 @media (max-width: 480px){
   body{ font-size: .95rem; }
-  .header-title{ font-size: 1.3rem; max-width: 95%; }
+  .header-title{ font-size: 1.35rem; max-width: 95%; }
   .header-description{ font-size: 1rem; }
   .main-container{ padding: 1rem .5rem; gap: 1rem; }
   .card{ padding: 1rem; }
   .button{ font-size: .9rem; padding: .5rem 1rem; }
-
-/* ======== FIX TEMA CLARO (override final) ======== */
-
-/* 1) Header: forzar texto oscuro y secundarios legibles */
-.header,
-.header * { color: var(--text) !important; }
-.header .header-description,
-.subtitle,
-.meta { color: var(--muted) !important; }
-
-/* 2) Enlaces dentro de tarjetas: que no se vuelvan grises/azules salvo el CTA */
-.store-link { color: inherit !important; }            /* todo el texto de la card en color base */
-.store-link .store-title { color: var(--text) !important; }
-.store-link .store-offer,
-.store-link .store-code { color: #374151 !important; } /* texto secundario oscuro legible */
-.store-link .store-cta { color: var(--link) !important; font-weight: 700; }
-.store-link:hover .store-cta { color: var(--link-hover) !important; text-decoration: underline; }
-
-/* 3) Texto general dentro de .card (por si hay <p> sueltos) */
-.card p { color: #374151 !important; }
-
-/* 4) Chips/filtros y placeholder del buscador (evitar gris pálido) */
-.pill { color: var(--text) !important; background: #fff; border-color: #ddd; }
-.pill.active { background: #111; color: #fff !important; border-color: #111; }
-.searchbar::placeholder { color: #6b7280; }  /* placeholder legible */
-
-/* 5) Logo y marcos de imagen: fondo blanco real para que no “apaguen” */
-.store-logo,
-.card img { background:#fff; border:1px solid #eef0f4; border-radius:12px; padding:18px; }
-
-/* 6) Enlaces globales siguen siendo accesibles */
-a { color: var(--link); }
-a:hover, a:focus { color: var(--link-hover); text-decoration: underline; }
-
-  
 }
