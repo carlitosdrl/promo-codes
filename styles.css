@@ -1,14 +1,28 @@
 /* Reset básico */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+/* Paleta (fácil de ajustar) */
+:root{
+  --bg: #ffffff;
+  --text: #111827;            /* gris carbón */
+  --muted: #4b5563;           /* texto secundario */
+  --card: #ffffff;
+  --card-border: #e5e7eb;     /* gris claro para bordes */
+  --shadow: 0 10px 28px rgba(0,0,0,.06);
+
+  --link: #0b5fff;            /* azul accesible */
+  --link-hover: #0041d0;
+
+  --btn-bg: #111827;          /* botón primario oscuro */
+  --btn-text: #ffffff;
+  --btn-hover: #0b5fff;       /* hover azul */
 }
 
-body {
-  font-family: 'Poppins', sans-serif;
-  background-color: #121212;
-  color: #ffffff;
+/* Body (tema claro) */
+body{
+  font-family:'Poppins',sans-serif;
+  background-color: var(--bg);
+  color: var(--text);
   line-height: 1.6;
   min-height: 100vh;
   display: flex;
@@ -17,54 +31,53 @@ body {
 }
 
 /* Enlaces */
-a {
-  color: #bdbdbd;
+a{
+  color: var(--link);
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: color .2s ease, background-color .2s ease;
   word-break: break-word;
 }
-
 a:hover,
-a:focus {
-  color: #ffffff;
-}
+a:focus{ color: var(--link-hover); text-decoration: underline; }
+a:focus{ outline: 2px solid var(--link-hover); outline-offset: 2px; }
 
-/* Header */
-.header {
-  background-color: #1f1f1f;
+/* Header claro con ligera profundidad */
+.header{
+  background: linear-gradient(180deg,#ffffff 0%, #f6f8fb 100%);
   padding: 2rem 1rem;
   text-align: center;
-  border-bottom: 1px solid #333333;
+  border-bottom: 1px solid var(--card-border);
+  box-shadow: var(--shadow);
+  border-radius: 20px;
+  margin: 0 0 1rem 0;
 }
 
-.header-title {
+.header-title{
   font-weight: 600;
   font-size: 2rem;
-  margin-bottom: 0.5rem;
-  color: #ffffff;
+  margin: 0 auto .5rem;
+  color: var(--text);
   max-width: 90%;
-  margin-left: auto;
-  margin-right: auto;
   word-wrap: break-word;
 }
 
-.header-description {
+.header-description{
   font-weight: 300;
   font-size: 1.2rem;
-  color: #bdbdbd;
+  color: var(--muted);
   margin-bottom: 1rem;
 }
 
-.intro p {
+.intro p{
   font-weight: 300;
   font-size: 1rem;
   max-width: 900px;
   margin: 0 auto;
-  color: #e0e0e0;
+  color: #374151; /* texto de párrafo */
 }
 
 /* Contenedor principal */
-.main-container {
+.main-container{
   flex: 1;
   padding: 2rem 1rem;
   max-width: 960px;
@@ -74,118 +87,103 @@ a:focus {
   gap: 1.5rem;
 }
 
-/* Tarjetas */
-.card {
-  background-color: #242424;
+/* Tarjetas (blancas, borde sutil y sombra suave) */
+.card{
+  background-color: var(--card);
   padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.8);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  border-radius: 16px;
+  border: 1px solid var(--card-border);
+  box-shadow: var(--shadow);
+  transition: transform .2s ease, box-shadow .2s ease;
 }
-
 .card:hover,
-.card:focus-within {
-  transform: translateY(-5px);
-  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.9);
+.card:focus-within{
+  transform: translateY(-2px);
+  box-shadow: 0 16px 38px rgba(0,0,0,.10);
 }
 
-.card h2 {
+.card h2{
   font-weight: 600;
-  margin-bottom: 0.5rem;
+  margin-bottom: .5rem;
   font-size: 1.25rem;
-  color: #ffffff;
+  color: var(--text);
 }
 
-.card p {
+.card p{
   font-weight: 300;
-  margin-bottom: 0.5rem;
-  color: #d0d0d0;
+  margin-bottom: .5rem;
+  color: #374151;
 }
 
-.card strong {
-  color: #ffffff;
+.card strong{ color: var(--text); }
+
+/* Imágenes/logos dentro de cards: fondo blanco real para PNGs con transparencia */
+.card img,
+.store-logo{
+  background:#fff;
+  border: 1px solid #eef0f4;
+  border-radius: 12px;
+  padding: 18px;
 }
 
-.button {
+/* Botón primario */
+.button{
   display: inline-block;
-  background-color: #ffffff;
-  color: #121212;
-  padding: 0.6rem 1.2rem;
+  background-color: var(--btn-bg);
+  color: var(--btn-text);
+  padding: .6rem 1.2rem;
   border-radius: 25px;
   font-weight: 600;
   text-align: center;
-  transition: background-color 0.3s ease;
-  margin-top: 0.75rem;
+  transition: background-color .2s ease, transform .07s ease;
+  margin-top: .75rem;
   border: none;
   cursor: pointer;
 }
-
 .button:hover,
-.button:focus {
-  background-color: #e0e0e0;
+.button:focus{
+  background-color: var(--btn-hover);
   outline: none;
+  transform: translateY(-1px);
 }
 
-/* Footer */
-.footer {
-  background-color: #1f1f1f;
+/* Footer claro */
+.footer{
+  background-color: var(--bg);
   padding: 1rem;
   text-align: center;
-  border-top: 1px solid #333333;
-  font-size: 0.9rem;
-  color: #bdbdbd;
+  border-top: 1px solid var(--card-border);
+  font-size: .95rem;
+  color: #6b7280;
 }
-
-.footer-links a {
-  color: #bdbdbd;
-  margin: 0 0.5rem;
+.footer-links a{
+  color: #374151;
+  margin: 0 .5rem;
   font-weight: 300;
 }
-
 .footer-links a:hover,
-.footer-links a:focus {
-  color: #ffffff;
+.footer-links a:focus{
+  color: var(--link-hover);
   text-decoration: underline;
 }
 
-/* Responsive ajustes móviles */
-@media (max-width: 480px) {
-  body {
-    font-size: 0.95rem;
-  }
-
-  .header-title {
-    font-size: 1.3rem;
-    max-width: 95%;
-  }
-
-  .header-description {
-    font-size: 1rem;
-  }
-
-  .main-container {
-    padding: 1rem 0.5rem;
-    gap: 1rem;
-  }
-
-  .card {
-    padding: 1rem;
-  }
-
-  .button {
-    font-size: 0.9rem;
-    padding: 0.5rem 1rem;
-  }
-
-.coupon-code {
+/* Código de cupón (global, NO dentro del @media) */
+.coupon-code{
   cursor: pointer;
-  color: #007BFF;
+  color: var(--link);
   text-decoration: underline;
 }
-.coupon-code:focus {
-  outline: 2px solid #0056b3;
+.coupon-code:focus{
+  outline: 2px solid var(--link-hover);
   outline-offset: 2px;
 }
 
-
+/* Responsive ajustes móviles */
+@media (max-width: 480px){
+  body{ font-size: .95rem; }
+  .header-title{ font-size: 1.3rem; max-width: 95%; }
+  .header-description{ font-size: 1rem; }
+  .main-container{ padding: 1rem .5rem; gap: 1rem; }
+  .card{ padding: 1rem; }
+  .button{ font-size: .9rem; padding: .5rem 1rem; }
 }
