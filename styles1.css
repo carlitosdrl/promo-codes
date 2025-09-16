@@ -294,3 +294,29 @@ button.button{
   grid-column: 1 / -1;      /* que ocupe todo el ancho del grid */
   justify-self: center;      /* y se centre horizontalmente */
 }
+
+/* Centrar el CTA cuando es hijo directo de .main-container */
+.main-container > a.button,
+.main-container > .button {
+  display: block;          /* deja de ser inline-block en este contexto */
+  width: fit-content;      /* ajusta al contenido */
+  margin: 1rem auto;       /* centra horizontalmente */
+  text-align: center;      /* por si el botón tiene varias líneas */
+}
+
+/* (Opcional) si algún botón está dentro de una .card y también lo quieres centrado */
+.card > a.button,
+.card > .button {
+  display: block;
+  width: fit-content;
+  margin: .75rem auto 0;
+}
+
+/* (Opcional) en móvil puedes hacerlo ancho cómodo sin ocupar todo */
+@media (max-width: 480px){
+  .main-container > a.button,
+  .main-container > .button {
+    max-width: 420px;      /* evita que se haga demasiado ancho */
+    width: 100%;           /* que llene hasta ese máximo */
+  }
+}
