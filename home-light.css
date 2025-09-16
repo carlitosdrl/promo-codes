@@ -54,3 +54,30 @@
 /* Links (global in home) */
 .home a{ color:var(--link) !important; }
 .home a:hover, .home a:focus{ color:var(--link-hover) !important; }
+
+/* ========= FIX DEFINITIVO PARA 'Code' Y EL CUPÓN ========= */
+/* Fuerza color oscuro en toda la línea del cupón, sin importar el hijo */
+.home .store-code,
+.home .store-code * {
+  color: #111827 !important;   /* negro legible */
+}
+
+/* Si usas <code> para el cupón, dale pastilla legible */
+.home .store-code code {
+  color: #111827 !important;
+  background: #f6f8fb;
+  border: 1px solid #e5e7eb;
+  border-radius: 6px;
+  padding: 0 .35rem;
+  font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+               "Liberation Mono", "Courier New", monospace;
+  font-size: 0.95em;
+}
+
+/* Refuerza el resto por si hay reglas antiguas */
+.home .store-title { color: #111827 !important; }
+.home .store-offer { color: #374151 !important; }
+.home .store-link { color: inherit !important; }
+.home .store-cta  { color: #0b5fff !important; font-weight: 700; }
+.home .store-link:hover .store-cta { color: #0041d0 !important; text-decoration: underline; }
+
