@@ -1,155 +1,108 @@
-/* ====== Design tokens ====== */
+/* ===== Tokens ===== */
 :root{
   --max: 1160px;
-  --bg: #0b0c0f;              /* fondo oscuro sutil */
-  --surface: #111317;         /* tarjetas / header / footer */
-  --surface-2: #151821;
-  --text: #f3f5f7;            /* texto principal */
-  --muted: #a4a9b6;           /* texto secundario */
-  --brand: #4f8cff;           /* acento (azul) */
-  --success: #22c55e;
-  --border: #20232d;          /* bordes suaves */
+  --bg: #f7f8fb;
+  --surface: #ffffff;
+  --text: #0b1220;
+  --muted: #4b5563;
+  --brand: #2646ff;
+  --border: #e5e7eb;
   --radius: 14px;
-  --shadow: 0 10px 30px rgba(0,0,0,.35);
+  --shadow: 0 6px 22px rgba(0,0,0,.06);
 }
 
-/* ====== Reset mínimo ====== */
-* { box-sizing: border-box; }
-html, body { margin: 0; padding: 0; }
+/* ===== Reset mínimo ===== */
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
 body{
-  font-family: Poppins, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Arial, sans-serif;
-  line-height: 1.65;
-  color: var(--text);
-  background: radial-gradient(1200px 600px at 50% -10%, #192036 0%, var(--bg) 60%);
+  font-family:Poppins, system-ui, -apple-system, Segoe UI, Roboto, Ubuntu, Arial, sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.65;
 }
 
-/* ====== Header ====== */
+/* ===== Tipografía global ===== */
+h1{font-size:clamp(26px,2.6vw,36px);line-height:1.25;margin:0 0 10px}
+h2{font-size:clamp(18px,1.8vw,22px);margin:0 0 10px}
+p{margin:.6rem 0}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ===== Header ===== */
 .header{
-  background: linear-gradient(180deg, #0f1220 0%, var(--surface) 100%);
+  background: var(--surface);
   border-bottom: 1px solid var(--border);
 }
 .header-content{
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 32px 24px 26px;
+  max-width:var(--max);
+  margin:0 auto;
+  padding:24px;
 }
-.header-title{
-  margin: 0 0 8px;
-  font-weight: 700;
-  letter-spacing: .2px;
-  font-size: clamp(26px, 2.6vw, 38px);
-}
-.header-description{ margin: 0; color: var(--muted); }
+.header-title{margin:0 0 6px}
+.header-description{margin:0;color:var(--muted)}
 .badge{
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  margin-top: 12px;
-  font-size: 12px;
-  color: #cbd5e1;
-  border: 1px solid #273046;
-  background: #101523;
-  border-radius: 999px;
-  padding: 6px 12px;
+  display:inline-flex;align-items:center;gap:8px;
+  margin-top:10px;font-size:12px;color:#334155;
+  border:1px solid var(--border);background:#f3f5f9;
+  border-radius:999px;padding:6px 10px;
 }
 
-/* ====== Intro ====== */
-.intro p{ margin: .25rem 0 0 .1rem; color: var(--muted); }
+/* ===== Intro ===== */
+.intro p{margin:.25rem 0 0 .1rem;color:var(--muted)}
 
-/* ====== Grid de tiendas ====== */
+/* ===== Grid ===== */
 .main-container{
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 26px 24px 40px;
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-  gap: 18px;
+  max-width:var(--max);
+  margin:0 auto;
+  padding:24px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:16px;
 }
 
-/* ====== Card ====== */
+/* ===== Card ===== */
 .card{
-  position: relative;
-  border: 1px solid var(--border);
-  background: linear-gradient(180deg, var(--surface) 0%, var(--surface-2) 100%);
-  border-radius: var(--radius);
-  padding: 18px 16px 16px;
-  box-shadow: var(--shadow);
-  transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
+  border:1px solid var(--border);
+  background:var(--surface);
+  border-radius:var(--radius);
+  padding:16px;
+  box-shadow:var(--shadow);
+  transition:transform .12s ease, box-shadow .12s ease;
 }
-.card:hover{
-  transform: translateY(-3px);
-  box-shadow: 0 16px 40px rgba(0,0,0,.45);
-  border-color: #2a3246;
-}
-.card h2{
-  margin: 0 0 6px;
-  font-size: 18px;
-  letter-spacing: .2px;
-}
-.card h2 a{
-  color: var(--text);
-  text-decoration: none;
-}
-.card h2 a:hover{ color: var(--brand); }
+.card:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(0,0,0,.08)}
+.card h2{margin:0 0 6px}
+.card p{margin:.45rem 0;color:var(--muted)}
+.card p strong{color:var(--text)}
+.card h2 a{color:var(--text)}
+.card h2 a:hover{color:var(--brand);text-decoration:none}
 
-.card p{ margin: .38rem 0; color: var(--muted); }
-.card p strong{ color: #e5e7eb; }
-
-/* “Píldoras” pequeñas (descuento/código) */
-.card p:first-of-type + p,
-.card p:nth-of-type(2){
-  display: inline-block;
-  padding: 4px 10px;
-  margin: 6px 8px 0 0;
-  border-radius: 999px;
-  background: #0f1424;
-  border: 1px solid #273046;
-  color: #dbe2f2;
-  font-size: 12px;
-}
-
-/* ====== Botón ====== */
+/* ===== Botón ===== */
 .button{
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 12px;
-  padding: 10px 14px;
-  border-radius: 10px;
-  border: 1px solid #2b354d;
-  background: linear-gradient(180deg, #1a2340 0%, #0e1630 100%);
-  color: #e8f0ff;
-  text-decoration: none;
-  font-weight: 600;
-  letter-spacing: .2px;
-  transition: transform .15s ease, box-shadow .15s ease, background .2s ease, border-color .2s ease;
+  display:inline-flex;align-items:center;justify-content:center;
+  margin-top:10px;padding:10px 14px;border-radius:10px;
+  border:1px solid #c7d2fe;background:#eef2ff;color:#1d4ed8;
+  font-weight:600;letter-spacing:.2px;text-decoration:none;
+  transition:transform .12s ease, box-shadow .12s ease, background .2s ease;
 }
-.button:hover{
-  transform: translateY(-1px);
-  box-shadow: 0 10px 24px rgba(79,140,255,.35);
-  border-color: #3b64ff;
-  background: linear-gradient(180deg, #2646ff 0%, #1537e5 100%);
-}
+.button:hover{transform:translateY(-1px);box-shadow:0 8px 18px rgba(29,78,216,.18);background:#e0e7ff}
 
-/* ====== Footer ====== */
+/* ===== Footer ===== */
 .footer{
-  background: var(--surface);
-  border-top: 1px solid var(--border);
+  background:var(--surface);
+  border-top:1px solid var(--border);
 }
 .footer, .footer-links{
-  max-width: var(--max);
-  margin: 0 auto;
-  padding: 16px 24px 28px;
-  color: var(--muted);
+  max-width:var(--max);
+  margin:0 auto;
+  padding:16px 24px 28px;
+  color:var(--muted);
 }
-.footer a{ color: #b7c3e6; text-decoration: none; }
-.footer a:hover{ text-decoration: underline; }
+.footer a{color:#334155}
+.footer a:hover{text-decoration:underline}
 
-/* ====== Utilidades ====== */
-a{ color: #b7c3e6; }
-a:hover{ color: var(--brand); }
+/* ===== Responsive ===== */
 @media (max-width: 520px){
-  .header-content{ padding: 22px 16px; }
-  .main-container{ padding: 18px 16px 28px; grid-template-columns: 1fr; }
-  .card{ padding: 16px 14px; }
+  .header-content{padding:18px}
+  .main-container{padding:18px;grid-template-columns:1fr}
+  .card{padding:14px}
 }
