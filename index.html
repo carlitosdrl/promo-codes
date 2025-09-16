@@ -98,12 +98,17 @@
     .store-details a { text-decoration: underline; }
     footer p.small { font-size: .9rem; color:#555; }
   </style>
+
+  <link rel="stylesheet" href="/home-light.css?v=20250916-0000">
 </head>
 
-<body>
+<body class="home">
   <header class="header">
     <a href="/" aria-label="Home — Shop With Carlos">
-      <img src="/images/og-home.png" alt="Shop With Carlos" class="logo" width="300" height="120">
+      <picture>
+  <source srcset="/images/swc-logo-light.svg" media="(prefers-color-scheme: dark)">
+  <img src="/images/swc-logo-dark.svg" alt="Shop With Carlos" class="logo" width="300" height="120">
+</picture>
     </a>
     <div class="header-content">
       <h1 class="page-title">Exclusive Promo Codes & Coupons (Verified)</h1>
