@@ -287,3 +287,10 @@ button.button{
   .header .logo{ max-width: 150px; padding: 12px; }
   .button{ font-size: .92rem; padding: .55rem 1rem; }
 }
+
+/* Centrar CTA suelto dentro del grid principal */
+.main-container > a.button,
+.main-container > .button {
+  grid-column: 1 / -1;      /* que ocupe todo el ancho del grid */
+  justify-self: center;      /* y se centre horizontalmente */
+}
