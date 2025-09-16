@@ -1,18 +1,61 @@
-:root{--max:1100px}
+:root{
+  --max: 1100px;
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #666666;
+  --border: #eeeeee;
+  --brand: #111;
+}
 *{box-sizing:border-box}
-body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;line-height:1.6;margin:0;color:#111;background:#fff}
-a{color:inherit;text-decoration:none}
-main{max-width:var(--max);margin:0 auto;padding:24px}
-.header{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:16px 24px;border-bottom:1px solid #eee}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px}
-.card{border:1px solid #eee;border-radius:14px;padding:16px;transition:box-shadow .2s}
-.card:hover{box-shadow:0 6px 24px rgba(0,0,0,.06)}
-.card h3{margin:0 0 6px}
-.badge{display:inline-block;font-size:12px;border:1px solid #ddd;border-radius:999px;padding:4px 10px}
-.codebox{display:flex;gap:8px;align-items:center;border:1px dashed #ccc;padding:10px;border-radius:12px}
-.copy{cursor:pointer;border:1px solid #ddd;border-radius:10px;padding:6px 10px}
-.copy:active{transform:scale(.98)}
-.notice{font-size:12px;color:#666}
-details{border:1px solid #eee;border-radius:12px;padding:12px;margin:8px 0}
-summary{font-weight:600;cursor:pointer}
-footer{border-top:1px solid #eee;margin-top:24px;padding:16px 24px;color:#555}
+html,body{margin:0;padding:0}
+body{
+  font-family:Poppins,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Arial,sans-serif;
+  color:var(--text);
+  background:var(--bg);
+  line-height:1.6;
+}
+
+/* Header */
+.header{border-bottom:1px solid var(--border);background:#fff}
+.header-content{max-width:var(--max);margin:0 auto;padding:24px}
+.header-title{margin:0 0 6px;font-size:clamp(22px,3vw,32px);line-height:1.25}
+.header-description{margin:0 0 8px;color:var(--muted)}
+.badge{display:inline-block;margin-top:6px;font-size:12px;border:1px solid #ddd;border-radius:999px;padding:4px 10px}
+
+/* Intro (optional) */
+.intro p{margin:.25rem 0 0 .1rem;color:var(--muted)}
+
+/* Grid of cards */
+.main-container{
+  max-width:var(--max);
+  margin:0 auto;
+  padding:24px;
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:16px;
+}
+.card{
+  border:1px solid var(--border);
+  border-radius:14px;
+  padding:16px;
+  background:#fff;
+  transition:box-shadow .18s ease, transform .18s ease;
+}
+.card:hover{box-shadow:0 8px 28px rgba(0,0,0,.06);transform:translateY(-1px)}
+.card h2{margin:0 0 4px;font-size:18px}
+.card p{margin:.35rem 0}
+.button{
+  display:inline-block;
+  margin-top:8px;
+  border:1px solid #ddd;
+  border-radius:10px;
+  padding:8px 12px;
+  cursor:pointer;
+  text-decoration:none;
+}
+
+/* Footer */
+.footer{border-top:1px solid var(--border);background:#fff}
+.footer,.footer-links{max-width:var(--max);margin:0 auto;padding:16px 24px;color:#555}
+.footer-links a{color:inherit;text-decoration:none}
+.footer-links a:hover{text-decoration:underline}
