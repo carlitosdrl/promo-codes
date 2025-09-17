@@ -321,50 +321,51 @@
   </footer>
 
   <script>
-    // Accessibility helper
-    (function() {
-      const sr = document.createElement('style');
-      sr.innerHTML = `.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}`;
-      document.head.appendChild(sr);
-    })();
-
-    // Client-side search & filter for store cards
-    (function() {
-      const q = document.getElementById('search');
-      const grid = document.getElementById('stores-grid');
-      const cards = Array.from(grid.querySelectorAll('.store-card'));
-      const pills = Array.from(document.querySelectorAll('.pill'));
-      let activeFilter = "";
-
-      function normalize(s) { return (s || '').toLowerCase().trim(); }
-
-      function matches(card, term) {
-        const name = card.dataset.name;
-        const cat = card.dataset.category;
-        const text = card.innerText.toLowerCase();
-        const t = normalize(term);
-        const catOk = !activeFilter || normalize(cat).includes(activeFilter);
-        const txtOk = !t || name.includes(t) || cat.includes(t) || text.includes(t);
-        return catOk && txtOk;
-      }
-
-      function render() {
-        const term = q.value;
-        cards.forEach(c => {
-          c.style.display = matches(c, term) ? '' : 'none';
-        });
-      }
-
-      q.addEventListener('input', render);
-      pills.forEach(p => p.addEventListener('click', e => {
-        activeFilter = normalize(p.dataset.filter);
-        pills.forEach(x => x.classList.remove('active'));
-        p.classList.add('active');
-        render();
-      }));
-
-      render();
-    })();
+  (function() {
+    const q = document.getElementById('search');
+    const grid = document.getElementById('stores-grid');
+    const cards = Array.from(grid.querySelectorAll('.store-card'));
+    const pills = Array.from(document.querySelectorAll('.filters .pill'));
+    let activeFilter = "";
+  
+    function normalize(s){ return (s||"").toLowerCase().trim(); }
+  
+    function matches(card, term){
+      const name = (card.dataset.name || "").toLowerCase();
+      const cat  = (card.dataset.category || "").toLowerCase();
+      const text = card.innerText.toLowerCase();
+      const t = normalize(term);
+      const catOk = !activeFilter || cat.includes(activeFilter);
+      const txtOk = !t || name.includes(t) || cat.includes(t) || text.includes(t);
+      return catOk && txtOk;
+    }
+  
+    function render(){
+      const term = q.value;
+      cards.forEach(c => { c.style.display = matches(c, term) ? "" : "none"; });
+    }
+  
+    // Clic normal = filtrar; Ctrl/Cmd/Shift/Alt o clic medio = abrir enlace
+    pills.forEach(p => {
+      p.addEventListener('click', (e) => {
+        const openNew = e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button === 1;
+        if (!openNew) {
+          e.preventDefault();
+          activeFilter = normalize(p.dataset.filter);
+          pills.forEach(x => x.classList.remove('active'));
+          p.classList.add('active');
+          render();
+        }
+        // si es openNew, dejamos que el enlace se abra
+      });
+      p.addEventListener('auxclick', (e) => {
+        if (e.button === 1) return; // clic medio abre nueva pestaña
+      });
+    });
+  
+    q.addEventListener('input', render);
+    render();
+  })();
   </script>
 </body>
 </html>
