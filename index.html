@@ -328,16 +328,35 @@
     const pills = Array.from(document.querySelectorAll('.filters .pill'));
     let activeFilter = "";
   
-    function normalize(s){ return (s||"").toLowerCase().trim(); }
+    const normalize = (s) => (s || "")
+      .toLowerCase()
+      .normalize('NFKD')                       // quita acentos
+      .replace(/[\u2010-\u2015]/g, '-')        // todos los guiones “raros” → -
+      .replace(/&/g, ' and ')                  // & → and
+      .replace(/\s+/g, ' ')                    // espacios múltiples → uno
+      .trim();
+  
+    // forma canon: sin espacios ni guiones, para matches como "ebikes"
+    const canon = (s) => normalize(s).replace(/[-_\s/]+/g, '');
   
     function matches(card, term){
-      const name = (card.dataset.name || "").toLowerCase();
-      const cat  = (card.dataset.category || "").toLowerCase();
-      const text = card.innerText.toLowerCase();
-      const t = normalize(term);
-      const catOk = !activeFilter || cat.includes(activeFilter);
-      const txtOk = !t || name.includes(t) || cat.includes(t) || text.includes(t);
-      return catOk && txtOk;
+      const name = card.dataset.name || "";
+      const cat  = card.dataset.category || "";
+      const tags = card.dataset.tags || "";     // opcional si lo agregas
+      const text = card.innerText || "";
+  
+      const tNorm  = normalize(term);
+      const tCanon = canon(term);
+  
+      const hayFiltro = !!activeFilter;
+      const catIncluyeFiltro = !hayFiltro || normalize(cat).includes(activeFilter);
+  
+      // Comparamos en dos niveles: normal e hiper-laxo (canon)
+      const blobNorm  = normalize(name + ' ' + cat + ' ' + tags + ' ' + text);
+      const blobCanon = canon(name + ' ' + cat + ' ' + tags + ' ' + text);
+  
+      const txtOk = !tNorm || blobNorm.includes(tNorm) || blobCanon.includes(tCanon);
+      return catIncluyeFiltro && txtOk;
     }
   
     function render(){
@@ -345,7 +364,7 @@
       cards.forEach(c => { c.style.display = matches(c, term) ? "" : "none"; });
     }
   
-    // Clic normal = filtrar; Ctrl/Cmd/Shift/Alt o clic medio = abrir enlace
+    // Filtros (chips)
     pills.forEach(p => {
       p.addEventListener('click', (e) => {
         const openNew = e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button === 1;
@@ -356,10 +375,6 @@
           p.classList.add('active');
           render();
         }
-        // si es openNew, dejamos que el enlace se abra
-      });
-      p.addEventListener('auxclick', (e) => {
-        if (e.button === 1) return; // clic medio abre nueva pestaña
       });
     });
   
