@@ -4,8 +4,7 @@ on:
   push:
     branches: [ main, master ]
     paths:
-      - "stores/**/index.html"
-      - ".github/workflows/update-verified.yml"
+      - 'stores/**/index.html'
   workflow_dispatch: {}
 
 permissions:
@@ -19,100 +18,30 @@ jobs:
         with:
           fetch-depth: 0
 
-      - uses: actions/setup-python@v5
-        with:
-          python-version: '3.x'
-
-      - name: Install BeautifulSoup
-        run: pip install beautifulsoup4
-
       - name: Today (UTC)
         id: now
         run: echo "today=$(date -u +'%Y-%m-%d')" >> "$GITHUB_OUTPUT"
 
-      - name: Detect changed store files
-        id: diff
-        shell: bash
-        run: |
-          set -e
-          BEFORE="${{ github.event.before }}"
-          AFTER="${{ github.sha }}"
-
-          if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
-            CHANGED=$(git ls-files 'stores/**/index.html')
-          else
-            CHANGED=$(git diff --name-only --diff-filter=AM "$BEFORE" "$AFTER" -- 'stores/**/index.html')
-          fi
-
-          # Escribir salida multilinea de forma segura
-          {
-            echo "changed<<'EOF'"
-            echo "$CHANGED"
-            echo "EOF"
-          } >> "$GITHUB_OUTPUT"
-
-      - name: Update dates
-        if: steps.diff.outputs.changed != ''
+      - name: Update dates in store pages
         shell: bash
         env:
           TODAY: ${{ steps.now.outputs.today }}
         run: |
           set -e
-          echo "Updating to $TODAY"
-          while IFS= read -r f; do
-            [ -z "$f" ] && continue
-            echo "• $f"
+          files=$(git ls-files 'stores/**/index.html' || true)
+          if [ -z "$files" ]; then
+            echo "No store pages found"; exit 0
+          fi
 
-            # 1) JSON-LD: actualizar dateModified si existe
+          for f in $files; do
+            echo "Processing $f"
+
+            # 1) JSON-LD: "dateModified":"YYYY-MM-DD" -> TODAY (si existe)
             perl -0777 -i -pe 's/(\"dateModified\"\s*:\s*\")\d{4}-\d{2}-\d{2}(\")/${1}$ENV{TODAY}$2/g' "$f"
 
-            # 1b) Si no existe dateModified en WebPage, añadirlo
-            python - <<'PY'
-import sys, io, json
-from bs4 import BeautifulSoup
-fn, today = sys.argv[1], sys.argv[2]
-html = io.open(fn, 'r', encoding='utf-8', errors='ignore').read()
-s = BeautifulSoup(html, 'html.parser')
-changed = False
-for script in s.find_all('script', attrs={'type':'application/ld+json'}):
-    try:
-        data = json.loads(script.string or '{}')
-    except Exception:
-        continue
-    t = data.get('@type')
-    is_webpage = (t == 'WebPage') or (isinstance(t, list) and 'WebPage' in t)
-    if is_webpage and not data.get('dateModified'):
-        data['dateModified'] = today
-        script.string = json.dumps(data, ensure_ascii=False, separators=(',',':'))
-        changed = True
-if changed:
-    io.open(fn, 'w', encoding='utf-8').write(str(s))
-PY
-            "$f" "$TODAY"
-
-            # 2) <time id="verified-date">: actualizar si existe
+            # 2) <time id="verified-date"> -> TODAY (si existe)
             perl -0777 -i -pe 's/(<time\s+id=\"verified-date\"[^>]*datetime=\")\d{4}-\d{2}-\d{2}(\"[^>]*>)(\d{4}-\d{2}-\d{2})(<\/time>)/${1}$ENV{TODAY}$2$ENV{TODAY}$4/g' "$f"
-
-            # 2b) Si no existe el <time>, crearlo dentro de #verification-seal si está presente
-            python - <<'PY'
-import sys, io
-from bs4 import BeautifulSoup
-fn, today = sys.argv[1], sys.argv[2]
-html = io.open(fn, 'r', encoding='utf-8', errors='ignore').read()
-s = BeautifulSoup(html, 'html.parser')
-if not s.find(id='verified-date'):
-    seal = s.find(id='verification-seal')
-    if seal:
-        seal.clear()
-        seal.append('Verified on ')
-        t = s.new_tag('time', id='verified-date', datetime=today)
-        t.string = today
-        seal.append(t)
-        io.open(fn, 'w', encoding='utf-8').write(str(s))
-PY
-            "$f" "$TODAY"
-
-          done <<< "${{ steps.diff.outputs.changed }}"
+          done
 
       - name: Commit changes (if any)
         run: |
