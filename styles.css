@@ -419,3 +419,20 @@ button.button{
   .breadcrumbs + .header,
   .breadcrumbs ~ .header{ padding-top: .25rem; }
 }
+
+/* Breadcrumbs — force styling */
+nav[aria-label="Breadcrumb"] ol{
+  list-style: none !important;
+  padding-left: 0 !important;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  color: #6b7280;
+  font-size: .875rem;
+}
+nav[aria-label="Breadcrumb"] li{ display:flex; align-items:center; }
+nav[aria-label="Breadcrumb"] li + li::before{ content: "›"; margin: 0 .25rem; opacity: .6; }
+nav[aria-label="Breadcrumb"] a{ color: inherit; text-decoration: none; }
+nav[aria-label="Breadcrumb"] a:hover{ text-decoration: underline; }
+nav[aria-label="Breadcrumb"] [aria-current="page"]{ font-weight: 600; opacity:.9; }
