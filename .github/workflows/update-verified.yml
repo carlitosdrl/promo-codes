@@ -1,0 +1,97 @@
+name: Update verified date on store edits
+
+on:
+  push:
+    branches: [ main, master ]
+    paths:
+      - "stores/**/index.html"   # solo cuando toques una tienda
+  workflow_dispatch:             # también puedes lanzarlo manualmente
+
+permissions:
+  contents: write                # necesario para hacer commit automático
+
+jobs:
+  bump-date:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install deps (for BeautifulSoup)
+        run: pip install beautifulsoup4
+
+      - name: Get today date (UTC)
+        id: now
+        run: echo "today=$(date -u +'%Y-%m-%d')" >> "$GITHUB_OUTPUT"
+
+      - name: Find changed store files
+        id: diff
+        shell: bash
+        run: |
+          # Rango exacto del push (más robusto que HEAD~1)
+          BEFORE="${{ github.event.before }}"
+          AFTER="${{ github.sha }}"
+          if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+            # primer push/force-push: lista por diff contra árbol vacío
+            CHANGED=$(git ls-files 'stores/**/index.html')
+          else
+            CHANGED=$(git diff --name-only "$BEFORE" "$AFTER" -- 'stores/**/index.html' || true)
+          fi
+          echo "changed<<EOF" >> "$GITHUB_OUTPUT"
+          echo "$CHANGED" >> "$GITHUB_OUTPUT"
+          echo "EOF" >> "$GITHUB_OUTPUT"
+
+      - name: Update dateModified (JSON-LD) and <time id="verified-date">
+        if: steps.diff.outputs.changed != ''
+        shell: bash
+        env:
+          TODAY: ${{ steps.now.outputs.today }}
+        run: |
+          set -e
+          echo "Updating to $TODAY"
+          while IFS= read -r f; do
+            [ -z "$f" ] && continue
+            echo "• $f"
+
+            # 1) JSON-LD WebPage: "dateModified":"YYYY-MM-DD" -> TODAY
+            perl -0777 -i -pe 's/(\"dateModified\"\s*:\s*\")\d{4}-\d{2}-\d{2}(\")/${1}$ENV{TODAY}$2/g' "$f"
+
+            # 2) <time id="verified-date" datetime="YYYY-MM-DD">YYYY-MM-DD</time> -> TODAY
+            perl -0777 -i -pe 's/(<time\s+id=\"verified-date\"[^>]*datetime=\")\d{4}-\d{2}-\d{2}(\"[^>]*>)(\d{4}-\d{2}-\d{2})(<\/time>)/${1}$ENV{TODAY}$2$ENV{TODAY}$4/g' "$f"
+
+            # 3) Si no existe el <time id="verified-date">, insértalo dentro de #verification-seal (si existe)
+            python - <<'PY'
+import sys, io
+from bs4 import BeautifulSoup
+fn, today = sys.argv[1], sys.argv[2]
+html = io.open(fn, 'r', encoding='utf-8', errors='ignore').read()
+soup = BeautifulSoup(html, 'html.parser')
+if not soup.find(id='verified-date'):
+    seal = soup.find(id='verification-seal')
+    if seal:
+        seal.clear()
+        seal.append('Verified on ')
+        t = soup.new_tag('time', id='verified-date', datetime=today)
+        t.string = today
+        seal.append(t)
+        io.open(fn, 'w', encoding='utf-8').write(str(soup))
+PY
+            "$f" "$TODAY"
+          done <<< "${{ steps.diff.outputs.changed }}"
+
+      - name: Commit changes (if any)
+        run: |
+          if [[ -n "$(git status --porcelain)" ]]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "github-actions[bot]@users.noreply.github.com"
+            git commit -am "chore: update verified date to ${{ steps.now.outputs.today }}"
+            git push
+          else
+            echo "Nothing to commit"
+          fi
