@@ -307,6 +307,32 @@ h1,h2,h3{font-weight:600;letter-spacing:.2px}
 .header .logo{
   display: block;
   margin-inline: auto;           /* centra la imagen */
+
+/* Chip rail compacto para categorías */
+.search-wrap { position: sticky; top: 0; background: #fff; padding: .75rem 0; border-bottom: 1px solid #eee; z-index: 5; }
+
+.filters{
+  display: flex;
+  gap: .5rem;
+  overflow-x: auto;           /* scroll horizontal si no caben */
+  padding: .25rem 0 .5rem;
+  scrollbar-width: thin;
+}
+.filters::-webkit-scrollbar{ height: 8px; }
+.filters::-webkit-scrollbar-thumb{ background: #ddd; border-radius: 999px; }
+
+.pill{
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-radius: 999px;
+  padding: .35rem .75rem;
+  font-size: .9rem;
+  white-space: nowrap;        /* que no se partan */
+  background: #fff;
+  color: #111827;
+}
+.pill:hover{ text-decoration: none; box-shadow: 0 2px 10px rgba(0,0,0,.06); }
+.pill.active{ background: #111827; color: #fff; border-color: #111827; }
   max-width: clamp(180px, 22vw, 300px);
   height: auto;
 }
