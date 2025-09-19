@@ -1,124 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <title>Categories | ShopWithCarlos</title>
-  <meta name="description" content="Browse all categories of stores and promo codes on ShopWithCarlos." />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <link rel="canonical" href="https://shopwithcarlos.xyz/categories/" />
-  <link rel="stylesheet" href="/styles.css" />
-</head>
-<body>
-  <header>
-    <nav>
-      <a href="/" aria-label="Back to home">
-        <img src="/images/swc-logo.svg?v=3" alt="ShopWithCarlos" class="logo" width="300" height="120" decoding="async" fetchpriority="high">
-      </a>
-    </nav>
-  </header>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Exclusive Promo Codes & Coupons (Verified) — ShopWithCarlos</title>
+  <meta name="description" content="Save more with exclusive, verified promo codes & coupons from trusted brands. Updated regularly. Find codes for scooters, smart home, wellness, HVAC, furniture and more.">
+  <link rel="canonical" href="https://shopwithcarlos.xyz/">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300..700;1,300..700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
 
-  <main>
-    <h1>All Categories</h1>
-    <p>Explore every category available on ShopWithCarlos.</p>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Exclusive Verified Promo Codes — ShopWithCarlos">
+  <meta property="og:description" content="Curated coupons & storewide discounts, verified and updated.">
+  <meta property="og:image" content="https://shopwithcarlos.xyz/images/og-home.png">
+  <meta property="og:url" content="https://shopwithcarlos.xyz/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ShopWithCarlos">
+  <meta property="og:locale" content="en_US">
 
-    <p><a href="/">Home</a> &raquo; <span>Categories</span></p>
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
 
-    <!-- Lista de categorías, con mismo estilo que las stores -->
-    <ul id="category-list" class="stores"></ul>
+  <!-- GA -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HS58KQFT2B"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-HS58KQFT2B');
+  </script>
 
-    <noscript>
-      <p>Please enable JavaScript to load the category list.</p>
-    </noscript>
-  </main>
-
-  <footer>
-    <p>&copy; <span id="year"></span> ShopWithCarlos</p>
-  </footer>
-
-  <!-- JSON-LD -->
-  <script type="application/ld+json" id="itemlist-json">
+  <!-- JSON-LD: WebSite -->
+  <script type="application/ld+json">
   {
-    "@context": "https://schema.org",
-    "@type": "ItemList",
-    "name": "ShopWithCarlos Categories",
-    "itemListElement": []
+    "@context":"https://schema.org",
+    "@type":"WebSite",
+    "name":"ShopWithCarlos",
+    "url":"https://shopwithcarlos.xyz/"
   }
   </script>
 
-  <script>
-    const GH_API = "https://api.github.com/repos/carlitosdrl/promo-codes/contents/categories";
-    const DEST_URL = (slug) => `/categories/${slug}/`;
+  <!-- JSON-LD: WebPage -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"WebPage",
+    "name":"Exclusive Promo Codes & Coupons (Verified)",
+    "url":"https://shopwithcarlos.xyz/",
+    "dateModified":"2025-09-16"
+  }
+  </script>
 
-    const stripExt = (n) => n.replace(/\.[^.]+$/, "");
-    const slugify  = (n) => stripExt(n).toLowerCase();
-    const prettify = (n) => slugify(n).split(/[-_]/g).map(s => s.charAt(0).toUpperCase()+s.slice(1)).join(" ");
-
-    function pushJSONLD(name, url, pos){
-      const el = document.getElementById("itemlist-json");
-      const data = JSON.parse(el.textContent);
-      data.itemListElement.push({"@type":"ListItem","position":pos,"name":name,"url":url});
-      el.textContent = JSON.stringify(data);
-    }
-
-    function addCategory(name, idx){
-      const list = document.getElementById("category-list");
-      const li = document.createElement("li");
-      li.className = "store";
-
-      const a = document.createElement("a");
-      const title = prettify(name);
-      const slug  = slugify(name);
-      a.href = DEST_URL(slug);
-
-      // Aquí usamos tu logo en cada card
-      const img = document.createElement("img");
-      img.src = "/images/swc-logo.svg?v=3";
-      img.alt = "ShopWithCarlos";
-      img.className = "store-logo";
-      img.width = 120;
-      img.height = 120;
-
-      const span = document.createElement("span");
-      span.className = "store-name";
-      span.textContent = title;
-
-      a.appendChild(img);
-      a.appendChild(span);
-      li.appendChild(a);
-      list.appendChild(li);
-
-      pushJSONLD(title, a.href, idx+1);
-    }
-
-    async function loadCategories(){
-      try{
-        const res = await fetch(GH_API, { headers:{ "Accept":"application/vnd.github+json" }});
-        if(!res.ok) throw new Error("Could not read /categories directory from GitHub.");
-        const data = await res.json();
-
-        // Carpeta = categoría
-        let items = data.filter(x => x.type === "dir");
-
-        if(!items.length){
-          document.getElementById("category-list").innerHTML = "<li>No categories found.</li>";
-          return;
-        }
-
-        items
-          .sort((a,b) => prettify(a.name).localeCompare(prettify(b.name)))
-          .forEach((it,i) => addCategory(it.name, i));
-      }catch(e){
-        console.error(e);
-        document.getElementById("category-list").innerHTML = "<li>There was a problem loading categories. Please try again later.</li>";
-      }
-    }
-
-    document.getElementById("year").textContent = new Date().getFullYear();
-    loadCategories();
+  <!-- JSON-LD: ItemList of store pages (internal details pages) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"ItemList",
+    "name":"Featured Stores & Coupons",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"url":"https://shopwithcarlos.xyz/stores/acopower.com/"},
+    {"@type":"ListItem","position":2,"url":"https://shopwithcarlos.xyz/stores/anthbot.com/"},
+    {"@type":"ListItem","position":3,"url":"https://shopwithcarlos.xyz/stores/armadascooters.com/"},
+    {"@type":"ListItem","position":4,"url":"https://shopwithcarlos.xyz/stores/babyark.com/"},
+    {"@type":"ListItem","position":5,"url":"https://shopwithcarlos.xyz/stores/dellahome.com/"},
+    {"@type":"ListItem","position":6,"url":"https://shopwithcarlos.xyz/stores/dualtronusa.com/"},
+    {"@type":"ListItem","position":7,"url":"https://shopwithcarlos.xyz/stores/helloryse.com/"},
+    {"@type":"ListItem","position":8,"url":"https://shopwithcarlos.xyz/stores/hvachomesupply.com/"},
+    {"@type":"ListItem","position":9,"url":"https://shopwithcarlos.xyz/stores/salussaunas.com/"},
+    {"@type":"ListItem","position":10,"url":"https://shopwithcarlos.xyz/stores/vanpowers.com/"},
+    {"@type":"ListItem","position":11,"url":"https://shopwithcarlos.xyz/stores/xstostore.com/"},
+    {"@type":"ListItem","position":12,"url":"https://shopwithcarlos.xyz/stores/yumescooter.com/"}
+    ]
+  }
   </script>
 
   <style>
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .container { max-width: 1080px; margin: 0 auto; padding: 1rem; }
+    .page-title { font-size: clamp(1.6rem, 2.5vw, 2.25rem); margin: 0.5rem 0 0.25rem; }
+    .subtitle { color:#444; margin:0 0 1rem; }
+    .meta { font-size:.9rem; color:#666; }
+    .search-wrap { position: sticky; top: 0; background: #fff; padding: .75rem 0; border-bottom: 1px solid #eee; z-index: 5; }
+    .searchbar { width:100%; padding:.75rem 1rem; border:1px solid #ddd; border-radius:12px; font-size:1rem; }
+    .filters { display:flex; gap:.5rem; flex-wrap:wrap; margin:.5rem 0 1rem; }
+    .pill { border:1px solid #ddd; border-radius:999px; padding:.35rem .75rem; font-size:.9rem; cursor:pointer; user-select:none; }
+    .grid { display:grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1rem; }
+    .store-card { display:block; }
+    .store-link { display:flex; flex-direction:column; gap:.5rem; text-decoration:none; border:1px solid #eee; border-radius:16px; padding:1rem; background:#fff; transition:transform .06s ease, box-shadow .2s ease; }
+    .store-link:hover { transform: translateY(-2px); box-shadow:0 6px 18px rgba(0,0,0,.06); }
+    .store-logo { width:100%; height:auto; border-radius:12px; object-fit:contain; background:#fafafa; }
+    .store-title { margin:.25rem 0; }
+    .store-offer, .store-code, .store-cta { margin:.15rem 0; color:#333; }
+    .store-cta { font-weight:600; }
+    .store-details { margin:.35rem 0 .1rem; font-size:.95rem; }
+    .store-details a { text-decoration: underline; }
+    footer p.small { font-size: .9rem; color:#555; }
   </style>
+
+</head>
+
+<body class="home">
+  <header class="header">
+    <a href="/" aria-label="Home — ShopWithCarlos">
+      <img src="/images/swc-logo.svg?v=3"
+         alt="ShopWithCarlos"
+         class="logo"
+         width="300" height="120"
+         decoding="async" fetchpriority="high">
+    </a>
+    <div class="header-content">
+      <h1 class="page-title">Exclusive Promo Codes & Coupons (Verified)</h1>
+      <p class="subtitle">Curated storewide deals and model‑specific coupons. Updated regularly.</p>
+    </div>
+  </header>
+
+  <main class="container" id="main">
+    <div class="search-wrap" role="search">
+      <label for="search" class="visually-hidden">Search stores or categories</label>
+      <input id="search" class="searchbar" type="search" placeholder="Search stores, categories, or codes (e.g., scooter, HVAC, $100, CLV)…" aria-describedby="filters">
+      <div id="filters" class="filters" aria-label="Quick filters">
+        <a class="pill" href="/categories/" data-filter="">All</a>
+        <a class="pill" href="/categories/e-mobility/" data-filter="e-mobility">E-Mobility</a>
+        <a class="pill" href="/categories/e-bikes/" data-filter="e-bikes">E-Bikes</a>
+        <a class="pill" href="/categories/smart-home/" data-filter="smart home">Smart Home</a>
+        <a class="pill" href="/categories/home-and-furniture/" data-filter="home & furniture">Home & Furniture</a>
+        <a class="pill" href="/categories/home-improvement/" data-filter="home improvement">Home Improvement</a>
+        <a class="pill" href="/categories/wellness/" data-filter="wellness">Wellness</a>
+        <a class="pill" href="/categories/industrial-and-mobility/" data-filter="industrial & mobility">Industrial & Mobility</a>
+        <a class="pill" href="/categories/outdoors-and-energy/" data-filter="outdoors & energy">Outdoors & Energy</a>
+         <a class="pill" href="/categories/baby-and-kids/" data-filter="baby & kids">Baby & Kids</a>
+      </div>      
+    </div>
+
+    <section aria-labelledby="featured">
+      <h2 id="featured" class="visually-hidden">Featured Stores & Coupons</h2>
+      <div class="grid" id="stores-grid">
+
+  <article class="card store-card" data-name="acopower" data-category="outdoors & energy">
+    <a class="store-link" href="https://acopower.com/discount/CARLOSRIVERO?ref=carlos" target="_blank" rel="noopener noreferrer sponsored nofollow" aria-label="ACOPOWER affiliate deal">
+      <img src="/images/acopower.png" alt="ACOPOWER logo" width="300" height="300" loading="lazy" class="store-logo"/>
+      <div class="store-content">
+        <h3 class="store-title">ACOPOWER</h3>
+        <p class="store-offer">10% Off Solar Gear</p>
+        <p class="store-code"><strong>Code:</strong> <code>CARLOSRIVERO</code></p>
+        <p class="store-cta">Go to deal ↗</p>
+      </div>
+    </a>
+    <p class="store-details"><a href="/stores/acopower.com/">Details &amp; how to apply</a></p>
+  </article>
+
+
+  <article class="card store-card" data-name="anthbot" data-category="industrial & mobility">
+    <a class="store-link" href="https://us.anthbot.com/discount/CARLOS100?ref=carlos" target="_blank" rel="noopener noreferrer sponsored nofollow" aria-label="Anthbot affiliate deal">
+      <img src="/images/anthbot.png" alt="Anthbot logo" width="300" height="300" loading="lazy" class="store-logo"/>
+      <div class="store-content">
+        <h3 class="store-title">Anthbot</h3>
+        <p class="store-offer">$100 Off Stair Climbers</p>
+        <p class="store-code"><strong>Code:</strong> <code>CARLOS100</code></p>
+        <p class="store-cta">Go to deal ↗</p>
+      </div>
+    </a>
+    <p class="store-details"><a href="/stores/anthbot.com/">Details &amp; how to apply</a></p>
+  </article>
+
+
+  <article class="card store-card" data-name="armada scooters" data-category="e‑mobility">
+    <a class="store-link" href="https://armadascooters.com/?ref=carlos" target="_blank" rel="noopener noreferrer sponsored nofollow" aria-label="Armada Scooters affiliate deal">
+      <img src="/images/armada.png" alt="Armada Scooters logo" width="300" height="300" loading="lazy" class="store-logo"/>
+      <div class="store-content">
+        <h3 class="store-title">Armada Scooters</h3>
+        <p class="store-offer">$100 Off Electric Scooters</p>
+        <p class="store-code"><strong>Code:</strong> <code>CARLOS100</code></p>
+        <p class="store-cta">Go to deal ↗</p>
+      </div>
+    </a>
+    <p class="store-details"><a href="/stores/armadascooters.com/">Details &amp; how to apply</a></p>
+  </article>
+
+
+  <article class="card store-card" data-name="babyark" data-category="baby & kids">
+    <a class="store-link" href="https://babyarkdabc3.referralrock.com/l/CARLOSLUGO69/" target="_blank" rel="noopener noreferrer sponsored nofollow" aria-label="Babyark affiliate deal">
+      <img src="/images/babyark.png" alt="Babyark logo" width="300" height="300" loading="lazy" class="store-logo"/>
+      <div class="store-content">
+        <h3 class="store-title">Babyark</h3>
+        <p class="store-offer">$100 Off Smart Car Seat</p>
+        <p class="store-code"><strong>Code:</strong> <code>REFERARK</code></p>
+        <p class="store-cta">Go to deal ↗</p>
+      </div>
+    </a>
+    <p class="store-details"><a href="/stores/babyark.com/">Details &amp; how to apply</a></p>
+  </article>
+
+
+  <article class="card store-card" data-name="della home" data-category="home & furniture">
+    <a class="store-link" href="https://dellahome.com/discount/CARLOS?ref=carlos" target="_blank" rel="noopener noreferrer sponsored nofollow" aria-label="Della Home affiliate deal">
+      <img src="/images/della-home.png" alt="Della Home logo" width="300" height="300" loading="lazy" class="store-logo"/>
+      <div class="store-content">
+        <h3 class="store-title">Della Home</h3>
+        <p class="store-offer">5% Off Furniture</p>
+        <p class="store-code"><strong>Code:</strong> <code>CARLOS</code></p>
+        <p class="store-cta">Go to deal ↗</p>
+      </div>
+    </a>
+    <p class="store-details"><a href="/stores/dellahome.com/">Details &amp; how to apply</a></p>
+  </article>
+
+
+  <article class="card store-card" data-name="dualtron usa" data-category="e‑mobility">
+    <a class="store-link" href="https://dualtronusa.com/discount/SHOPWITHCARLOS?ref=carlos" target="_blank" rel="noopener noreferrer sponsored nofollow" aria-label="Dualtron USA affiliate deal">
+      <img src="/images/dualtron.png" alt="Dualtron USA logo" width="300" height="300" loading="lazy" class="store-logo"/>
+      <div class="store-content">
+        <h3 class="store-title">Dualtron USA</h3>
+        <p class="store-offer">$20 Off Electric Scooters</p>
+        <p class="store-code"><strong>Code:</strong> <code>SHOPWITHCARLOS</code></p>
+        <p class="store-cta">Go to deal ↗</p>
+      </div>
+    </a>
+    <p class="store-details"><a href="/stores/dualtronusa.com/">Details &amp; how to apply</a></p>
+  </article>
+
+
+  <article class="card store-card" data-name="ryse" data-category="smart home">
+    <a class="store-link" href="https://www.helloryse.com/discount/CARLOSLUGO" target="_blank" rel="noopener noreferrer sponsored nofollow" aria-label="RYSE affiliate deal">
+      <img src="/images/ryse.png" alt="RYSE logo" width="300" height="300" loading="lazy" class="store-logo"/>
+      <div class="store-content">
+        <h3 class="store-title">RYSE</h3>
+        <p class="store-offer">15% Off Smart Shades</p>
+        <p class="store-code"><strong>Code:</strong> <code>CARLOSLUGO</code></p>
+        <p class="store-cta">Go to deal ↗</p>
+      </div>
+    </a>
+    <p class="store-details"><a href="/stores/helloryse.com/">Details &amp; how to apply</a></p>
+  </article>
+
+
+  <article class="card store-card" data-name="hvac home supply" data-category="home improvement">
+    <a class="store-link" href="https://hvachomesupply.com/carlos8354621" target="_blank" rel="noopener noreferrer sponsored nofollow" aria-label="HVAC Home Supply affiliate deal">
+      <img src="/images/hvac.png" alt="HVAC Home Supply logo" width="300" height="300" loading="lazy" class="store-logo"/>
+      <div class="store-content">
+        <h3 class="store-title">HVAC Home Supply</h3>
+        <p class="store-offer">3% Off HVAC Tools</p>
+        <p class="store-code"><strong>Code:</strong> <code>CARLOS</code></p>
+        <p class="store-cta">Go to deal ↗</p>
+      </div>
+    </a>
+    <p class="store-details"><a href="/stores/hvachomesupply.com/">Details &amp; how to apply</a></p>
+  </article>
+
+
+  <article class="card store-card" data-name="salus saunas" data-category="wellness">
+    <a class="store-link" href="https://www.salussaunas.com/discount/CARLOS100" target="_blank" rel="noopener noreferrer sponsored nofollow" aria-label="Salus Saunas affiliate deal">
+      <img src="/images/salus-saunas.png" alt="Salus Saunas logo" width="300" height="300" loading="lazy" class="store-logo"/>
+      <div class="store-content">
+        <h3 class="store-title">Salus Saunas</h3>
+        <p class="store-offer">$100 Off Infrared Saunas</p>
+        <p class="store-code"><strong>Code:</strong> <code>CARLOS100</code></p>
+        <p class="store-cta">Go to deal ↗</p>
+      </div>
+    </a>
+    <p class="store-details"><a href="/stores/salussaunas.com/">Details &amp; how to apply</a></p>
+  </article>
+
+
+  <article class="card store-card" data-name="vanpowers" data-category="e‑bikes">
+    <a class="store-link" href="https://vanpowers.com/products/city-vanture?sca_ref=7405587.BJuqNuCfao&utm_source=affiliate&utm_medium=uppromote&utm_campaign=7405587&utm_term=80201" target="_blank" rel="noopener noreferrer sponsored nofollow" aria-label="Vanpowers affiliate deal">
+      <img src="/images/vanpowers.png" alt="Vanpowers logo" width="300" height="300" loading="lazy" class="store-logo"/>
+      <div class="store-content">
+        <h3 class="store-title">Vanpowers</h3>
+        <p class="store-offer">$300 Off City Vanture</p>
+        <p class="store-code"><strong>Code:</strong> <code>CLV</code></p>
+        <p class="store-cta">Go to deal ↗</p>
+      </div>
+    </a>
+    <p class="store-details"><a href="/stores/vanpowers.com/">Details &amp; how to apply</a></p>
+  </article>
+
+
+  <article class="card store-card" data-name="xsto store" data-category="industrial & mobility">
+    <a class="store-link" href="https://xstostore.com/discount/SAVE100?ref=carlos" target="_blank" rel="noopener noreferrer sponsored nofollow" aria-label="XSTO Store affiliate deal">
+      <img src="/images/xsto.png" alt="XSTO Store logo" width="300" height="300" loading="lazy" class="store-logo"/>
+      <div class="store-content">
+        <h3 class="store-title">XSTO Store</h3>
+        <p class="store-offer">$100 Off Mobility Equipment</p>
+        <p class="store-code"><strong>Code:</strong> <code>SAVE100</code></p>
+        <p class="store-cta">Go to deal ↗</p>
+      </div>
+    </a>
+    <p class="store-details"><a href="/stores/xstostore.com/">Details &amp; how to apply</a></p>
+  </article>
+
+
+  <article class="card store-card" data-name="yume scooter" data-category="e‑mobility">
+    <a class="store-link" href="https://yumescooter.com/?sca_ref=5620055.N5J9odeCOR&utm_source=uppromote&utm_medium=aff&utm_campaign=25632&utm_content=Carlos-Lugo" target="_blank" rel="noopener noreferrer sponsored nofollow" aria-label="YUME Scooter affiliate deal">
+      <img src="/images/yume.png" alt="YUME Scooter logo" width="300" height="300" loading="lazy" class="store-logo"/>
+      <div class="store-content">
+        <h3 class="store-title">YUME Scooter</h3>
+        <p class="store-offer">Up to $300 Off Models</p>
+        <p class="store-code"><strong>Code:</strong> <code>Model‑specific</code></p>
+        <p class="store-cta">Go to deal ↗</p>
+      </div>
+    </a>
+    <p class="store-details"><a href="/stores/yumescooter.com/">Details &amp; how to apply</a></p>
+  </article>
+
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <p>© 2025 ShopWithCarlos. All rights reserved.</p>
+    <p class="small">*ShopWithCarlos may receive a commission for purchases made through these links.</p>
+    <div class="footer-links">
+      <a href="mailto:carlosdavid145@gmail.com">Contact</a> |
+      <a href="/privacy-policy/">Privacy Policy</a> |
+      <a href="/terms-use/">Terms of Use</a>
+    </div>
+  </footer>
+
+  <script>
+  (function() {
+    const q = document.getElementById('search');
+    const grid = document.getElementById('stores-grid');
+    const cards = Array.from(grid.querySelectorAll('.store-card'));
+    const pills = Array.from(document.querySelectorAll('.filters .pill'));
+    let activeFilter = "";
+
+    const normalize = (s) => (s || "")
+      .toLowerCase()
+      .normalize('NFKD')                       // quita acentos
+      .replace(/[\u2010-\u2015]/g, '-')        // todos los guiones “raros” → -
+      .replace(/&/g, ' and ')                  // & → and
+      .replace(/\s+/g, ' ')                    // espacios múltiples → uno
+      .trim();
+
+    // forma canon: sin espacios ni guiones, para matches como "ebikes"
+    const canon = (s) => normalize(s).replace(/[-_\s/]+/g, '');
+
+    function matches(card, term){
+      const name = card.dataset.name || "";
+      const cat  = card.dataset.category || "";
+      const tags = card.dataset.tags || "";     // opcional si lo agregas
+      const text = card.innerText || "";
+
+      const tNorm  = normalize(term);
+      const tCanon = canon(term);
+
+      const hayFiltro = !!activeFilter;
+      const catIncluyeFiltro = !hayFiltro || normalize(cat).includes(activeFilter);
+
+      // Comparamos en dos niveles: normal e hiper-laxo (canon)
+      const blobNorm  = normalize(name + ' ' + cat + ' ' + tags + ' ' + text);
+      const blobCanon = canon(name + ' ' + cat + ' ' + tags + ' ' + text);
+
+      const txtOk = !tNorm || blobNorm.includes(tNorm) || blobCanon.includes(tCanon);
+      return catIncluyeFiltro && txtOk;
+    }
+
+    function render(){
+      const term = q.value;
+      cards.forEach(c => { c.style.display = matches(c, term) ? "" : "none"; });
+    }
+
+    // Filtros (chips)
+    pills.forEach(p => {
+      p.addEventListener('click', (e) => {
+        const openNew = e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button === 1;
+        if (!openNew) {
+          e.preventDefault();
+          activeFilter = normalize(p.dataset.filter);
+          pills.forEach(x => x.classList.remove('active'));
+          p.classList.add('active');
+          render();
+        }
+      });
+    });
+
+    q.addEventListener('input', render);
+    render();
+  })();
+  </script>
 </body>
 </html>
