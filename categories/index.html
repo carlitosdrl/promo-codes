@@ -23,7 +23,7 @@
 
     <p><a href="/">Home</a> &raquo; <span>Categories</span></p>
 
-    <!-- Lista de categorías, con mismo estilo que las stores -->
+    <!-- Lista de categorías con mismo estilo que el home -->
     <ul id="category-list" class="stores"></ul>
 
     <noscript>
@@ -70,19 +70,10 @@
       const slug  = slugify(name);
       a.href = DEST_URL(slug);
 
-      // Aquí usamos tu logo en cada card
-      const img = document.createElement("img");
-      img.src = "/images/swc-logo.svg?v=3";
-      img.alt = "ShopWithCarlos";
-      img.className = "store-logo";
-      img.width = 120;
-      img.height = 120;
-
       const span = document.createElement("span");
       span.className = "store-name";
       span.textContent = title;
 
-      a.appendChild(img);
       a.appendChild(span);
       li.appendChild(a);
       list.appendChild(li);
