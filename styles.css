@@ -854,3 +854,26 @@ nav[aria-label="Breadcrumb"] [aria-current="page"]{ font-weight: 600; opacity:.9
 .store details[open]{
   box-shadow: 0 6px 18px rgba(0,0,0,.06);
 }
+
+/* FAQ plano */
+.store .faq {
+  background: transparent;
+  border: 0;
+  box-shadow: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 1.5rem 0 2rem;
+}
+
+.store .faq h2 {
+  margin-bottom: .75rem;
+}
+
+.store .faq details {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: .75rem .9rem;
+  margin: .6rem 0;
+  background: #fff;
+}
+
