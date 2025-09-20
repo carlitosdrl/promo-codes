@@ -684,3 +684,35 @@ nav[aria-label="Breadcrumb"] [aria-current="page"]{ font-weight: 600; opacity:.9
   }
 }
 
+/* ===== Callout neutral: igual a las .card (sin azul) ===== */
+.callout { 
+  /* hereda el look de .card */
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow);
+
+  /* limpia el acento azul del borde izquierdo */
+  border-left: none;
+  grid-template-columns: 1fr; /* título + lista en una columna */
+  padding: 1.25rem;
+}
+
+.callout--neutral .callout__icon { display: none; } /* ocultamos el circulito azul */
+
+.callout__title{
+  margin: 0 0 .5rem 0;
+  font-size: clamp(1.15rem, 1.6vw, 1.35rem); /* igual que .card h2 */
+  color: var(--text);
+}
+
+/* Lista más parecida a la card/FAQ */
+.callout--neutral .checklist{
+  list-style: disc;
+  padding-left: 1.25rem;
+  margin: 0;
+}
+.callout--neutral .checklist li{
+  padding-left: 0;
+}
+.callout--neutral .checklist li::before{ content: none; } /* sin check azul */
