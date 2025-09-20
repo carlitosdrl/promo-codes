@@ -436,3 +436,154 @@ nav[aria-label="Breadcrumb"] li + li::before{ content: "›"; margin: 0 .25rem; 
 nav[aria-label="Breadcrumb"] a{ color: inherit; text-decoration: none; }
 nav[aria-label="Breadcrumb"] a:hover{ text-decoration: underline; }
 nav[aria-label="Breadcrumb"] [aria-current="page"]{ font-weight: 600; opacity:.9; }
+
+/* =========================
+   Categories: breadcrumbs
+   ========================= */
+.breadcrumbs {
+  font-size: 0.875rem;
+  color: #6b7280; /* gris medio */
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 1rem 0 0.75rem;
+}
+
+.breadcrumbs a {
+  color: inherit;
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: border-color 160ms ease, color 160ms ease;
+}
+
+.breadcrumbs a:hover {
+  color: #111827; /* gris muy oscuro */
+  border-color: currentColor;
+}
+
+/* =========================
+   Categories: hub list
+   (ul#category-list.stores)
+   ========================= */
+#category-list.stores {
+  /* Si ya tienes estilos para .stores, este bloque añade grid responsivo */
+  list-style: none;
+  margin: 1rem 0 2rem;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+  gap: 0.75rem;
+}
+
+#category-list.stores li a {
+  display: block;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid #e5e7eb;      /* gris claro */
+  border-radius: 10px;
+  background: #ffffff;
+  text-decoration: none;
+  color: #111827;                  /* texto oscuro */
+  line-height: 1.25;
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+
+#category-list.stores li a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+  border-color: #d1d5db;
+}
+
+/* =========================
+   Categories: "More categories"
+   ========================= */
+.more-categories {
+  margin-top: 2rem;
+}
+
+.more-categories h2 {
+  font-size: 1.125rem;
+  margin: 0 0 0.75rem;
+  color: #111827;
+}
+
+.more-categories ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 0.75rem;
+}
+
+.more-categories li a {
+  display: block;
+  padding: 0.65rem 0.8rem;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+  background: #ffffff;
+  color: #1f2937; /* gris oscuro */
+  text-decoration: none;
+  transition: transform 120ms ease, box-shadow 120ms ease, border-color 120ms ease;
+}
+
+.more-categories li a:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 14px rgba(0,0,0,0.08);
+  border-color: #d1d5db;
+}
+
+/* =========================
+   Categories: footer link
+   ========================= */
+.category-footer {
+  margin-top: 2rem;
+}
+
+.category-footer a {
+  display: inline-block;
+  padding: 0.6rem 0.9rem;
+  border-radius: 999px;
+  border: 1px solid #e5e7eb;
+  background: #f9fafb;
+  color: #111827;
+  text-decoration: none;
+  transition: background-color 120ms ease, box-shadow 120ms ease, transform 120ms ease, border-color 120ms ease;
+}
+
+.category-footer a:hover {
+  background: #ffffff;
+  border-color: #d1d5db;
+  box-shadow: 0 8px 18px rgba(0,0,0,0.08);
+  transform: translateY(-1px);
+}
+
+/* =========================
+   Accesibilidad y dark mode
+   ========================= */
+@media (prefers-reduced-motion: reduce) {
+  .breadcrumbs a,
+  #category-list.stores li a,
+  .more-categories li a,
+  .category-footer a {
+    transition: none !important;
+    transform: none !important;
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .breadcrumbs { color: #9ca3af; }
+  #category-list.stores li a,
+  .more-categories li a,
+  .category-footer a {
+    background: #0b0f14;
+    color: #e5e7eb;
+    border-color: #26313c;
+  }
+  #category-list.stores li a:hover,
+  .more-categories li a:hover,
+  .category-footer a:hover {
+    border-color: #334155;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.35);
+  }
+}
