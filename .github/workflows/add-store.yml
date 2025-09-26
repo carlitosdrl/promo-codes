@@ -60,7 +60,6 @@ jobs:
           root = Path('.')
           data = json.loads(Path('data.json').read_text())
 
-          # --- Datos base
           site_domain = data['site_domain'].rstrip('/')
           store_domain = data['store_domain']
           brand = data['store_name']
@@ -68,7 +67,6 @@ jobs:
           code = (data.get('code') or '').strip()
           has_code = bool(code)
 
-          # --- Fechas
           today = datetime.date.today()
           verified_iso = (data.get('verified_date') or today.isoformat())
           try:
@@ -79,7 +77,6 @@ jobs:
           published_iso = data.get('published_iso', verified_iso)
           modified_iso = data.get('modified_iso', today.isoformat())
 
-          # --- Secciones condicionales
           if has_code:
               display_code = code
               howto = f'''<section>
@@ -103,16 +100,13 @@ jobs:
 </section>'''
               offer_desc_jsonld = "Discount is applied automatically at checkout."
 
-          # --- Footer desde index.html
           tpl = (root/'templates'/'store-template.html').read_text(encoding='utf-8')
           idx = (root/'index.html').read_text(encoding='utf-8', errors='ignore')
           m = re.search(r'<footer[\s\S]*?</footer>', idx, re.I)
           footer_html = m.group(0) if m else f'<footer class="footer"><p>© {data["year"]} {data["site_name"]}</p></footer>'
 
-          # --- Texto largo opcional
           about_raw = data.get('about_html','')
 
-          # --- Escapar llaves literales en inserciones
           def esc(s: str) -> str:
               return s.replace('{','{{').replace('}','}}')
 
@@ -199,7 +193,7 @@ jobs:
               region = idx[start:end]
               count = len([m for m in re.finditer(r'"@type"\s*:\s*"ListItem"', region)])
               position = count + 1
-              line = '{{"@type":"ListItem","position":{pos},"url":"https://{dom}/stores/{sd}/"}},\n'.format(
+              line = '{{"@type":"ListItem","position":{pos},"url":"https://{dom}/stores/{sd}/"}}\n'.format(
                 pos=position, dom=data['site_domain'].rstrip('/'), sd=data['store_domain']
               )
               idx = idx.replace(end_marker, line + end_marker)
@@ -224,6 +218,7 @@ jobs:
           page_url = f"https://{data['site_domain'].rstrip('/')}/stores/{data['store_domain']}/"
           pathlib.Path('comment.txt').write_text(page_url, encoding='utf-8')
           PY
+
       - name: Post comment
         uses: actions/github-script@v7
         with:
