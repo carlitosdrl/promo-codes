@@ -62,22 +62,14 @@
     <h1>{H1}</h1>
     <p class="lead">{LEAD}</p>
     <div class="code-card">
-      <p><strong>Promo Code:</strong> <code>{CODE}</code></p>
+      {CODE_CARD}
       <p><a class="btn" href="{AFFILIATE_URL}" rel="sponsored nofollow noreferrer" target="_blank">Go to {STORE_DOMAIN} ↗</a></p>
     </div>
   </div>
 </header>
 
 <main class="content">
-  <section>
-    <h2>How to Apply the Code</h2>
-    <ol>
-      <li>Go to <a href="{AFFILIATE_URL}" rel="sponsored nofollow noreferrer" target="_blank">{STORE_DOMAIN}</a>.</li>
-      <li>Add items to your cart and go to checkout.</li>
-      <li>Paste <code>{CODE}</code> where it says <em>Promo code</em> and apply.</li>
-      <li>Discount appears before you pay.</li>
-    </ol>
-  </section>
+  {HOWTO_SECTION}
 
   <section>
     <h2>FAQ</h2>
