@@ -1,30 +1,59 @@
 name: "New Store"
-description: "Create a new store page and home card from this form."
-title: "New store: <store name>"
+description: "Crea una nueva página de tienda y tarjeta en Home con campos prellenados."
+title: "New store: <STORE_NAME>"
 labels: ["new-store"]
 body:
+  - type: markdown
+    attributes:
+      value: |
+        **Instrucciones**
+        - Cambia solo lo que está entre `<>`.
+        - Si la tienda **no tiene código**, deja `code:` vacío (el sitio mostrará “No code required”).
+        - Sube el logo a `/images/` y pon el nombre del archivo en `og_image:`.
+        - Las fechas (`verified_date`, `published_iso`, `modified_iso`) pueden quedar así o ajustarse.
+
   - type: textarea
     id: yaml
     attributes:
-      label: Store data (YAML)
-      description: Paste/edit this YAML block. The workflow will generate the page and update the home grid.
+      label: Datos de la tienda (YAML)
+      description: Pega/edita este bloque. El workflow generará la página, insertará la tarjeta en Home y actualizará el JSON-LD.
       value: |
         ```yaml
-        store_name: "Brand Name"
-        store_domain: "brand.com"          # used for /stores/<store_domain>/
-        offer: "X% Off ..."
-        code: "CODE123"
-        affiliate_url: "https://brand.com/discount/CODE123?..."  # full URL
-        category: "outdoors & energy"
-        og_image: "brand.png"              # file in /images/
-        seo_title: "Brand Promo Code — Save X%"
-        seo_description: "Verified coupon for Brand. How to apply + FAQs."
-        h1: "Brand Coupon & Promo Code — Save X% at brand.com"
-        lead: "Use code CODE123 at checkout to save X% on ..."
-        site_domain: "tu-dominio.com"      # tu dominio real o el de GitHub Pages
+        # --- Identidad de la tienda ---
+        store_name: "<STORE_NAME>"                  # Ej: RYSE
+        store_domain: "<STORE_DOMAIN>"              # Ej: helloryse.com
+        store_url: "https://<STORE_DOMAIN>"
+
+        # --- Oferta / seguimiento ---
+        offer: "15% Off"                            # Ej: 15% Off
+        code: "CARLOSLUGO"                          # Deja vacío si no hay código
+        affiliate_url: "https://<STORE_DOMAIN>/discount/<CODE>"  # O tu enlace real (ej: https://omorpho.com/CARLOS)
+        category: "smart home"                      # Cambia si aplica
+        og_image: "<slug>.png"                      # Archivo en /images/, ej: ryse.png
+
+        # --- SEO y textos visibles ---
+        seo_title: "<STORE_NAME> Promo Code (<OFFER>) – <STORE_NAME> Coupons"
+        seo_description: "Looking for <STORE_NAME> coupons? Use promo code <CODE> for <OFFER> at <STORE_DOMAIN>. Verified <STORE_DOMAIN> coupons & discounts."
+        h1: "<STORE_NAME> Coupon & Promo Code – Save <OFFER> at <STORE_DOMAIN>"
+        lead: "Use code <CODE> at checkout to save <OFFER> on <STORE_NAME> products."
+
+        # --- Sitio / marca (defaults de tu proyecto) ---
+        site_domain: "shopwithcarlos.xyz"
         site_name: "Shop With Carlos"
         ga_id: "G-HS58KQFT2B"
         year: 2025
+
+        # --- Fechas (para la página y JSON-LD) ---
+        verified_date: "2025-09-26"
+        published_iso: "2025-09-26"
+        modified_iso: "2025-09-26"
+
+        # --- Texto largo opcional (aparece en la página bajo HOWTO) ---
+        about_html: |
+          <section>
+            <h2>Why Choose <STORE_NAME>?</h2>
+            <p>If you are searching for a <STORE_NAME> discount code, promo code or coupon code for <strong><STORE_DOMAIN></strong>, you've come to the right place.</p>
+          </section>
         ```
     validations:
       required: true
