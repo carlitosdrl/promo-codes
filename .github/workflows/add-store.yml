@@ -77,27 +77,32 @@ jobs:
           published_iso = data.get('published_iso', verified_iso)
           modified_iso = data.get('modified_iso', today.isoformat())
 
+          # --- Secciones condicionales (código / sin código)  **SIN multiline strings**
           if has_code:
               display_code = code
-              howto = f'''<section>
-  <h2>How do I apply the promo code at {store_domain}?</h2>
-  <ol>
-    <li><a href="{data['affiliate_url']}" rel="sponsored nofollow noopener noreferrer" target="_blank">Visit {brand}</a></li>
-    <li>Add items to the cart</li>
-    <li>At checkout, enter the code <strong>{code}</strong></li>
-    <li>Enjoy your discount</li>
-  </ol>
-</section>'''
+              howto = (
+                  f"<section>\n"
+                  f"  <h2>How do I apply the promo code at {store_domain}?</h2>\n"
+                  f"  <ol>\n"
+                  f"    <li><a href=\"{data['affiliate_url']}\" rel=\"sponsored nofollow noopener noreferrer\" target=\"_blank\">Visit {brand}</a></li>\n"
+                  f"    <li>Add items to the cart</li>\n"
+                  f"    <li>At checkout, enter the code <strong>{code}</strong></li>\n"
+                  f"    <li>Enjoy your discount</li>\n"
+                  f"  </ol>\n"
+                  f"</section>"
+              )
               offer_desc_jsonld = f"Use code {code} at checkout."
           else:
               display_code = 'No code required'
-              howto = f'''<section>
-  <h2>How do I get the discount at {store_domain}?</h2>
-  <ol>
-    <li><a href="{data['affiliate_url']}" rel="sponsored nofollow noopener noreferrer" target="_blank">Visit {brand}</a></li>
-    <li>The discount is applied automatically at checkout (no code).</li>
-  </ol>
-</section>'''
+              howto = (
+                  f"<section>\n"
+                  f"  <h2>How do I get the discount at {store_domain}?</h2>\n"
+                  f"  <ol>\n"
+                  f"    <li><a href=\"{data['affiliate_url']}\" rel=\"sponsored nofollow noopener noreferrer\" target=\"_blank\">Visit {brand}</a></li>\n"
+                  f"    <li>The discount is applied automatically at checkout (no code).</li>\n"
+                  f"  </ol>\n"
+                  f"</section>"
+              )
               offer_desc_jsonld = "Discount is applied automatically at checkout."
 
           tpl = (root/'templates'/'store-template.html').read_text(encoding='utf-8')
@@ -141,6 +146,7 @@ jobs:
           outdir.mkdir(parents=True, exist_ok=True)
           (outdir/'index.html').write_text(html_out, encoding='utf-8')
           PY
+
 
       - name: Insert card into home grid
         run: |
