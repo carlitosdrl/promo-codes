@@ -1,7 +1,8 @@
 name: Add store from Issue
 on:
   issues:
-    types: [opened]
+    types: [opened, edited, labeled, reopened]
+  workflow_dispatch:
 
 permissions:
   contents: write
@@ -9,7 +10,11 @@ permissions:
 
 jobs:
   add:
-    if: contains(join(fromJson(toJson(github.event.issue.labels)).*.name, ','), 'new-store') || startsWith(github.event.issue.title, 'New store')
+    if: >
+      (github.event_name == 'issues' &&
+       (contains(join(fromJson(toJson(github.event.issue.labels)).*.name, ','), 'new-store')
+        || startsWith(github.event.issue.title, 'New store')))
+      || (github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -50,11 +55,11 @@ jobs:
       - name: Render store page (inject your footer)
         run: |
           python3 - <<'PY'
-          import re, json, datetime, html
+          import re, json, datetime
           from pathlib import Path
           root = Path('.')
           data = json.loads(Path('data.json').read_text())
-      
+
           # --- Datos base
           site_domain = data['site_domain'].rstrip('/')
           store_domain = data['store_domain']
@@ -62,57 +67,55 @@ jobs:
           store_url = data.get('store_url') or f"https://{store_domain}"
           code = (data.get('code') or '').strip()
           has_code = bool(code)
-      
+
           # --- Fechas
           today = datetime.date.today()
           verified_iso = (data.get('verified_date') or today.isoformat())
-          # Formato bonito: Saturday, September 20, 2025
           try:
               d = datetime.date.fromisoformat(verified_iso[:10])
               verified_human = d.strftime("%A, %B %d, %Y")
           except Exception:
               verified_human = verified_iso
-      
           published_iso = data.get('published_iso', verified_iso)
           modified_iso = data.get('modified_iso', today.isoformat())
-      
-          # --- Secciones condicionales (código / sin código)
+
+          # --- Secciones condicionales
           if has_code:
               display_code = code
               howto = f'''<section>
-        <h2>How do I apply the promo code at {store_domain}?</h2>
-        <ol>
-          <li><a href="{data['affiliate_url']}" rel="sponsored nofollow noopener noreferrer" target="_blank">Visit {brand}</a></li>
-          <li>Add items to the cart</li>
-          <li>At checkout, enter the code <strong>{code}</strong></li>
-          <li>Enjoy your discount</li>
-        </ol>
-      </section>'''
+  <h2>How do I apply the promo code at {store_domain}?</h2>
+  <ol>
+    <li><a href="{data['affiliate_url']}" rel="sponsored nofollow noopener noreferrer" target="_blank">Visit {brand}</a></li>
+    <li>Add items to the cart</li>
+    <li>At checkout, enter the code <strong>{code}</strong></li>
+    <li>Enjoy your discount</li>
+  </ol>
+</section>'''
               offer_desc_jsonld = f"Use code {code} at checkout."
           else:
               display_code = 'No code required'
               howto = f'''<section>
-        <h2>How do I get the discount at {store_domain}?</h2>
-        <ol>
-          <li><a href="{data['affiliate_url']}" rel="sponsored nofollow noopener noreferrer" target="_blank">Visit {brand}</a></li>
-          <li>The discount is applied automatically at checkout (no code).</li>
-        </ol>
-      </section>'''
+  <h2>How do I get the discount at {store_domain}?</h2>
+  <ol>
+    <li><a href="{data['affiliate_url']}" rel="sponsored nofollow noopener noreferrer" target="_blank">Visit {brand}</a></li>
+    <li>The discount is applied automatically at checkout (no code).</li>
+  </ol>
+</section>'''
               offer_desc_jsonld = "Discount is applied automatically at checkout."
-      
-          # --- Footer real desde index.html
+
+          # --- Footer desde index.html
           tpl = (root/'templates'/'store-template.html').read_text(encoding='utf-8')
           idx = (root/'index.html').read_text(encoding='utf-8', errors='ignore')
           m = re.search(r'<footer[\s\S]*?</footer>', idx, re.I)
           footer_html = m.group(0) if m else f'<footer class="footer"><p>© {data["year"]} {data["site_name"]}</p></footer>'
-      
-          # --- Optional largo
+
+          # --- Texto largo opcional
           about_raw = data.get('about_html','')
-      
-          # --- Escapar llaves literales en inserciones (no en la plantilla)
+
+          # --- Escapar llaves literales en inserciones
           def esc(s: str) -> str:
               return s.replace('{','{{').replace('}','}}')
-      
+
           html_out = tpl.format(
             SEO_TITLE = data['seo_title'],
             SEO_DESCRIPTION = data['seo_description'],
@@ -139,12 +142,11 @@ jobs:
             MODIFIED_ISO = modified_iso,
             FOOTER = esc(footer_html)
           )
-      
+
           outdir = root/'stores'/store_domain
           outdir.mkdir(parents=True, exist_ok=True)
           (outdir/'index.html').write_text(html_out, encoding='utf-8')
           PY
-
 
       - name: Insert card into home grid
         run: |
@@ -154,7 +156,6 @@ jobs:
           root = Path('.')
           data = json.loads(Path('data.json').read_text())
 
-          # Mostrar "No code required" cuando no hay código
           code = (data.get('code') or '').strip()
           display_code = code if code else 'No code required'
 
@@ -181,7 +182,6 @@ jobs:
               raise SystemExit('Markers not found in index.html (STORES:START/END)')
           PY
 
-
       - name: Insert JSON-LD ListItem
         run: |
           python3 - <<'PY'
@@ -194,18 +194,18 @@ jobs:
           start_marker = '<!-- STORES_JSONLD:START -->'
           end_marker = '<!-- STORES_JSONLD:END -->'
           if start_marker in idx and end_marker in idx:
-            start = idx.index(start_marker) + len(start_marker)
-            end   = idx.index(end_marker)
-            region = idx[start:end]
-            count = len([m for m in re.finditer(r'"@type"\\s*:\\s*"ListItem"', region)])
-            position = count + 1
-            line = '{{"@type":"ListItem","position":{pos},"url":"https://{dom}/stores/{sd}/"}},\n'.format(
-              pos=position, dom=data['site_domain'].rstrip('/'), sd=data['store_domain']
-            )
-            idx = idx.replace(end_marker, line + end_marker)
-            idxp.write_text(idx, encoding='utf-8')
+              start = idx.index(start_marker) + len(start_marker)
+              end   = idx.index(end_marker)
+              region = idx[start:end]
+              count = len([m for m in re.finditer(r'"@type"\s*:\s*"ListItem"', region)])
+              position = count + 1
+              line = '{{"@type":"ListItem","position":{pos},"url":"https://{dom}/stores/{sd}/"}},\n'.format(
+                pos=position, dom=data['site_domain'].rstrip('/'), sd=data['store_domain']
+              )
+              idx = idx.replace(end_marker, line + end_marker)
+              idxp.write_text(idx, encoding='utf-8')
           else:
-            raise SystemExit('Markers not found in index.html (STORES_JSONLD:START/END)')
+              raise SystemExit('Markers not found in index.html (STORES_JSONLD:START/END)')
           PY
 
       - name: Commit changes
@@ -213,7 +213,7 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add .
-          git commit -m "Add store: ${{ steps.meta.outputs.domain }} (via Issue #${{ github.event.issue.number }})"
+          git commit -m "Add store: ${{ steps.meta.outputs.domain }} (via Issue #${{ github.event.issue.number }})" || echo "No changes to commit"
           git push
 
       - name: Comment with published URL & close issue
