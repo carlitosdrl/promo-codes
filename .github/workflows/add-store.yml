@@ -36,7 +36,7 @@ jobs:
       - name: Validate inputs
         id: meta
         run: |
-          REQUIRED=(store_name store_domain offer code affiliate_url og_image seo_title seo_description h1 lead site_domain site_name ga_id year)
+          REQUIRED=(store_name store_domain offer affiliate_url og_image seo_title seo_description h1 lead site_domain site_name ga_id year)
           for k in "${REQUIRED[@]}"; do
             v=$(yq -r ".${k} // empty" data.yml)
             if [ -z "$v" ]; then
