@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://shopwithcarlos.xyz/images/armada.png"/>
 <meta property="og:url" content="https://shopwithcarlos.xyz/stores/armadascooters.com/"/>
 <meta property="og:type" content="website"/>
-<meta property="og:site_name" content="Shop With Carlos"/>
+<meta property="og:site_name" content="ShopWithCarlos"/>
 <meta property="og:locale" content="en_US"/>
 
 <!-- Twitter Card -->
@@ -45,7 +45,7 @@
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "Shop With Carlos",
+  "name": "ShopWithCarlos",
   "url": "https://shopwithcarlos.xyz/"
 }
 </script>
@@ -62,32 +62,52 @@
 }
 </script>
 
-<!-- Structured Data: WebPage + Offer -->
+<!-- Structured Data: WebPage + Product + Offer (FIXED) -->
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@graph":[
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@type":["WebPage"],
-      "name":"Armada Scooters Promo Code & Coupon – Save $100 on Electric Scooters",
-      "url":"https://shopwithcarlos.xyz/stores/armadascooters.com/",
-      "datePublished":"2025-01-01",
-      "dateModified":"2025-09-26",
-      "publisher":{"@type":"Organization","name":"Shop With Carlos","url":"https://shopwithcarlos.xyz/"}
+      "@type": "WebPage",
+      "@id": "https://shopwithcarlos.xyz/stores/armadascooters.com/#webpage",
+      "name": "Armada Scooters Promo Code & Coupon – Save $100 on Electric Scooters",
+      "url": "https://shopwithcarlos.xyz/stores/armadascooters.com/",
+      "datePublished": "2025-01-01",
+      "dateModified": "2025-09-26",
+      "publisher": {
+        "@type": "Organization",
+        "name": "ShopWithCarlos",
+        "url": "https://shopwithcarlos.xyz/"
+      }
     },
     {
-      "@type":"Offer",
-      "name":"$100 off Armada Scooters",
-      "url":"https://armadascooters.com/?ref=carlos",
-      "description":"Use code CARLOS100 for $100 off electric scooters at Armada Scooters.",
-      "category":"Coupons",
-      "discountCode":"CARLOS100",
-      "availabilityEnds":"2025-12-31T23:59:59-05:00",
-      "seller":{"@type":"Organization","name":"Armada Scooters","url":"https://armadascooters.com/"}
+      "@type": "Product",
+      "@id": "https://armadascooters.com/#product",
+      "name": "Armada Electric Scooter",
+      "brand": { "@type": "Organization", "name": "Armada Scooters" },
+      "url": "https://armadascooters.com/",
+      "image": "https://shopwithcarlos.xyz/images/armada.png",
+      "category": "E-Mobility"
+    },
+    {
+      "@type": "Offer",
+      "@id": "https://shopwithcarlos.xyz/stores/armadascooters.com/#offer",
+      "name": "$100 Off Armada Scooters",
+      "url": "https://armadascooters.com/?ref=carlos",
+      "description": "Use code CARLOS100 to save $100 on eligible Armada electric scooters. Exclusions may apply.",
+      "priceValidUntil": "2025-12-31T23:59:59-05:00",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "Organization",
+        "name": "Armada Scooters",
+        "url": "https://armadascooters.com/"
+      },
+      "itemOffered": { "@id": "https://armadascooters.com/#product" }
     }
   ]
 }
 </script>
+
 
 <!-- Structured Data: FAQPage -->
 <script type="application/ld+json">
@@ -205,7 +225,7 @@
     <ul>
       <li><a href="/stores/yumescooter.com/">YUME Scooter coupons</a></li>
       <li><a href="/stores/dualtronusa.com/">Dualtron USA coupons</a></li>
-      <li><a href="/stores/xstostore.com/">XOTO Store coupons</a></li>
+      <li><a href="/stores/xstostore.com/">XSTO Store coupons</a></li>
     </ul>
   </section>
 </main>
