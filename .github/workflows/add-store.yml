@@ -10,7 +10,11 @@ permissions:
 
 jobs:
   add:
-    if: contains(join(fromJson(toJson(github.event.issue.labels)).*.name, ','), 'new-store') || startsWith(github.event.issue.title, 'New store')
+    if: >
+      (github.event_name == 'issues' &&
+       (contains(join(fromJson(toJson(github.event.issue.labels)).*.name, ','), 'new-store')
+        || startsWith(github.event.issue.title, 'New store')))
+      || (github.event_name == 'workflow_dispatch')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -193,7 +197,6 @@ jobs:
               start = idx.index(start_marker) + len(start_marker)
               end   = idx.index(end_marker)
               region = idx[start:end]
-              # regex corregido:
               count = len([m for m in re.finditer(r'"@type"\s*:\s*"ListItem"', region)])
               position = count + 1
               line = '{{"@type":"ListItem","position":{pos},"url":"https://{dom}/stores/{sd}/"}},\n'.format(
