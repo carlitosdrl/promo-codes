@@ -62,32 +62,43 @@
 }
 </script>
 
-<!-- Structured Data: WebPage + Offer -->
+<!-- Structured Data: WebPage + Offer (FIXED) -->
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@graph":[
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@type":["WebPage"],
-      "name":"Della Home Promo Code & Coupon – Save 5% on Stylish Furniture",
-      "url":"https://shopwithcarlos.xyz/stores/dellahome.com/",
-      "datePublished":"2025-01-01",
-      "dateModified":"2025-09-26",
-      "publisher":{"@type":"Organization","name":"Shop With Carlos","url":"https://shopwithcarlos.xyz/"}
+      "@type": "WebPage",
+      "@id": "https://shopwithcarlos.xyz/stores/dellahome.com/#webpage",
+      "name": "Della Home Promo Code & Coupon – Save 5% on Stylish Furniture",
+      "url": "https://shopwithcarlos.xyz/stores/dellahome.com/",
+      "datePublished": "2025-01-01",
+      "dateModified": "2025-09-26",
+      "publisher": {
+        "@type": "Organization",
+        "name": "ShopWithCarlos",
+        "url": "https://shopwithcarlos.xyz/"
+      }
     },
     {
-      "@type":"Offer",
-      "name":"5% off Della Home",
-      "url":"https://dellahome.com/discount/CARLOS?ref=carlos",
-      "description":"Use code CARLOS to save 5% on premium furniture at Della Home.",
-      "category":"Coupons",
-      "discountCode":"CARLOS",
-      "availabilityEnds":"2025-12-31T23:59:59-05:00",
-      "seller":{"@type":"Organization","name":"Della Home","url":"https://dellahome.com/"}
+      "@type": "Offer",
+      "@id": "https://shopwithcarlos.xyz/stores/dellahome.com/#offer",
+      "name": "5% Off Della Home",
+      "url": "https://dellahome.com/discount/CARLOS?ref=carlos",
+      "description": "Use code CARLOS to save 5% on premium furniture at Della Home. Exclusions may apply.",
+      "category": "Coupons",
+      "priceValidUntil": "2025-12-31T23:59:59-05:00",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "Organization",
+        "name": "Della Home",
+        "url": "https://dellahome.com/"
+      }
     }
   ]
 }
 </script>
+
 </head>
 
 <body>
