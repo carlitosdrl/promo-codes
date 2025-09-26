@@ -3,39 +3,40 @@
 <head>
   <meta charset="utf-8" />
   <title>Categories | ShopWithCarlos</title>
-  <meta name="description" content="Browse all categories of stores and promo codes on ShopWithCarlos." />
+  <meta name="description" content="Browse all categories of stores and promo codes on ShopWithCarlos. Discover verified deals, how to apply codes, and quick tips to save more." />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="canonical" href="https://shopwithcarlos.xyz/categories/" />
   <link rel="stylesheet" href="/styles.css" />
-</head>
-<body>
-  <header>
-    <nav>
-      <a href="/" aria-label="Back to home">
-        <img src="/images/swc-logo.svg?v=3" alt="ShopWithCarlos" class="logo" width="300" height="120" decoding="async" fetchpriority="high">
-      </a>
-    </nav>
-  </header>
 
-  <main>
-    <h1>All Categories</h1>
-    <p>Explore every category available on ShopWithCarlos.</p>
+  <!-- Optional but recommended: OG/Twitter (uses sitewide default image if you have it) -->
+  <meta property="og:title" content="Categories | ShopWithCarlos" />
+  <meta property="og:description" content="Explore every category with verified promo codes and savings tips." />
+  <meta property="og:url" content="https://shopwithcarlos.xyz/categories/" />
+  <meta property="og:type" content="website" />
+  <meta property="og:site_name" content="ShopWithCarlos" />
+  <meta property="og:locale" content="en_US" />
+  <meta property="og:image" content="https://shopwithcarlos.xyz/images/og-default-1200x630.png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="ShopWithCarlos — promo codes and deals" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Categories | ShopWithCarlos" />
+  <meta name="twitter:description" content="Explore every category with verified promo codes and savings tips." />
+  <meta name="twitter:image" content="https://shopwithcarlos.xyz/images/og-default-1200x630.png" />
 
-    <p><a href="/">Home</a> &raquo; <span>Categories</span></p>
+  <!-- JSON-LD: Breadcrumbs (HTTPS, solo Home > Categories) -->
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://shopwithcarlos.xyz/"},
+      {"@type":"ListItem","position":2,"name":"Categories","item":"https://shopwithcarlos.xyz/categories/"}
+    ]
+  }
+  </script>
 
-    <!-- Lista de categorías con mismo estilo que el home -->
-    <ul id="category-list" class="stores"> </ul>
-
-    <noscript>
-      <p>Please enable JavaScript to load the category list.</p>
-    </noscript>
-  </main>
-
-  <footer>
-    <p>&copy; <span id="year"></span> ShopWithCarlos</p>
-  </footer>
-
-  <!-- JSON-LD -->
+  <!-- JSON-LD: ItemList shell (se llena con JS) -->
   <script type="application/ld+json" id="itemlist-json">
   {
     "@context": "https://schema.org",
@@ -45,6 +46,83 @@
   }
   </script>
 
+  <style>
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .container{max-width:1100px;margin:0 auto;padding:1rem}
+    .lead{font-size:1.05rem;line-height:1.7}
+    .card{border:1px solid #eee;border-radius:16px;padding:1rem;background:#fff;margin:1rem 0}
+    .stores{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+    .stores .store{border:1px solid #eee;border-radius:12px;padding:.8rem;background:#fff}
+    .breadcrumbs{margin:.75rem 0;color:#555}
+  </style>
+</head>
+<body>
+  <header class="container">
+    <nav>
+      <a href="/" aria-label="Back to home">
+        <img src="/images/swc-logo.svg?v=3" alt="ShopWithCarlos" class="logo" width="300" height="120" decoding="async" fetchpriority="high">
+      </a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h1>All Categories</h1>
+    <p class="breadcrumbs"><a href="/">Home</a> &raquo; <span>Categories</span></p>
+
+    <!-- Intro sólida para subir word count -->
+    <section class="card">
+      <h2>Browse every category of verified promo codes</h2>
+      <p class="lead">
+        Welcome to the central index of ShopWithCarlos. Here you can jump into any product area—from smart home devices and e-mobility to outdoors and wellness—and find working promo codes curated for fast checkout. Each category groups reputable brands, highlights limited-time bundles, and explains common exclusions so you don’t waste time testing random links.
+      </p>
+      <p>
+        We regularly refresh listings, replace expired codes, and note when stacking is possible with store loyalty programs or student discounts. If you’re comparing brands, start with a category overview to see typical savings ranges and quick buying tips; then open a store page for code details, shipping notes, and return windows.
+      </p>
+    </section>
+
+    <!-- Cómo usar los códigos -->
+    <section class="card">
+      <h2>How to use these categories</h2>
+      <ul>
+        <li>Select a category to view featured stores and current offers.</li>
+        <li>Open a store page and copy the code shown near the top.</li>
+        <li>Apply it at checkout and confirm the price updates before paying.</li>
+        <li>If a code fails, remove ineligible items (refurb/subscriptions) or try a sitewide alternative listed on that page.</li>
+      </ul>
+    </section>
+
+    <!-- Consejos de compra (genéricos, útiles) -->
+    <section class="card">
+      <h2>Quick savings tips</h2>
+      <p><strong>Compare bundles:</strong> Multi-packs and seasonal kits often beat single-item pricing—especially around major sales.</p>
+      <p><strong>Mind compatibility:</strong> For tech categories (smart home, e-bikes), check protocol/support details before ordering to avoid returns.</p>
+      <p><strong>Keep receipts:</strong> Most stores accept unopened returns during the posted window; keep packaging until setup is complete.</p>
+    </section>
+
+    <!-- Lista de categorías (dinámica) -->
+    <section class="card" aria-labelledby="cat-list">
+      <h2 id="cat-list" class="sr-only">Category list</h2>
+      <ul id="category-list" class="stores"></ul>
+      <noscript>
+        <p>Please enable JavaScript to load the category list.</p>
+      </noscript>
+    </section>
+
+    <!-- FAQs para agregar texto útil -->
+    <section class="card">
+      <h2>Categories FAQs</h2>
+      <details><summary>How often are codes updated?</summary><p>We review categories frequently and replace expired codes with working alternatives. Around seasonal events, updates are more frequent and bundles appear more often.</p></details>
+      <details><summary>Do codes stack with sale prices?</summary><p>Sometimes. When stacking is blocked, a limited-time bundle or loyalty pricing can yield a similar final price. Check the store page for exclusions before checkout.</p></details>
+      <details><summary>What if a link stops working?</summary><p>Open the store page in the same category. We typically add an alternate code or note a comparable offer so you can complete your purchase without delay.</p></details>
+      <p class="small">Editorial note: We verify codes regularly and remove those that expire. Last review: September 25, 2025.</p>
+    </section>
+  </main>
+
+  <footer class="container">
+    <p>&copy; <span id="year"></span> ShopWithCarlos</p>
+  </footer>
+
+  <!-- JS: carga categorías desde GitHub y rellena ItemList JSON-LD -->
   <script>
     const GH_API = "https://api.github.com/repos/carlitosdrl/promo-codes/contents/categories";
     const DEST_URL = (slug) => `/categories/${slug}/`;
@@ -87,7 +165,6 @@
         if(!res.ok) throw new Error("Could not read /categories directory from GitHub.");
         const data = await res.json();
 
-        // Carpeta = categoría
         let items = data.filter(x => x.type === "dir");
 
         if(!items.length){
@@ -107,23 +184,5 @@
     document.getElementById("year").textContent = new Date().getFullYear();
     loadCategories();
   </script>
-
-  <style>
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-  </style>
 </body>
-
-</footer>
-
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"BreadcrumbList",
-  "itemListElement":[
-    {"@type":"ListItem","position":1,"name":"Home","item":"http://shopwithcarlos.xyz/"},
-    {"@type":"ListItem","position":2,"name":"Categories","item":"http://shopwithcarlos.xyz/categories/"},
-    {"@type":"ListItem","position":3,"name":"Wellness","item":"http://shopwithcarlos.xyz/categories/wellness/"}
-  ]
-}
-</script>
-<!-- END auto-internal-links -->
+</html>
