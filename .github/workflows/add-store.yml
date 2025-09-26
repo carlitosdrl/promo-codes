@@ -57,14 +57,18 @@ jobs:
 
           tpl = (root/'templates'/'store-template.html').read_text(encoding='utf-8')
 
-          # 1) Extract <footer>...</footer> from index.html (your original footer)
+          # 1) Extrae <footer>…</footer> del index (tu footer real)
           idx = (root/'index.html').read_text(encoding='utf-8', errors='ignore')
-          m = re.search(r'<footer[\s\S]*?</footer>', idx, re.I)
-          footer = m.group(0) if m else '<footer class="footer"><p>© {YEAR} {SITE_NAME}</p></footer>'.format(**{
-            'YEAR': data['year'], 'SITE_NAME': data['site_name']
-          })
+          m = re.search(r'<footer[\\s\\S]*?</footer>', idx, re.I)
+          footer_raw = m.group(0) if m else '<footer class="footer"><p>© {YEAR} {SITE_NAME}</p></footer>'
 
-          # 2) Fill placeholders
+          # 2) Campo opcional de descripción larga
+          about_raw = data.get('about_html', '')
+
+          # Evita que .format() interprete llaves de HTML/JS como placeholders
+          def esc(s: str) -> str:
+            return s.replace('{','{{').replace('}','}}')
+
           html = tpl.format(
             SEO_TITLE=data['seo_title'],
             SEO_DESCRIPTION=data['seo_description'],
@@ -81,7 +85,8 @@ jobs:
             CODE=data['code'],
             AFFILIATE_URL=data['affiliate_url'],
             YEAR=data['year'],
-            FOOTER=footer
+            ABOUT_HTML=esc(about_raw),
+            FOOTER=esc(footer_raw).format(YEAR=data['year'], SITE_NAME=data['site_name'])
           )
 
           outdir = root/'stores'/data['store_domain']
@@ -89,32 +94,6 @@ jobs:
           (outdir/'index.html').write_text(html, encoding='utf-8')
           PY
 
-      - name: Insert card into home grid
-        run: |
-          python3 - <<'PY'
-          import re, json
-          from pathlib import Path
-          root = Path('.')
-          data = json.loads(Path('data.json').read_text())
-          card_tpl = (root/'templates'/'card-template.html').read_text(encoding='utf-8')
-          card = card_tpl.format(
-            DATA_NAME = data['store_name'].lower().strip().replace(' ', ''),
-            CATEGORY = data.get('category','misc'),
-            AFFILIATE_URL = data['affiliate_url'],
-            STORE_NAME = data['store_name'],
-            OG_IMAGE = data['og_image'],
-            OFFER = data['offer'],
-            CODE = data['code'],
-            STORE_DOMAIN = data['store_domain'],
-          )
-          idxp = root/'index.html'
-          idx = idxp.read_text(encoding='utf-8')
-          if '<!-- STORES:START -->' in idx and '<!-- STORES:END -->' in idx:
-            idx = idx.replace('<!-- STORES:END -->', card + '\n<!-- STORES:END -->')
-            idxp.write_text(idx, encoding='utf-8')
-          else:
-            raise SystemExit('Markers not found in index.html (STORES:START/END)')
-          PY
 
       - name: Insert JSON-LD ListItem
         run: |
