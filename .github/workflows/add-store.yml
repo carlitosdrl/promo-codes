@@ -124,6 +124,42 @@ jobs:
           (outdir/'index.html').write_text(html, encoding='utf-8')
           PY
 
+      - name: Insert card into home grid
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          root = Path('.')
+          data = json.loads(Path('data.json').read_text())
+
+          # Mostrar "No code required" cuando no hay código
+          code = (data.get('code') or '').strip()
+          display_code = code if code else 'No code required'
+
+          card_tpl = (root/'templates'/'card-template.html').read_text(encoding='utf-8')
+          card = card_tpl.format(
+            DATA_NAME = data['store_name'].lower().strip().replace(' ', ''),
+            CATEGORY = data.get('category','misc'),
+            AFFILIATE_URL = data['affiliate_url'],
+            STORE_NAME = data['store_name'],
+            OG_IMAGE = data['og_image'],
+            OFFER = data['offer'],
+            CODE = display_code,
+            STORE_DOMAIN = data['store_domain'],
+          )
+
+          idxp = root/'index.html'
+          idx = idxp.read_text(encoding='utf-8')
+          start_marker = '<!-- STORES:START -->'
+          end_marker = '<!-- STORES:END -->'
+          if start_marker in idx and end_marker in idx:
+              idx = idx.replace(end_marker, card + '\n' + end_marker)
+              idxp.write_text(idx, encoding='utf-8')
+          else:
+              raise SystemExit('Markers not found in index.html (STORES:START/END)')
+          PY
+
+
       - name: Insert JSON-LD ListItem
         run: |
           python3 - <<'PY'
