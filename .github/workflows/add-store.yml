@@ -41,15 +41,19 @@ jobs:
       - name: Validate inputs
         id: meta
         run: |
+          set -euo pipefail
           REQUIRED=(store_name store_domain offer affiliate_url og_image seo_title seo_description h1 lead site_domain site_name ga_id year)
           for k in "${REQUIRED[@]}"; do
-            v=$(yq -r ".${k} // empty" data.yml)
+            # Devuelve "" si el campo no existe o es null
+            v=$(yq -r ".${k} // \"\"" data.yml)
             if [ -z "$v" ]; then
               echo "Missing required field: $k"; exit 1;
             fi
           done
-          DOMAIN=$(yq -r '.store_domain' data.yml | tr '[:upper:]' '[:lower:]')
-          if [[ ! "$DOMAIN" =~ ^[a-z0-9.-]+$ ]]; then echo "store_domain invalid"; exit 1; fi
+          DOMAIN=$(yq -r '.store_domain // ""' data.yml | tr '[:upper:]' '[:lower:]')
+          if [[ -z "$DOMAIN" || ! "$DOMAIN" =~ ^[a-z0-9.-]+$ ]]; then
+            echo "store_domain invalid"; exit 1
+          fi
           echo "domain=$DOMAIN" >> $GITHUB_OUTPUT
 
       - name: Render store page (inject your footer)
