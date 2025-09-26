@@ -22,7 +22,7 @@
 <meta property="og:image" content="https://shopwithcarlos.xyz/images/dualtron.png"/>
 <meta property="og:url" content="https://shopwithcarlos.xyz/stores/dualtronusa.com/"/>
 <meta property="og:type" content="website"/>
-<meta property="og:site_name" content="Shop With Carlos"/>
+<meta property="og:site_name" content="ShopWithCarlos"/>
 <meta property="og:locale" content="en_US"/>
 
 <!-- Twitter Card -->
@@ -45,7 +45,7 @@
 {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "Shop With Carlos",
+  "name": "ShopWithCarlos",
   "url": "https://shopwithcarlos.xyz/"
 }
 </script>
@@ -62,32 +62,44 @@
 }
 </script>
 
-<!-- Structured Data: WebPage + Offer -->
+<!-- Structured Data: WebPage + Product + Offer (FIXED) -->
 <script type="application/ld+json">
 {
   "@context":"https://schema.org",
   "@graph":[
     {
-      "@type":["WebPage"],
+      "@type":"WebPage",
+      "@id":"https://shopwithcarlos.xyz/stores/dualtronusa.com/#webpage",
       "name":"Dualtron USA Promo Code & Coupon – Save $20 on Electric Scooters",
       "url":"https://shopwithcarlos.xyz/stores/dualtronusa.com/",
       "datePublished":"2025-01-01",
       "dateModified":"2025-09-26",
-      "publisher":{"@type":"Organization","name":"Shop With Carlos","url":"https://shopwithcarlos.xyz/"}
+      "publisher":{"@type":"Organization","name":"ShopWithCarlos","url":"https://shopwithcarlos.xyz/"}
+    },
+    {
+      "@type":"Product",
+      "@id":"https://dualtronusa.com/#product",
+      "name":"Dualtron Electric Scooter",
+      "brand":{"@type":"Organization","name":"Dualtron USA"},
+      "url":"https://dualtronusa.com/",
+      "image":"https://shopwithcarlos.xyz/images/dualtron.png",
+      "category":"E-Mobility"
     },
     {
       "@type":"Offer",
-      "name":"$20 off Dualtron USA",
+      "@id":"https://shopwithcarlos.xyz/stores/dualtronusa.com/#offer",
+      "name":"$20 Off Dualtron USA",
       "url":"https://dualtronusa.com/discount/SHOPWITHCARLOS?ref=carlos",
-      "description":"Use code SHOPWITHCARLOS to save $20 on Dualtron USA electric scooters and accessories.",
-      "category":"Coupons",
-      "discountCode":"SHOPWITHCARLOS",
-      "availabilityEnds":"2025-12-31T23:59:59-05:00",
-      "seller":{"@type":"Organization","name":"Dualtron USA","url":"https://dualtronusa.com/"}
+      "description":"Use code SHOPWITHCARLOS to save $20 on eligible Dualtron USA scooters and accessories. Exclusions may apply.",
+      "priceValidUntil":"2025-12-31T23:59:59-05:00",
+      "availability":"https://schema.org/InStock",
+      "seller":{"@type":"Organization","name":"Dualtron USA","url":"https://dualtronusa.com/"},
+      "itemOffered":{"@id":"https://dualtronusa.com/#product"}
     }
   ]
 }
 </script>
+
 </head>
 
 <body>
@@ -175,7 +187,7 @@
     <ul>
       <li><a href="/stores/yumescooter.com/">YUME Scooter coupons</a></li>
       <li><a href="/stores/armadascooters.com/">Armada Scooters coupons</a></li>
-      <li><a href="/stores/xstostore.com/">XOTO Store coupons</a></li>
+      <li><a href="/stores/xstostore.com/">XSTO Store coupons</a></li>
     </ul>
   </section>
 </main>
