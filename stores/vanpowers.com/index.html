@@ -62,32 +62,55 @@
 }
 </script>
 
-<!-- Structured Data: WebPage + Offer -->
+<!-- Structured Data: WebPage + Product + Offer (FIXED) -->
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@graph":[
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@type":["WebPage"],
-      "name":"Vanpowers Promo Code & Coupon – Save $300 on City Vanture Bike",
-      "url":"https://shopwithcarlos.xyz/stores/vanpowers.com/",
-      "datePublished":"2025-01-01",
-      "dateModified":"2025-09-26",
-      "publisher":{"@type":"Organization","name":"Shop With Carlos","url":"https://shopwithcarlos.xyz/"}
+      "@type": "WebPage",
+      "@id": "https://shopwithcarlos.xyz/stores/vanpowers.com/#webpage",
+      "name": "Vanpowers Promo Code & Coupon – Save $300 on City Vanture Bike",
+      "url": "https://shopwithcarlos.xyz/stores/vanpowers.com/",
+      "datePublished": "2025-01-01",
+      "dateModified": "2025-09-26",
+      "publisher": {
+        "@type": "Organization",
+        "name": "ShopWithCarlos",
+        "url": "https://shopwithcarlos.xyz/"
+      }
     },
     {
-      "@type":"Offer",
-      "name":"$300 off City Vanture",
-      "url":"https://vanpowers.com/products/city-vanture?sca_ref=7405587.BJuqNuCfao&utm_source=affiliate&utm_medium=uppromote&utm_campaign=7405587&utm_term=80201",
-      "description":"Use code CLV to save $300 on the City Vanture e-bike at Vanpowers.",
-      "category":"Coupons",
-      "discountCode":"CLV",
-      "availabilityEnds":"2025-12-31T23:59:59-05:00",
-      "seller":{"@type":"Organization","name":"Vanpowers","url":"https://vanpowers.com/"}
+      "@type": "Product",
+      "@id": "https://vanpowers.com/products/city-vanture#product",
+      "name": "Vanpowers City Vanture",
+      "brand": {
+        "@type": "Organization",
+        "name": "Vanpowers"
+      },
+      "url": "https://vanpowers.com/products/city-vanture",
+      "image": "https://shopwithcarlos.xyz/images/vanpowers.png",
+      "category": "E-Bikes"
+    },
+    {
+      "@type": "Offer",
+      "@id": "https://shopwithcarlos.xyz/stores/vanpowers.com/#offer",
+      "name": "$300 Off City Vanture",
+      "url": "https://vanpowers.com/products/city-vanture?sca_ref=7405587.BJuqNuCfao&utm_source=affiliate&utm_medium=uppromote&utm_campaign=7405587&utm_term=80201",
+      "description": "Use code CLV to save $300 on the Vanpowers City Vanture e-bike. Exclusions may apply.",
+      "priceValidUntil": "2025-12-31T23:59:59-05:00",
+      "availability": "https://schema.org/InStock",
+      "seller": {
+        "@type": "Organization",
+        "name": "Vanpowers",
+        "url": "https://vanpowers.com/"
+      },
+      "itemOffered": { "@id": "https://vanpowers.com/products/city-vanture#product" }
     }
   ]
 }
 </script>
+
 </head>
 
 <body>
