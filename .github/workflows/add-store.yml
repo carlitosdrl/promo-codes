@@ -1,0 +1,178 @@
+name: Add store from Issue
+on:
+  issues:
+    types: [opened]
+
+permissions:
+  contents: write
+  issues: read
+
+jobs:
+  add:
+    if: contains(join(fromJson(toJson(github.event.issue.labels)).*.name, ','), 'new-store') || startsWith(github.event.issue.title, 'New store')
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Extract YAML block from issue
+        id: extract
+        run: |
+          BODY=$(printf "%s" "${{ github.event.issue.body }}")
+          YAML=$(printf "%s" "$BODY" | awk '/```yaml/{flag=1;next}/```/{if(flag){flag=0;exit}}flag')
+          echo "yaml<<EOF" >> $GITHUB_OUTPUT
+          echo "$YAML" >> $GITHUB_OUTPUT
+          echo "EOF" >> $GITHUB_OUTPUT
+          printf "%s" "$YAML" > data.yml
+
+      - name: Install yq and jq
+        run: |
+          sudo apt-get update -y
+          sudo apt-get install -y jq
+          curl -sL https://github.com/mikefarah/yq/releases/download/v4.44.3/yq_linux_amd64 -o /usr/local/bin/yq
+          chmod +x /usr/local/bin/yq
+          yq -o=json data.yml > data.json
+
+      - name: Validate inputs
+        id: meta
+        run: |
+          REQUIRED=(store_name store_domain offer code affiliate_url og_image seo_title seo_description h1 lead site_domain site_name ga_id year)
+          for k in "${REQUIRED[@]}"; do
+            v=$(yq -r ".${k} // empty" data.yml)
+            if [ -z "$v" ]; then
+              echo "Missing required field: $k"; exit 1;
+            fi
+          done
+          DOMAIN=$(yq -r '.store_domain' data.yml | tr '[:upper:]' '[:lower:]')
+          if [[ ! "$DOMAIN" =~ ^[a-z0-9.-]+$ ]]; then echo "store_domain invalid"; exit 1; fi
+          echo "domain=$DOMAIN" >> $GITHUB_OUTPUT
+
+      - name: Render store page (inject your footer)
+        run: |
+          python3 - <<'PY'
+          import re, json
+          from pathlib import Path
+          root = Path('.')
+          data = json.loads(Path('data.json').read_text())
+
+          tpl = (root/'templates'/'store-template.html').read_text(encoding='utf-8')
+
+          # 1) Extract <footer>...</footer> from index.html (your original footer)
+          idx = (root/'index.html').read_text(encoding='utf-8', errors='ignore')
+          m = re.search(r'<footer[\s\S]*?</footer>', idx, re.I)
+          footer = m.group(0) if m else '<footer class="footer"><p>© {YEAR} {SITE_NAME}</p></footer>'.format(**{
+            'YEAR': data['year'], 'SITE_NAME': data['site_name']
+          })
+
+          # 2) Fill placeholders
+          html = tpl.format(
+            SEO_TITLE=data['seo_title'],
+            SEO_DESCRIPTION=data['seo_description'],
+            SITE_DOMAIN=data['site_domain'].rstrip('/'),
+            STORE_DOMAIN=data['store_domain'],
+            OG_TITLE=data['seo_title'],
+            OG_DESCRIPTION=data['seo_description'],
+            OG_IMAGE=data['og_image'],
+            SITE_NAME=data['site_name'],
+            GA_ID=data['ga_id'],
+            STORE_NAME=data['store_name'],
+            H1=data['h1'],
+            LEAD=data['lead'],
+            CODE=data['code'],
+            AFFILIATE_URL=data['affiliate_url'],
+            YEAR=data['year'],
+            FOOTER=footer
+          )
+
+          outdir = root/'stores'/data['store_domain']
+          outdir.mkdir(parents=True, exist_ok=True)
+          (outdir/'index.html').write_text(html, encoding='utf-8')
+          PY
+
+      - name: Insert card into home grid
+        run: |
+          python3 - <<'PY'
+          import re, json
+          from pathlib import Path
+          root = Path('.')
+          data = json.loads(Path('data.json').read_text())
+          card_tpl = (root/'templates'/'card-template.html').read_text(encoding='utf-8')
+          card = card_tpl.format(
+            DATA_NAME = data['store_name'].lower().strip().replace(' ', ''),
+            CATEGORY = data.get('category','misc'),
+            AFFILIATE_URL = data['affiliate_url'],
+            STORE_NAME = data['store_name'],
+            OG_IMAGE = data['og_image'],
+            OFFER = data['offer'],
+            CODE = data['code'],
+            STORE_DOMAIN = data['store_domain'],
+          )
+          idxp = root/'index.html'
+          idx = idxp.read_text(encoding='utf-8')
+          if '<!-- STORES:START -->' in idx and '<!-- STORES:END -->' in idx:
+            idx = idx.replace('<!-- STORES:END -->', card + '\n<!-- STORES:END -->')
+            idxp.write_text(idx, encoding='utf-8')
+          else:
+            raise SystemExit('Markers not found in index.html (STORES:START/END)')
+          PY
+
+      - name: Insert JSON-LD ListItem
+        run: |
+          python3 - <<'PY'
+          import re, json
+          from pathlib import Path
+          root = Path('.')
+          data = json.loads(Path('data.json').read_text())
+          idxp = root/'index.html'
+          idx = idxp.read_text(encoding='utf-8')
+          start_marker = '<!-- STORES_JSONLD:START -->'
+          end_marker = '<!-- STORES_JSONLD:END -->'
+          if start_marker in idx and end_marker in idx:
+            start = idx.index(start_marker) + len(start_marker)
+            end   = idx.index(end_marker)
+            region = idx[start:end]
+            count = len([m for m in re.finditer(r'"@type"\\s*:\\s*"ListItem"', region)])
+            position = count + 1
+            line = '{{"@type":"ListItem","position":{pos},"url":"https://{dom}/stores/{sd}/"}},\n'.format(
+              pos=position, dom=data['site_domain'].rstrip('/'), sd=data['store_domain']
+            )
+            idx = idx.replace(end_marker, line + end_marker)
+            idxp.write_text(idx, encoding='utf-8')
+          else:
+            raise SystemExit('Markers not found in index.html (STORES_JSONLD:START/END)')
+          PY
+
+      - name: Commit changes
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add .
+          git commit -m "Add store: ${{ steps.meta.outputs.domain }} (via Issue #${{ github.event.issue.number }})"
+          git push
+
+      - name: Comment with published URL & close issue
+        run: |
+          python3 - <<'PY'
+          import json, pathlib
+          data = json.loads(pathlib.Path('data.json').read_text())
+          page_url = f"https://{data['site_domain'].rstrip('/')}/stores/{data['store_domain']}/"
+          pathlib.Path('comment.txt').write_text(page_url, encoding='utf-8')
+          PY
+      - name: Post comment
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require('fs');
+            const url = fs.readFileSync('comment.txt', 'utf8').trim();
+            await github.rest.issues.createComment({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              body: `✅ Store created: ${url}`
+            });
+            await github.rest.issues.update({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: context.issue.number,
+              state: "closed"
+            });
