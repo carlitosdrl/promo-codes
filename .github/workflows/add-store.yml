@@ -20,15 +20,30 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Extract YAML block from issue
+            - name: Extract YAML block from issue
         id: extract
         run: |
           BODY=$(printf "%s" "${{ github.event.issue.body }}")
-          YAML=$(printf "%s" "$BODY" | awk '/```yaml/{flag=1;next}/```/{if(flag){flag=0;exit}}flag')
+          # Extrae el primer bloque entre ```yaml/```yml/``` ... ```
+          env BODY="$BODY" python3 - <<'PY' > data.yml
+import os, re, sys
+body = os.environ.get("BODY","")
+m = re.search(r"```(?:yaml|yml)?\s*\n(.*?)\n```", body, re.S|re.I)
+if not m:
+    sys.stderr.write("No YAML code block found in issue body.\n")
+    sys.exit(1)
+yaml = m.group(1).strip()
+print(yaml, end="")
+PY
           echo "yaml<<EOF" >> $GITHUB_OUTPUT
-          echo "$YAML" >> $GITHUB_OUTPUT
+          cat data.yml >> $GITHUB_OUTPUT
           echo "EOF" >> $GITHUB_OUTPUT
-          printf "%s" "$YAML" > data.yml
+
+      - name: Debug extracted YAML
+        run: |
+          echo "----- data.yml -----"
+          sed -n '1,200p' data.yml || true
+          echo "--------------------"
 
       - name: Install yq and jq
         run: |
