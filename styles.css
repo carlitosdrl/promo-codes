@@ -989,3 +989,23 @@ nav[aria-label="Breadcrumb"] [aria-current="page"]{ font-weight: 600; opacity:.9
     .store-logo{width:100%;height:auto;border-radius:12px;object-fit:contain;background:#fafafa}
     .store-offer,.store-code,.store-cta{margin:.15rem 0;color:#333}.store-cta{font-weight:600}
     .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+
+/* ====== Fuerza tarjetas más angostas en home ====== */
+@media (min-width: 768px) {
+  .home .grid{
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)) !important;
+    gap: .75rem !important;
+  }
+
+  /* Evitar que la tarjeta limite el ancho de la columna */
+  .home .store-card,
+  .home .store-link{
+    width: 100%;
+    max-width: 220px;  /* prueba 220/240 según tu gusto */
+    min-width: 0;
+  }
+
+  /* Centra la tarjeta dentro de la columna si sobra espacio */
+  .home .grid{ justify-items: center; }
+}
+
