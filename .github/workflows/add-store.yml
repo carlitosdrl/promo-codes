@@ -6,7 +6,7 @@ on:
 
 permissions:
   contents: write
-  issues: read
+  issues: write
 
 jobs:
   add:
@@ -238,17 +238,20 @@ jobs:
           git push
 
       - name: Comment with published URL & close issue
+        if: github.event_name == 'issues'
         run: |
           python3 - << 'PY'
           import json, pathlib
           data = json.loads(pathlib.Path('data.json').read_text())
-          page_url = f"https://{data['site_domain'].rstrip('/')}/stores/{data['store_domain']}/"
-          pathlib.Path('comment.txt').write_text(page_url, encoding='utf-8')
+          url = f"https://{data['site_domain'].rstrip('/')}/stores/{data['store_domain']}/"
+          pathlib.Path('comment.txt').write_text(url, encoding='utf-8')
           PY
 
       - name: Post comment
+        if: github.event_name == 'issues'
         uses: actions/github-script@v7
         with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
           script: |
             const fs = require('fs');
             const url = fs.readFileSync('comment.txt', 'utf8').trim();
