@@ -1010,7 +1010,7 @@ nav[aria-label="Breadcrumb"] [aria-current="page"]{ font-weight: 600; opacity:.9
 
 /* Logos más pequeños en las tarjetas de la home */
 .home .store-logo{
-  width: 140px;        /* antes ~300px; ajústalo a 120–160 a gusto */
+  width: 200px;        /* antes ~300px; ajústalo a 120–160 a gusto */
   max-height: 80px;    /* por si el logo es alto */
   height: auto;
   object-fit: contain; /* no deforma */
