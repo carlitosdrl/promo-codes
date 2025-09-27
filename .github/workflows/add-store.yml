@@ -23,20 +23,25 @@ jobs:
       - name: Extract YAML block from issue
         id: extract
         run: |
-          BODY=$(printf "%s" "${{ github.event.issue.body }}")
-          # Acepta ```yaml / ```yml / ``` (primer bloque)
-          python3 - "$BODY" > data.yml << 'PY'
-import sys, re
-body = sys.stdin.read()
+          # Guardamos el cuerpo del issue en un archivo para evitar problemas de comillas
+          printf "%s" "${{ github.event.issue.body }}" > ISSUE_BODY.txt
+
+          # Ejecutamos Python con heredoc (¡ojo: sin espacio entre << y 'PY'!)
+          python3 - <<'PY'
+import re, sys, pathlib
+body = pathlib.Path('ISSUE_BODY.txt').read_text(encoding='utf-8', errors='ignore')
 m = re.search(r"```(?:yaml|yml)?\s*\n(.*?)\n```", body, re.S|re.I)
 if not m:
-    sys.stderr.write("No YAML code block found in issue body.\n")
-    sys.exit(1)
-print(m.group(1).strip())
+    print("No YAML code block found in issue body.", file=sys.stderr)
+    raise SystemExit(1)
+pathlib.Path('data.yml').write_text(m.group(1).strip(), encoding='utf-8')
 PY
+
+          # Exponemos el YAML extraído como output (útil para debug)
           echo "yaml<<EOF" >> "$GITHUB_OUTPUT"
           cat data.yml >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
+
 
       - name: Debug extracted YAML
         run: |
