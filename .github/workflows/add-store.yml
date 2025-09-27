@@ -20,7 +20,7 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-            - name: Extract YAML block from issue
+        - name: Extract YAML block from issue
         id: extract
         run: |
           BODY=$(printf "%s" "${{ github.event.issue.body }}")
