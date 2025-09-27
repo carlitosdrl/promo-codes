@@ -23,23 +23,25 @@ jobs:
       - name: Extract YAML block from issue
         id: extract
         run: |
-          BODY=$(printf "%s" "${{ github.event.issue.body }}")
-          # Extrae el PRIMER bloque entre ```yaml / ```yml / ``` ... ```
-          YAML=$(
-            awk '
-              BEGIN{flag=0}
-              /^```(yaml|yml)?[[:space:]]*$/ {flag=1; next}
-              /^```[[:space:]]*$/           {if(flag){flag=0; exit}}
-              flag {print}
-            ' <<< "$BODY"
-          )
-          if [ -z "$YAML" ]; then
-            echo "No YAML code block found in issue body."; exit 1
-          fi
-          printf "%s" "$YAML" > data.yml
-          echo "yaml<<EOF" >> "$GITHUB_OUTPUT"
-          printf "%s\n" "$YAML" >> "$GITHUB_OUTPUT"
-          echo "EOF" >> "$GITHUB_OUTPUT"
+          python3 - << 'PY'
+          import os, json, re, sys, pathlib
+          # Leer el payload del evento (contiene issue.body)
+          with open(os.environ['GITHUB_EVENT_PATH'], 'r', encoding='utf-8') as f:
+              payload = json.load(f)
+          body = (payload.get('issue', {}) or {}).get('body', '') or ''
+          # Tomar el PRIMER bloque entre ```yaml/```yml/``` … ```
+          m = re.search(r"```(?:yaml|yml)?\s*\n(.*?)\n```", body, re.S|re.I)
+          if not m:
+              print("No YAML code block found in issue body.", file=sys.stderr)
+              sys.exit(1)
+          yaml_text = m.group(1).strip()
+          pathlib.Path('data.yml').write_text(yaml_text, encoding='utf-8')
+
+          # Exponerlo como output (debug)
+          out = pathlib.Path(os.environ['GITHUB_OUTPUT'])
+          out.write_text(out.read_text() + f"yaml<<EOF\n{yaml_text}\nEOF\n" if out.exists() else f"yaml<<EOF\n{yaml_text}\nEOF\n", encoding='utf-8')
+          PY
+
 
       - name: Debug extracted YAML
         run: |
