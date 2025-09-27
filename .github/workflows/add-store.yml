@@ -24,7 +24,6 @@ jobs:
         id: extract
         run: |
           BODY=$(printf "%s" "${{ github.event.issue.body }}")
-
           # Extrae el PRIMER bloque entre ```yaml / ```yml / ``` ... ```
           YAML=$(
             awk '
@@ -34,17 +33,13 @@ jobs:
               flag {print}
             ' <<< "$BODY"
           )
-
           if [ -z "$YAML" ]; then
             echo "No YAML code block found in issue body."; exit 1
           fi
-
           printf "%s" "$YAML" > data.yml
-
           echo "yaml<<EOF" >> "$GITHUB_OUTPUT"
           printf "%s\n" "$YAML" >> "$GITHUB_OUTPUT"
           echo "EOF" >> "$GITHUB_OUTPUT"
-
 
       - name: Debug extracted YAML
         run: |
@@ -68,7 +63,7 @@ jobs:
           for k in "${REQUIRED[@]}"; do
             v=$(yq -r ".${k} // \"\"" data.yml)
             if [ -z "$v" ]; then
-              echo "Missing required field: $k"; exit 1;
+              echo "Missing required field: $k"; exit 1
             fi
           done
           DOMAIN=$(yq -r '.store_domain // ""' data.yml | tr '[:upper:]' '[:lower:]')
@@ -80,157 +75,157 @@ jobs:
       - name: Render store page (inject your footer)
         run: |
           python3 - << 'PY'
-import re, json, datetime
-from pathlib import Path
-root = Path('.')
-data = json.loads(Path('data.json').read_text())
+          import re, json, datetime
+          from pathlib import Path
+          root = Path('.')
+          data = json.loads(Path('data.json').read_text())
 
-site_domain = data['site_domain'].rstrip('/')
-store_domain = data['store_domain']
-brand = data['store_name']
-store_url = data.get('store_url') or f"https://{store_domain}"
-code = (data.get('code') or '').strip()
-has_code = bool(code)
+          site_domain = data['site_domain'].rstrip('/')
+          store_domain = data['store_domain']
+          brand = data['store_name']
+          store_url = data.get('store_url') or f"https://{store_domain}"
+          code = (data.get('code') or '').strip()
+          has_code = bool(code)
 
-today = datetime.date.today()
-verified_iso = (data.get('verified_date') or today.isoformat())
-try:
-    d = datetime.date.fromisoformat(verified_iso[:10])
-    verified_human = d.strftime("%A, %B %d, %Y")
-except Exception:
-    verified_human = verified_iso
-published_iso = data.get('published_iso', verified_iso)
-modified_iso = data.get('modified_iso', today.isoformat())
+          today = datetime.date.today()
+          verified_iso = (data.get('verified_date') or today.isoformat())
+          try:
+              d = datetime.date.fromisoformat(verified_iso[:10])
+              verified_human = d.strftime("%A, %B %d, %Y")
+          except Exception:
+              verified_human = verified_iso
+          published_iso = data.get('published_iso', verified_iso)
+          modified_iso = data.get('modified_iso', today.isoformat())
 
-# Secciones condicionales sin multilínea
-if has_code:
-    display_code = code
-    howto = (
-        f"<section>\n"
-        f"  <h2>How do I apply the promo code at {store_domain}?</h2>\n"
-        f"  <ol>\n"
-        f"    <li><a href=\"{data['affiliate_url']}\" rel=\"sponsored nofollow noopener noreferrer\" target=\"_blank\">Visit {brand}</a></li>\n"
-        f"    <li>Add items to the cart</li>\n"
-        f"    <li>At checkout, enter the code <strong>{code}</strong></li>\n"
-        f"    <li>Enjoy your discount</li>\n"
-        f"  </ol>\n"
-        f"</section>"
-    )
-    offer_desc_jsonld = f"Use code {code} at checkout."
-else:
-    display_code = 'No code required'
-    howto = (
-        f"<section>\n"
-        f"  <h2>How do I get the discount at {store_domain}?</h2>\n"
-        f"  <ol>\n"
-        f"    <li><a href=\"{data['affiliate_url']}\" rel=\"sponsored nofollow noopener noreferrer\" target=\"_blank\">Visit {brand}</a></li>\n"
-        f"    <li>The discount is applied automatically at checkout (no code).</li>\n"
-        f"  </ol>\n"
-        f"</section>"
-    )
-    offer_desc_jsonld = "Discount is applied automatically at checkout."
+          # Secciones condicionales sin multilínea
+          if has_code:
+              display_code = code
+              howto = (
+                  f"<section>\n"
+                  f"  <h2>How do I apply the promo code at {store_domain}?</h2>\n"
+                  f"  <ol>\n"
+                  f"    <li><a href=\"{data['affiliate_url']}\" rel=\"sponsored nofollow noopener noreferrer\" target=\"_blank\">Visit {brand}</a></li>\n"
+                  f"    <li>Add items to the cart</li>\n"
+                  f"    <li>At checkout, enter the code <strong>{code}</strong></li>\n"
+                  f"    <li>Enjoy your discount</li>\n"
+                  f"  </ol>\n"
+                  f"</section>"
+              )
+              offer_desc_jsonld = f"Use code {code} at checkout."
+          else:
+              display_code = 'No code required'
+              howto = (
+                  f"<section>\n"
+                  f"  <h2>How do I get the discount at {store_domain}?</h2>\n"
+                  f"  <ol>\n"
+                  f"    <li><a href=\"{data['affiliate_url']}\" rel=\"sponsored nofollow noopener noreferrer\" target=\"_blank\">Visit {brand}</a></li>\n"
+                  f"    <li>The discount is applied automatically at checkout (no code).</li>\n"
+                  f"  </ol>\n"
+                  f"</section>"
+              )
+              offer_desc_jsonld = "Discount is applied automatically at checkout."
 
-tpl = (root/'templates'/'store-template.html').read_text(encoding='utf-8')
-idx = (root/'index.html').read_text(encoding='utf-8', errors='ignore')
-m = re.search(r'<footer[\s\S]*?</footer>', idx, re.I)
-footer_html = m.group(0) if m else f'<footer class="footer"><p>© {data["year"]} {data["site_name"]}</p></footer>'
+          tpl = (root/'templates'/'store-template.html').read_text(encoding='utf-8')
+          idx = (root/'index.html').read_text(encoding='utf-8', errors='ignore')
+          m = re.search(r'<footer[\\s\\S]*?</footer>', idx, re.I)
+          footer_html = m.group(0) if m else f'<footer class="footer"><p>© {data["year"]} {data["site_name"]}</p></footer>'
 
-about_raw = data.get('about_html','')
+          about_raw = data.get('about_html','')
 
-def esc(s: str) -> str:
-    return s.replace('{','{{').replace('}','}}')
+          def esc(s: str) -> str:
+              return s.replace('{','{{').replace('}','}}')
 
-html_out = tpl.format(
-  SEO_TITLE = data['seo_title'],
-  SEO_DESCRIPTION = data['seo_description'],
-  SITE_DOMAIN = site_domain,
-  STORE_DOMAIN = store_domain,
-  OG_TITLE = data['seo_title'],
-  OG_DESCRIPTION = data['seo_description'],
-  OG_IMAGE = data['og_image'],
-  SITE_NAME = data['site_name'],
-  GA_ID = data['ga_id'],
-  BRAND_NAME = brand,
-  STORE_URL = store_url,
-  H1 = data['h1'],
-  LEAD = data['lead'],
-  OFFER = data['offer'],
-  OFFER_DESC_JSONLD = esc(offer_desc_jsonld),
-  AFFILIATE_URL = data['affiliate_url'],
-  DISPLAY_CODE = display_code,
-  HOWTO_SECTION = esc(howto),
-  ABOUT_HTML = esc(about_raw),
-  VERIFIED_ISO = verified_iso,
-  VERIFIED_HUMAN = verified_human,
-  PUBLISHED_ISO = published_iso,
-  MODIFIED_ISO = modified_iso,
-  FOOTER = esc(footer_html)
-)
+          html_out = tpl.format(
+            SEO_TITLE = data['seo_title'],
+            SEO_DESCRIPTION = data['seo_description'],
+            SITE_DOMAIN = site_domain,
+            STORE_DOMAIN = store_domain,
+            OG_TITLE = data['seo_title'],
+            OG_DESCRIPTION = data['seo_description'],
+            OG_IMAGE = data['og_image'],
+            SITE_NAME = data['site_name'],
+            GA_ID = data['ga_id'],
+            BRAND_NAME = brand,
+            STORE_URL = store_url,
+            H1 = data['h1'],
+            LEAD = data['lead'],
+            OFFER = data['offer'],
+            OFFER_DESC_JSONLD = esc(offer_desc_jsonld),
+            AFFILIATE_URL = data['affiliate_url'],
+            DISPLAY_CODE = display_code,
+            HOWTO_SECTION = esc(howto),
+            ABOUT_HTML = esc(about_raw),
+            VERIFIED_ISO = verified_iso,
+            VERIFIED_HUMAN = verified_human,
+            PUBLISHED_ISO = published_iso,
+            MODIFIED_ISO = modified_iso,
+            FOOTER = esc(footer_html)
+          )
 
-outdir = root/'stores'/store_domain
-outdir.mkdir(parents=True, exist_ok=True)
-(outdir/'index.html').write_text(html_out, encoding='utf-8')
-PY
+          outdir = root/'stores'/store_domain
+          outdir.mkdir(parents=True, exist_ok=True)
+          (outdir/'index.html').write_text(html_out, encoding='utf-8')
+          PY
 
       - name: Insert card into home grid
         run: |
           python3 - << 'PY'
-import json
-from pathlib import Path
-root = Path('.')
-data = json.loads(Path('data.json').read_text())
+          import json
+          from pathlib import Path
+          root = Path('.')
+          data = json.loads(Path('data.json').read_text())
 
-code = (data.get('code') or '').strip()
-display_code = code if code else 'No code required'
+          code = (data.get('code') or '').strip()
+          display_code = code if code else 'No code required'
 
-card_tpl = (root/'templates'/'card-template.html').read_text(encoding='utf-8')
-card = card_tpl.format(
-  DATA_NAME = data['store_name'].lower().strip().replace(' ', ''),
-  CATEGORY = data.get('category','misc'),
-  AFFILIATE_URL = data['affiliate_url'],
-  STORE_NAME = data['store_name'],
-  OG_IMAGE = data['og_image'],
-  OFFER = data['offer'],
-  CODE = display_code,
-  STORE_DOMAIN = data['store_domain'],
-)
+          card_tpl = (root/'templates'/'card-template.html').read_text(encoding='utf-8')
+          card = card_tpl.format(
+            DATA_NAME = data['store_name'].lower().strip().replace(' ', ''),
+            CATEGORY = data.get('category','misc'),
+            AFFILIATE_URL = data['affiliate_url'],
+            STORE_NAME = data['store_name'],
+            OG_IMAGE = data['og_image'],
+            OFFER = data['offer'],
+            CODE = display_code,
+            STORE_DOMAIN = data['store_domain'],
+          )
 
-idxp = root/'index.html'
-idx = idxp.read_text(encoding='utf-8')
-start_marker = '<!-- STORES:START -->'
-end_marker = '<!-- STORES:END -->'
-if start_marker in idx and end_marker in idx:
-    idx = idx.replace(end_marker, card + '\n' + end_marker)
-    idxp.write_text(idx, encoding='utf-8')
-else:
-    raise SystemExit('Markers not found in index.html (STORES:START/END)')
-PY
+          idxp = root/'index.html'
+          idx = idxp.read_text(encoding='utf-8')
+          start_marker = '<!-- STORES:START -->'
+          end_marker = '<!-- STORES:END -->'
+          if start_marker in idx and end_marker in idx:
+              idx = idx.replace(end_marker, card + '\n' + end_marker)
+              idxp.write_text(idx, encoding='utf-8')
+          else:
+              raise SystemExit('Markers not found in index.html (STORES:START/END)')
+          PY
 
       - name: Insert JSON-LD ListItem
         run: |
           python3 - << 'PY'
-import re, json
-from pathlib import Path
-root = Path('.')
-data = json.loads(Path('data.json').read_text())
-idxp = root/'index.html'
-idx = idxp.read_text(encoding='utf-8')
-start_marker = '<!-- STORES_JSONLD:START -->'
-end_marker = '<!-- STORES_JSONLD:END -->'
-if start_marker in idx and end_marker in idx:
-    start = idx.index(start_marker) + len(start_marker)
-    end   = idx.index(end_marker)
-    region = idx[start:end]
-    count = len([m for m in re.finditer(r'"@type"\s*:\s*"ListItem"', region)])
-    position = count + 1
-    line = '{{"@type":"ListItem","position":{pos},"url":"https://{dom}/stores/{sd}/"}}\n'.format(
-      pos=position, dom=data['site_domain'].rstrip('/'), sd=data['store_domain']
-    )
-    idx = idx.replace(end_marker, line + end_marker)
-    idxp.write_text(idx, encoding='utf-8')
-else:
-    raise SystemExit('Markers not found in index.html (STORES_JSONLD:START/END)')
-PY
+          import re, json
+          from pathlib import Path
+          root = Path('.')
+          data = json.loads(Path('data.json').read_text())
+          idxp = root/'index.html'
+          idx = idxp.read_text(encoding='utf-8')
+          start_marker = '<!-- STORES_JSONLD:START -->'
+          end_marker = '<!-- STORES_JSONLD:END -->'
+          if start_marker in idx and end_marker in idx:
+              start = idx.index(start_marker) + len(start_marker)
+              end   = idx.index(end_marker)
+              region = idx[start:end]
+              count = len([m for m in re.finditer(r'"@type"\s*:\s*"ListItem"', region)])
+              position = count + 1
+              line = '{{"@type":"ListItem","position":{pos},"url":"https://{dom}/stores/{sd}/"}}\n'.format(
+                pos=position, dom=data['site_domain'].rstrip('/'), sd=data['store_domain']
+              )
+              idx = idx.replace(end_marker, line + end_marker)
+              idxp.write_text(idx, encoding='utf-8')
+          else:
+              raise SystemExit('Markers not found in index.html (STORES_JSONLD:START/END)')
+          PY
 
       - name: Commit changes
         run: |
@@ -243,11 +238,11 @@ PY
       - name: Comment with published URL & close issue
         run: |
           python3 - << 'PY'
-import json, pathlib
-data = json.loads(pathlib.Path('data.json').read_text())
-page_url = f"https://{data['site_domain'].rstrip('/')}/stores/{data['store_domain']}/"
-pathlib.Path('comment.txt').write_text(page_url, encoding='utf-8')
-PY
+          import json, pathlib
+          data = json.loads(pathlib.Path('data.json').read_text())
+          page_url = f"https://{data['site_domain'].rstrip('/')}/stores/{data['store_domain']}/"
+          pathlib.Path('comment.txt').write_text(page_url, encoding='utf-8')
+          PY
 
       - name: Post comment
         uses: actions/github-script@v7
