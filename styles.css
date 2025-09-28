@@ -1023,8 +1023,19 @@ nav[aria-label="Breadcrumb"] [aria-current="page"]{ font-weight: 600; opacity:.9
     width: 120px;
     max-height: 72px;
   }
+
+/* v5 – asegurar título centrado en el hero */
+.header { text-align: center !important; }
+.header .page-title,
+.header .subtitle { 
+  text-align: inherit !important;
+  margin-left: auto; 
+  margin-right: auto;
 }
-  
+
+
+   
 }
+   
 
 
