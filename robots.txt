@@ -1,6 +1,28 @@
+# SEO ok (bloquea solo zonas privadas)
 User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /private/
+
+# Opt-out de entrenamiento IA (bots conocidos)
+User-agent: GPTBot
+Disallow: /
+
+User-agent: Google-Extended
+Disallow: /
+
+User-agent: Applebot-Extended
+Disallow: /
+
+User-agent: CCBot
+Disallow: /
+
+User-agent: ClaudeBot
+Disallow: /
+User-agent: Claude-Web
+Disallow: /
+
+User-agent: PerplexityBot
+Disallow: /
 
 Sitemap: https://shopwithcarlos.xyz/sitemap_v2.xml
