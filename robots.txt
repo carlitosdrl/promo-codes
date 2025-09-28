@@ -1,28 +1,34 @@
-# SEO ok (bloquea solo zonas privadas)
+# Permitir rastreo y uso para entrenamiento
 User-agent: *
 Allow: /
 Disallow: /admin/
 Disallow: /private/
 
-# Opt-out de entrenamiento IA (bots conocidos)
+# Permisos explícitos para bots de IA / datasets
 User-agent: GPTBot
-Disallow: /
+Allow: /
 
 User-agent: Google-Extended
-Disallow: /
+Allow: /
 
 User-agent: Applebot-Extended
-Disallow: /
+Allow: /
 
 User-agent: CCBot
-Disallow: /
+Allow: /
 
 User-agent: ClaudeBot
-Disallow: /
+Allow: /
 User-agent: Claude-Web
-Disallow: /
+Allow: /
 
 User-agent: PerplexityBot
-Disallow: /
+Allow: /
+
+# (Opcionales; por si estos agentes aparecen)
+User-agent: OAI-SearchBot
+Allow: /
+User-agent: ChatGPT-User
+Allow: /
 
 Sitemap: https://shopwithcarlos.xyz/sitemap_v2.xml
