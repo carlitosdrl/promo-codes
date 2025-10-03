@@ -39,7 +39,7 @@ body:
 
         # --- Sitio / marca (defaults de tu proyecto) ---
         site_domain: "shopwithcarlos.xyz"
-        site_name: "Shop With Carlos"
+        site_name: "ShopWithCarlos"
         ga_id: "G-HS58KQFT2B"
         year: 2025
 
