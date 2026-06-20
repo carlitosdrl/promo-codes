@@ -40,40 +40,35 @@
   gtag('config', 'G-HS58KQFT2B');
 </script>
 
-<!-- Structured Data: WebSite -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "ShopWithCarlos",
-  "url": "https://shopwithcarlos.xyz/"
-}
-</script>
-
-<!-- Structured Data: BreadcrumbList -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"BreadcrumbList",
-  "itemListElement":[
-    {"@type":"ListItem","position":1,"name":"Home","item":"https://shopwithcarlos.xyz/"},
-    {"@type":"ListItem","position":2,"name":"RayNeo","item":"https://shopwithcarlos.xyz/stores/rayneo.com/"}
-  ]
-}
-</script>
-
-<!-- Structured Data: WebPage + Product + Offer -->
+<!-- Structured Data Equilibrado (Sin Errores de Producto) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebSite",
+      "@id": "https://shopwithcarlos.xyz/#website",
+      "name": "ShopWithCarlos",
+      "url": "https://shopwithcarlos.xyz/"
+    },
+    {
+      "@type": "BreadcrumbList",
+      "@id": "https://shopwithcarlos.xyz/stores/rayneo.com/#breadcrumb",
+      "itemListElement":[
+        {"@type":"ListItem","position":1,"name":"Home","item":"https://shopwithcarlos.xyz/"},
+        {"@type":"ListItem","position":2,"name":"RayNeo","item":"https://shopwithcarlos.xyz/stores/rayneo.com/"}
+      ]
+    },
+    {
       "@type": "WebPage",
       "@id": "https://shopwithcarlos.xyz/stores/rayneo.com/#webpage",
       "name": "RayNeo Promo Code & Coupon – Save 10% on Smart Glasses",
       "url": "https://shopwithcarlos.xyz/stores/rayneo.com/",
+      "isPartOf": {"@id": "https://shopwithcarlos.xyz/#website"},
+      "breadcrumb": {"@id": "https://shopwithcarlos.xyz/stores/rayneo.com/#breadcrumb"},
       "datePublished": "2026-01-01",
       "dateModified": "2026-01-22",
+      "description": "Use promo code CARLOS to save 10% on select RayNeo smart glasses and AR eyewear.",
       "publisher": {
         "@type": "Organization",
         "name": "ShopWithCarlos",
@@ -82,30 +77,6 @@
           "https://github.com/rayneo-coupon-code"
         ]
       }
-    },
-    {
-      "@type": "Product",
-      "@id": "https://www.rayneo.com/#product",
-      "name": "RayNeo Smart Glasses",
-      "brand": { "@type": "Organization", "name": "RayNeo" },
-      "url": "https://www.rayneo.com/",
-      "image": "https://shopwithcarlos.xyz/images/rayneo.png",
-      "category": "Consumer Electronics"
-    },
-    {
-      "@type": "Offer",
-      "@id": "https://shopwithcarlos.xyz/stores/rayneo.com/#offer",
-      "name": "10% Off RayNeo Smart Glasses",
-      "url": "https://www.rayneo.com/",
-      "description": "Use promo code CARLOS to save 10% on select RayNeo smart glasses and AR eyewear.",
-      "priceValidUntil": "2026-12-31T23:59:59-05:00",
-      "availability": "https://schema.org/InStock",
-      "seller": {
-        "@type": "Organization",
-        "name": "RayNeo",
-        "url": "https://www.rayneo.com/"
-      },
-      "itemOffered": { "@id": "https://www.rayneo.com/#product" }
     }
   ]
 }
@@ -138,7 +109,7 @@
       <li><strong>Code:</strong> CARLOS</li>
       <li><strong>Discount:</strong> 10% off</li>
       <li><strong>Last verified:</strong> April, 2026</li>
-      <li><strong>Official Mirror:</strong> <a href="https://github.com/rayneo-coupon-code" target="_blank" rel="noopener">RayNeo Coupon Code on GitHub</a></li>
+      <li><strong>Official Mirror:</strong> <a href="https://github.com/rayneo-coupon-code" target="_blank" rel="noopener">rayneo-coupon-code on GitHub</a></li>
     </ul>
   </section>
 
