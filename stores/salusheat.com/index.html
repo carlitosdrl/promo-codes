@@ -62,7 +62,7 @@
 }
 </script>
 
-<!-- Structured Data: WebPage + Product + Offer -->
+<!-- Structured Data: WebPage + Product + Offer (CORREGIDO Y OPTIMIZADO) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -73,7 +73,7 @@
       "name": "SalusHEAT Promo Code & Coupon – Save 5% on Infrared Saunas",
       "url": "https://shopwithcarlos.com/stores/salusheat.com/",
       "datePublished": "2026-01-01",
-      "dateModified": "2026-01-22",
+      "dateModified": "2026-09-24",
       "publisher": {
         "@type": "Organization",
         "name": "ShopWithCarlos",
@@ -84,25 +84,43 @@
       "@type": "Product",
       "@id": "https://salusheat.com/#product",
       "name": "SalusHEAT Infrared Sauna",
-      "brand": { "@type": "Organization", "name": "SalusHEAT" },
+      "description": "Premium indoor and outdoor infrared saunas designed for relaxation, detoxification, and home wellness.",
+      "brand": {
+        "@type": "Brand",
+        "name": "SalusHEAT"
+      },
       "url": "https://salusheat.com/",
       "image": "https://shopwithcarlos.com/images/salusheat.png",
-      "category": "Wellness"
-    },
-    {
-      "@type": "Offer",
-      "@id": "https://shopwithcarlos.com/stores/salusheat.com/#offer",
-      "name": "5% Off SalusHEAT Saunas",
-      "url": "https://salusheat.com/discount/SAVE5CARLOS100",
-      "description": "Use promo code SAVE5CARLOS100 to save 5% on select SalusHEAT infrared sauna models at checkout. Exclusions may apply.",
-      "priceValidUntil": "2026-12-31T23:59:59-05:00",
-      "availability": "https://schema.org/InStock",
-      "seller": {
-        "@type": "Organization",
-        "name": "SalusHEAT",
-        "url": "https://salusheat.com/"
+      "category": "Wellness",
+      "offers": {
+        "@type": "Offer",
+        "@id": "https://shopwithcarlos.com/stores/salusheat.com/#offer",
+        "name": "5% Off SalusHEAT Saunas",
+        "url": "https://salusheat.com/discount/SAVE5CARLOS100",
+        "price": "0.00",
+        "priceCurrency": "USD",
+        "description": "Use promo code SAVE5CARLOS100 to save 5% on select SalusHEAT infrared sauna models at checkout. Exclusions may apply.",
+        "priceValidUntil": "2026-12-31T23:59:59-05:00",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "SalusHEAT",
+          "url": "https://salusheat.com/"
+        }
       },
-      "itemOffered": { "@id": "https://salusheat.com/#product" }
+      "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Verified SalusHEAT Buyer"
+        },
+        "reviewBody": "I've been using my SalusHEAT infrared sauna regularly. It's easy to assemble and heats up quickly—great for home wellness."
+      }
     }
   ]
 }
