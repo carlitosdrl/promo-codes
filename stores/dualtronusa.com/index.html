@@ -62,39 +62,49 @@
 }
 </script>
 
-<!-- Structured Data: WebPage + Product + Offer (FIXED) -->
+<!-- Structured Data: WebPage + Product + Offer (CORREGIDO) -->
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@graph":[
+  "@context": "https://schema.org",
+  "@graph": [
     {
-      "@type":"WebPage",
-      "@id":"https://shopwithcarlos.com/stores/dualtronusa.com/#webpage",
-      "name":"Dualtron USA Promo Code & Coupon – Save $20 on Electric Scooters",
-      "url":"https://shopwithcarlos.com/stores/dualtronusa.com/",
-      "datePublished":"2026-01-01",
-      "dateModified":"2026-09-26",
-      "publisher":{"@type":"Organization","name":"ShopWithCarlos","url":"https://shopwithcarlos.com/"}
+      "@type": "WebPage",
+      "@id": "https://shopwithcarlos.com/stores/dualtronusa.com/#webpage",
+      "name": "Dualtron USA Promo Code & Coupon – Save $20 on Electric Scooters",
+      "url": "https://shopwithcarlos.com/stores/dualtronusa.com/",
+      "datePublished": "2026-01-01",
+      "dateModified": "2026-09-26",
+      "publisher": {
+        "@type": "Organization",
+        "name": "ShopWithCarlos",
+        "url": "https://shopwithcarlos.com/"
+      }
     },
     {
-      "@type":"Product",
-      "@id":"https://dualtronusa.com/#product",
-      "name":"Dualtron Electric Scooter",
-      "brand":{"@type":"Organization","name":"Dualtron USA"},
-      "url":"https://dualtronusa.com/",
-      "image":"https://shopwithcarlos.com/images/dualtron.png",
-      "category":"E-Mobility"
-    },
-    {
-      "@type":"Offer",
-      "@id":"https://shopwithcarlos.com/stores/dualtronusa.com/#offer",
-      "name":"$20 Off Dualtron USA",
-      "url":"https://dualtronusa.com/discount/SHOPWITHCARLOS?ref=carlos",
-      "description":"Use code SHOPWITHCARLOS to save $20 on eligible Dualtron USA scooters and accessories. Exclusions may apply.",
-      "priceValidUntil":"2026-12-31T23:59:59-05:00",
-      "availability":"https://schema.org/InStock",
-      "seller":{"@type":"Organization","name":"Dualtron USA","url":"https://dualtronusa.com/"},
-      "itemOffered":{"@id":"https://dualtronusa.com/#product"}
+      "@type": "Product",
+      "@id": "https://dualtronusa.com/#product",
+      "name": "Dualtron Electric Scooter",
+      "brand": {
+        "@type": "Organization",
+        "name": "Dualtron USA"
+      },
+      "url": "https://dualtronusa.com/",
+      "image": "https://shopwithcarlos.com/images/dualtron.png",
+      "category": "E-Mobility",
+      "offers": {
+        "@type": "Offer",
+        "@id": "https://shopwithcarlos.com/stores/dualtronusa.com/#offer",
+        "name": "$20 Off Dualtron USA",
+        "url": "https://dualtronusa.com/discount/SHOPWITHCARLOS?ref=carlos",
+        "description": "Use code SHOPWITHCARLOS to save $20 on eligible Dualtron USA scooters and accessories. Exclusions may apply.",
+        "priceValidUntil": "2026-12-31T23:59:59-05:00",
+        "availability": "https://schema.org/InStock",
+        "seller": {
+          "@type": "Organization",
+          "name": "Dualtron USA",
+          "url": "https://dualtronusa.com/"
+        }
+      }
     }
   ]
 }
