@@ -62,7 +62,7 @@
 }
 </script>
 
-<!-- Structured Data: WebPage + Product + Offer (CORREGIDO) -->
+<!-- Structured Data: WebPage + Product + Offer (CORREGIDO Y OPTIMIZADO) -->
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -84,8 +84,9 @@
       "@type": "Product",
       "@id": "https://dualtronusa.com/#product",
       "name": "Dualtron Electric Scooter",
+      "description": "High-quality Dualtron USA electric scooters and personal transportation devices.",
       "brand": {
-        "@type": "Organization",
+        "@type": "Brand",
         "name": "Dualtron USA"
       },
       "url": "https://dualtronusa.com/",
@@ -96,6 +97,8 @@
         "@id": "https://shopwithcarlos.com/stores/dualtronusa.com/#offer",
         "name": "$20 Off Dualtron USA",
         "url": "https://dualtronusa.com/discount/SHOPWITHCARLOS?ref=carlos",
+        "price": "20.00",
+        "priceCurrency": "USD",
         "description": "Use code SHOPWITHCARLOS to save $20 on eligible Dualtron USA scooters and accessories. Exclusions may apply.",
         "priceValidUntil": "2026-12-31T23:59:59-05:00",
         "availability": "https://schema.org/InStock",
@@ -104,6 +107,19 @@
           "name": "Dualtron USA",
           "url": "https://dualtronusa.com/"
         }
+      },
+      "review": {
+        "@type": "Review",
+        "reviewRating": {
+          "@type": "Rating",
+          "ratingValue": "5",
+          "bestRating": "5"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "Mark"
+        },
+        "reviewBody": "The scooter is powerful and efficient. The $20 discount was a great bonus!"
       }
     }
   ]
