@@ -593,6 +593,8 @@ nav[aria-label="Breadcrumb"] [aria-current="page"]{ font-weight: 600; opacity:.9
 .guide thead th{ background: #f9fafb; font-weight: 600; }
 .guide hr{ border: 0; height: 1px; background: #e5e7eb; margin: 1.25rem 0; }
 
+
+
 /* =========================
    Store pages — flat layout
    ========================= */
@@ -688,4 +690,41 @@ footer {
   background-color: #333333;
   transform: translateY(-2px);
   color: #0070f3;
+}
+
+.footer-socials {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1.25rem;
+  margin: 1.25rem 0;
+  flex-wrap: wrap;
+}
+
+.footer-socials a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  text-decoration: none;
+  color: #334155;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  background-color: #f8fafc;
+  border: 1px solid #e2e8f0;
+  transition: all 0.2s ease;
+}
+
+.footer-socials a:hover {
+  background-color: #f1f5f9;
+  border-color: #cbd5e1;
+  color: #0f172a;
+  transform: translateY(-1px);
+}
+
+.footer-socials img {
+  display: block;
+  width: 18px;
+  height: 18px;
 }
