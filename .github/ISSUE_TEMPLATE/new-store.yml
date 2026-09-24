@@ -38,7 +38,7 @@ body:
         lead: "Use code <CODE> at checkout to save <OFFER> on <STORE_NAME> products."
 
         # --- Sitio / marca (defaults de tu proyecto) ---
-        site_domain: "shopwithcarlos.xyz"
+        site_domain: "shopwithcarlos.com"
         site_name: "ShopWithCarlos"
         ga_id: "G-HS58KQFT2B"
         year: 2026

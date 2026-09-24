@@ -82,7 +82,7 @@ For questions, new codes, or partnership inquiries:
 
 ## 🗒️ Changelog
 
-- **2026-09-15** — Added 12 stores from ShopWithCarlos.xyz into the deals table  
+- **2026-09-15** — Added 12 stores from shopwithcarlos.com into the deals table  
 - **2026-09-10** — Previous version with 5 stores
 
 ---
