@@ -4,7 +4,7 @@
 [![Status](https://img.shields.io/badge/status-live-brightgreen)](#)
 [![Stores](https://img.shields.io/badge/stores-14%20verified-informational)](#)
 
-This repo powers the live deals page at `shopwithcarlos.com`. The data below is synchronized with the current store cards and generated store pages as of `2026-09-26`.
+This repo powers the live deals page at `shopwithcarlos.com`. The data below is synchronized with the current store cards and generated store pages as of `2026-09-25`.
 
 ## Current verified stores
 
