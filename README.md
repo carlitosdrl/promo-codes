@@ -1,99 +1,47 @@
-# 🎉 Exclusive Promo Codes & Verified Discounts (Updated Regularly)
+# 🎉 ShopWithCarlos — Verified Promo Codes & Discounts
 
-[![Last Updated](https://img.shields.io/badge/last%20updated-2026--09--15-blue)](#)
-[![Deals Status](https://img.shields.io/badge/status-verified-brightgreen)](#)
-[![Categories](https://img.shields.io/badge/categories-Home%20%7C%20Supplements%20%7C%20Scooters%20%7C%20Wellness%20%7C%20Power%20Tools%20%7C%20E-Bike-%20%26%20Scooter-Deals-informational)](#)
+[![Last Updated](https://img.shields.io/badge/last%20updated-2026--09--25-blue)](#)
+[![Status](https://img.shields.io/badge/status-live-brightgreen)](#)
+[![Stores](https://img.shields.io/badge/stores-14%20verified-informational)](#)
 
-Save more with a curated collection of **exclusive promo codes**, **coupon links**, and **storewide discounts** from trusted brands. Every code is tested and verified.
+This repo powers the live deals page at `shopwithcarlos.com`. The data below is synchronized with the current store cards and generated store pages as of `2026-09-26`.
 
----
+## Current verified stores
 
-## 🔎 Quick Navigation
-- [Featured Stores & Coupons](#-featured-stores--coupons)
-- [How to Use the Codes](#-how-to-use-the-codes)
-- [Why These Codes](#-why-these-codes)
-- [FAQs](#-faqs)
-- [Contact / Partnerships](#-contact--partnerships)
-- [Changelog](#-changelog)
-- [SEO Notes](#-seo-notes)
+| Brand | Offer | Code | Link |
+|---|---|---|---|
+| ACOPOWER | 10% Off Solar Gear | `CARLOSRIVERO` | https://acopower.com/discount/CARLOSRIVERO?ref=carlos |
+| Anthbot | $100 Off Stair Climbers | `CARLOS100` | https://us.anthbot.com/discount/CARLOS100?ref=carlos |
+| Armada Scooters | $100 Off Electric Scooters | `CARLOS100` | https://armadascooters.com/?ref=carlos |
+| Della Home | 5% Off Furniture | `CARLOS5` | https://dellahome.com/discount/CARLOS5?ref=carlos |
+| Dualtron USA | $20 Off Electric Scooters | `SHOPWITHCARLOS` | https://dualtronusa.com/discount/SHOPWITHCARLOS?ref=carlos |
+| LalaMira | 15% Off Dresses | `CARLOS15` | https://www.lalamira.com/discount/CARLOS15 |
+| OMORPHO | 15% Off Activewear | No code required | https://omorpho.com/SHOPWITHCARLOS |
+| RayNeo | 10% Off Smart Glasses | `CARLOS` | https://www.rayneo.com/discount/CARLOS8 |
+| RYSE Smart Shades | 15% Off Smart Shades | `GET15` | https://www.helloryse.com/discount/GET15 |
+| SalusHEAT | 5% Off Saunas | `SAVE5CARLOS100` | https://salusheat.com/discount/SAVE5CARLOS100 |
+| Salus Saunas | $100 Off Infrared Saunas | `CARLOS100` | https://www.salussaunas.com/discount/CARLOS100 |
+| Vanpowers | $50 Off Storewide | `CSLA50` | https://vanpowers.com?sca_ref=7405587.BJuqNuCfao |
+| XSTO Store | $100 Off Mobility Equipment | `SAVE100` | https://xstostore.com/discount/SAVE100?ref=carlos |
+| YUME Scooter | Up to $300 Off Models | Model-specific | https://yumescooter.com/?sca_ref=5620055.N5J9odeCOR |
 
----
+## Source of truth
 
-## 💸 Featured Stores & Coupons
+The canonical store metadata is in:
 
-> Tip: Click the brand to go straight to the offer page, then apply the code at checkout.
+- `data.yml`
+- `data.json`
 
-| Brand | Offer | Coupon Code | Link | Verified |
-|---|---|---:|---|---|
-| **Della Home** | **5% Off** (Storewide) | `CARLOS` | https://dellahome.com/?ref=carlos | ✅ |
-| **Ryse Supplements** | **15% Off** (Storewide) | `CARLOSLUGO` | https://www.helloryse.com/CARLOSLUGO | ✅ |
-| **Dualtron USA** | **$20 Off** (Storewide) | `SHOPWITHCARLOS` | https://dualtronusa.com | ✅ |
-| **Salus Saunas** | **$100 Off** (Storewide) | `CARLOS100` | https://www.salussaunas.com/discount/CARLOS100 | ✅ |
-| **Armada Scooters** | **$100 Off** (Storewide) | `CARLOS100` | https://armadascooters.com/?ref=10050581 | ✅ |
-| **XSTO Store** | **$100 Off** (Storewide) | `SAVE100` | https://xstostore.com | ✅ |
-| **Anthbot** | **$100 Off** | `CARLOS100` | https://us.anthbot.com | ✅ |
-| **Babyark** | **$100 Off** | `REFERARK` | https://babyarkdabc3.referralrock.com | ✅ |
-| **HVAC Home Supply** | **3% Off** | `CARLOS` | https://hvachomesupply.com | ✅ |
-| **Vanpowers** | **$300 Off** (City Vanture Bike) | `CLV` | https://vanpowers.com | ✅ |
-| **Yume Scooter** | **Up to $300 Off** | `PREDATORCARLOS`, `RAPTORCARLOS`, `HAWKPROCARLOS` | https://yumescooter.com | ✅ |
-| **ACOPOWER** | **10% Off** | `CARLOSRIVERO` | https://acopower.com | ✅ |
+The home page cards and generated store pages should reflect the same values. If a deal changes, update the source data first and regenerate the generated pages.
 
-> If a code stops working, please open an issue or email me so I can update it quickly.
+## Notes
 
----
+- All links are affiliate/referral links; this helps fund ongoing verification and updates.
+- Codes are reviewed and refreshed on a regular basis.
+- For any broken code or expired offer, submit an issue or contact the email in the site footer.
 
-## 🧩 How to Use the Codes
-1. Click the **brand link** in the table above.  
-2. Add your items to cart.  
-3. At checkout, paste the **coupon code** (exactly as shown).  
-4. Confirm the discount is applied before completing the purchase.
+## Contact
 
----
+- Email: `carlosdavid145@gmail.com`
 
-## ✅ Why These Codes
-- **Verified & tested** regularly  
-- **Direct** to official brand sites  
-- **Storewide** savings (unless noted)  
-- **Updated** and maintained for accuracy
-
----
-
-## ❓ FAQs
-
-**Do the codes expire?**  
-Some brands rotate promos. If a code fails, try again later or let me know so I can replace it.
-
-**Are these affiliate links?**  
-Some links may be affiliate/referral links, which can earn a small commission at no extra cost to you. This helps keep the list updated. Thanks for your support!
-
-**Can I stack codes?**  
-Most stores allow only one code per order. Check the cart/checkout for eligibility.
-
----
-
-## 📬 Contact / Partnerships
-
-For questions, new codes, or partnership inquiries:  
-**Email:** [carlosdavid145@gmail.com](mailto:carlosdavid145@gmail.com)
-
-> Brand reps: happy to verify and feature exclusive codes with clear terms.
-
----
-
-## 🗒️ Changelog
-
-- **2026-09-15** — Added 12 stores from shopwithcarlos.com into the deals table  
-- **2026-09-10** — Previous version with 5 stores
-
----
-
-## 🌐 SEO Notes
-
-**Primary keywords (natural use):** promo codes, coupon codes, verified discounts, storewide offers, Della Home promo, Dualtron USA discount, Yume Scooter code, etc.  
-**Secondary keywords:** exclusive deals, discount codes, online store promotions, verified coupons, referral offers.
-
-> Avoid keyword stuffing—use terms naturally in headings, intro, and table labels.
-
----
-🛒 **Bookmark this page** and check back—new exclusive deals are added and verified regularly.
 
