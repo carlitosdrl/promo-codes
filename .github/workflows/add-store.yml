@@ -68,6 +68,14 @@ jobs:
               echo "Missing required field: $k"; exit 1
             fi
           done
+
+          # --- VALIDACIÓN ESTRICTA DE SITE_DOMAIN ---
+          SITE_DOM=$(yq -r '.site_domain // ""' data.yml | tr '[:upper:]' '[:lower:]' | sed -e 's|^https://||' -e 's|^http://||' -e 's|/$||')
+          if [ "$SITE_DOM" != "shopwithcarlos.com" ]; then
+            echo "::error::Invalid site_domain '$SITE_DOM'. Must be exactly 'shopwithcarlos.com'"
+            exit 1
+          fi
+
           DOMAIN=$(yq -r '.store_domain // ""' data.yml | tr '[:upper:]' '[:lower:]')
           if [[ -z "$DOMAIN" || ! "$DOMAIN" =~ ^[a-z0-9.-]+$ ]]; then
             echo "store_domain invalid"; exit 1
