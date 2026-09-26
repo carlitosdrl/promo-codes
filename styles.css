@@ -766,3 +766,54 @@ button.button {
   .button { font-size: .92rem; padding: .55rem 1rem; }
   .home .store-logo { width: 120px; max-height: 72px; }
 }
+
+/* Centrado correcto del logo, título y subtítulo del encabezado */
+.home .header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.home .header > a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
+  margin: 0 auto 1rem;
+}
+
+.home .header .logo {
+  display: block;
+  width: 200px;
+  height: 120px;
+  max-width: 100%;
+  margin: 0 auto;
+  object-fit: contain;
+}
+
+.home .header-content {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.home .page-title,
+.home .subtitle {
+  width: 100%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.home .page-title {
+  margin-top: 0;
+  margin-bottom: 0.35rem;
+}
+
+.home .subtitle {
+  margin-bottom: 1rem;
+}
