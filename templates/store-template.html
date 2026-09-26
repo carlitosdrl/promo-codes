@@ -1,147 +1,113 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Shopping Guides — ShopWithCarlos</title>
+  <meta name="description" content="Read practical shopping guides and product comparisons from ShopWithCarlos, including installation tips, compatibility advice, and ways to save.">
+  <link rel="canonical" href="https://shopwithcarlos.com/guides/">
+  <link rel="shortcut icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/styles.css">
 
-<title>{SEO_TITLE}</title>
-<meta name="description" content="{SEO_DESCRIPTION}"/>
+  <meta property="og:title" content="Shopping Guides — ShopWithCarlos">
+  <meta property="og:description" content="Practical shopping guides, product comparisons, and savings advice from ShopWithCarlos.">
+  <meta property="og:image" content="/images/swc-logo.svg?v=3">
+  <meta property="og:url" content="https://shopwithcarlos.com/guides/">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="ShopWithCarlos">
+  <meta property="og:locale" content="en_US">
 
-<link rel="canonical" href="https://{SITE_DOMAIN}/stores/{STORE_DOMAIN}/"/>
-<link rel="shortcut icon" href="/favicon.ico"/>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shopping Guides — ShopWithCarlos">
+  <meta name="twitter:description" content="Practical shopping guides, product comparisons, and savings advice from ShopWithCarlos.">
+  <meta name="twitter:image" content="/images/swc-logo.svg?v=3">
 
-<!-- Performance -->
-<link rel="preconnect" href="https://fonts.googleapis.com" crossorigin>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
-<link href="/styles.css" rel="stylesheet"/>
-<link rel="preload" as="image" href="/images/{OG_IMAGE}"/>
-
-<!-- Open Graph -->
-<meta property="og:title" content="{OG_TITLE}"/>
-<meta property="og:description" content="{OG_DESCRIPTION}"/>
-<meta property="og:image" content="https://{SITE_DOMAIN}/images/{OG_IMAGE}"/>
-<meta property="og:url" content="https://{SITE_DOMAIN}/stores/{STORE_DOMAIN}/"/>
-<meta property="og:type" content="website"/>
-<meta property="og:site_name" content="{SITE_NAME}"/>
-<meta property="og:locale" content="en_US"/>
-
-<!-- Twitter Card -->
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="{OG_TITLE}"/>
-<meta name="twitter:description" content="{OG_DESCRIPTION}"/>
-<meta name="twitter:image" content="https://{SITE_DOMAIN}/images/{OG_IMAGE}"/>
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id={GA_ID}"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){{dataLayer.push(arguments);}}
-  gtag('js', new Date());
-  gtag('config', '{GA_ID}');
-</script>
-
-<!-- Structured Data -->
-<script type="application/ld+json">
-{{
-  "@context":"https://schema.org",
-  "@graph":[
-    {{
-      "@type":"WebSite",
-      "@id":"https://{SITE_DOMAIN}/#website",
-      "name":"{SITE_NAME}",
-      "url":"https://{SITE_DOMAIN}/"
-    }},
-    {{
-      "@type":"BreadcrumbList",
-      "@id":"https://{SITE_DOMAIN}/stores/{STORE_DOMAIN}/#breadcrumb",
-      "itemListElement":[
-        {{"@type":"ListItem","position":1,"name":"Home","item":"https://{SITE_DOMAIN}/"}},
-        {{"@type":"ListItem","position":2,"name":"{BRAND_NAME} Coupons","item":"https://{SITE_DOMAIN}/stores/{STORE_DOMAIN}/"}}
-      ]
-    }},
-    {{
-      "@type":"CollectionPage",
-      "@id":"https://{SITE_DOMAIN}/stores/{STORE_DOMAIN}/#webpage",
-      "url":"https://{SITE_DOMAIN}/stores/{STORE_DOMAIN}/",
-      "name":"{SEO_TITLE}",
-      "isPartOf":{{"@id":"https://{SITE_DOMAIN}/#website"}},
-      "breadcrumb":{{"@id":"https://{SITE_DOMAIN}/stores/{STORE_DOMAIN}/#breadcrumb"}},
-      "primaryImageOfPage":{{"@type":"ImageObject","url":"https://{SITE_DOMAIN}/images/{OG_IMAGE}"}},
-      "about":{{"@type":"Brand","name":"{BRAND_NAME}","url":"https://{STORE_URL}"}},
-      "datePublished":"{PUBLISHED_ISO}",
-      "dateModified":"{MODIFIED_ISO}"
-    }},
-    {{
-      "@type":"Offer",
-      "@id":"https://{SITE_DOMAIN}/stores/{STORE_DOMAIN}/#offer",
-      "name":"{OFFER} at {STORE_URL}",
-      "category":"Coupons",
-      "url":"{AFFILIATE_URL}",
-      "seller":{{"@type":"Organization","name":"{BRAND_NAME}","url":"https://{STORE_URL}"}},
-      "priceCurrency":"USD",
-      "eligibleRegion":{{"@type":"Country","name":"US"}},
-      "validFrom":"{PUBLISHED_ISO}",
-      "description":"{OFFER_DESC_JSONLD}"
-    }},
-    {{
-      "@type":"FAQPage",
-      "@id":"https://{SITE_DOMAIN}/stores/{STORE_DOMAIN}/#faq",
-      "mainEntity":[
-        {{"@type":"Question","name":"Estimated shipping time?","acceptedAnswer":{{"@type":"Answer","text":"Typically 5–10 business days depending on location and stock."}}}},
-        {{"@type":"Question","name":"Warranty?","acceptedAnswer":{{"@type":"Answer","text":"Limited warranty against manufacturing defects; see site for details."}}}},
-        {{"@type":"Question","name":"Returns?","acceptedAnswer":{{"@type":"Answer","text":"Most items are returnable within 30 days in original condition."}}}},
-        {{"@type":"Question","name":"Code not working?","acceptedAnswer":{{"@type":"Answer","text":"Check minimum order/exclusions, type the code exactly, and try incognito or clearing previous cart codes."}}}}
-      ]
-    }}
-  ]
-}}
-</script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebSite",
+        "@id": "https://shopwithcarlos.com/#website",
+        "url": "https://shopwithcarlos.com/",
+        "name": "ShopWithCarlos",
+        "potentialAction": {
+          "@type": "SearchAction",
+          "target": "https://shopwithcarlos.com/?s={search_term_string}",
+          "query-input": "required name=search_term_string"
+        }
+      },
+      {
+        "@type": "Organization",
+        "@id": "https://shopwithcarlos.com/#organization",
+        "name": "ShopWithCarlos",
+        "url": "https://shopwithcarlos.com/",
+        "logo": "https://shopwithcarlos.com/images/swc-logo.svg",
+        "sameAs": [
+          "https://www.tiktok.com/@shopwithcarlos1",
+          "https://www.instagram.com/shopwithcarlos",
+          "https://www.youtube.com/@shopwithcarlos"
+        ]
+      },
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://shopwithcarlos.com/guides/#breadcrumb",
+        "itemListElement": [
+          {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://shopwithcarlos.com/"},
+          {"@type": "ListItem", "position": 2, "name": "Guides", "item": "https://shopwithcarlos.com/guides/"}
+        ]
+      },
+      {
+        "@type": "CollectionPage",
+        "@id": "https://shopwithcarlos.com/guides/#webpage",
+        "url": "https://shopwithcarlos.com/guides/",
+        "name": "Shopping Guides — ShopWithCarlos",
+        "description": "Practical shopping guides, product comparisons, and savings advice from ShopWithCarlos.",
+        "isPartOf": {"@id": "https://shopwithcarlos.com/#website"},
+        "breadcrumb": {"@id": "https://shopwithcarlos.com/guides/#breadcrumb"},
+        "publisher": {"@id": "https://shopwithcarlos.com/#organization"}
+      }
+    ]
+  }
+  </script>
 </head>
-
 <body>
-<nav aria-label="Breadcrumb" class="breadcrumbs">
-  <ol>
-    <li><a href="/">Home</a></li>
-    <li aria-current="page">{BRAND_NAME}</li>
-  </ol>
-</nav>
+  <nav aria-label="Breadcrumb" class="breadcrumbs">
+    <ol>
+      <li><a href="/">Home</a></li>
+      <li aria-current="page">Guides</li>
+    </ol>
+  </nav>
 
-<header class="header">
-  <a href="https://{SITE_DOMAIN}/">
-    <img alt="{BRAND_NAME} Coupon Code &amp; Promo Code Logo" class="logo" src="/images/{OG_IMAGE}" width="300" height="300" loading="eager"/>
-  </a>
-  <div class="header-content">
-    <h1>{H1}</h1>
-    <p>{LEAD}</p>
-    <div class="seal" id="verification-seal">
-      Verified on <time datetime="{VERIFIED_ISO}">{VERIFIED_HUMAN}</time>
+  <header class="header">
+    <img src="/images/swc-logo.svg?v=3" alt="ShopWithCarlos shopping guides" class="logo" width="1200" height="630">
+    <div class="header-content">
+      <h1>Shopping Guides</h1>
+      <p>Clear comparisons, installation advice, and practical tips for choosing products and using your discount.</p>
     </div>
-  </div>
-</header>
+  </header>
 
-<main class="container store">
+  <main class="container guide">
+    <section>
+      <h2>Featured guides</h2>
+      <ul>
+        <li><a href="/guides/ryse-smartshade-vs-switchbot/">RYSE SmartShade vs SwitchBot</a> — compare installation, noise, battery, automations, and price.</li>
+        <li><a href="/guides/install-ryse-smartshade/">How to install RYSE SmartShade</a> — mounting, calibration, app setup, and troubleshooting.</li>
+      </ul>
+    </section>
 
-  <section>
-    <h2>Offer details</h2>
-    <ul>
-      <li><strong>Code:</strong> {DISPLAY_CODE}</li>
-      <li><strong>Discount:</strong> {OFFER}</li>
-      <li><strong>Last verified:</strong> <time datetime="{VERIFIED_ISO}">{VERIFIED_HUMAN}</time></li>
-    </ul>
-    <p class="verification-note">
-      Verified manually at checkout. Screenshots available upon request.
-    </p>
-    <a class="button" href="{AFFILIATE_URL}" rel="sponsored nofollow noopener noreferrer" target="_blank">Shop now at {STORE_DOMAIN}</a>
-  </section>
+    <section>
+      <h2>Find a deal</h2>
+      <p>After reading a guide, see the current <a href="/deals/">deals and discounts</a> or browse <a href="/categories/">all store categories</a>.</p>
+    </section>
+  </main>
 
-  {HOWTO_SECTION}
-
-  <!-- Texto largo opcional desde el Issue -->
-  {ABOUT_HTML}
-
-</main>
-
-{FOOTER}
+  <footer class="footer">
+    <p>© 2026 ShopWithCarlos. Some links may be affiliate.</p>
+    <div class="footer-links">
+      <a href="/privacy-policy/">Privacy Policy</a> |
+      <a href="/terms-use/">Terms of Use</a>
+    </div>
+  </footer>
 </body>
 </html>
