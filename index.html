@@ -79,7 +79,6 @@
         "contactPoint": [
           {
             "@type": "ContactPoint",
-            "telephone": "+1-000-000-0000",
             "contactType": "customer service",
             "email": "carlosdavid145@gmail.com",
             "areaServed": "US"
@@ -110,6 +109,27 @@
             "name": "Home",
             "item": "https://shopwithcarlos.com/"
           }
+        ]
+      },
+      {
+        "@type": "ItemList",
+        "@id": "https://shopwithcarlos.com/#offers",
+        "name": "Current verified promo codes",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "item": { "@type": "Offer", "name": "ACOPOWER — 10% Off Solar Gear", "url": "https://shopwithcarlos.com/stores/acopower.com/", "category": "Outdoors & Energy" } },
+          { "@type": "ListItem", "position": 2, "item": { "@type": "Offer", "name": "Anthbot — $100 Off Stair Climbers", "url": "https://shopwithcarlos.com/stores/anthbot.com/", "category": "Industrial & Mobility" } },
+          { "@type": "ListItem", "position": 3, "item": { "@type": "Offer", "name": "Armada Scooters — $100 Off Electric Scooters", "url": "https://shopwithcarlos.com/stores/armadascooters.com/", "category": "E-Mobility" } },
+          { "@type": "ListItem", "position": 4, "item": { "@type": "Offer", "name": "Della Home — 5% Off Furniture", "url": "https://shopwithcarlos.com/stores/dellahome.com/", "category": "Home & Furniture" } },
+          { "@type": "ListItem", "position": 5, "item": { "@type": "Offer", "name": "Dualtron USA — $20 Off Electric Scooters", "url": "https://shopwithcarlos.com/stores/dualtronusa.com/", "category": "E-Mobility" } },
+          { "@type": "ListItem", "position": 6, "item": { "@type": "Offer", "name": "LalaMira — 15% Off Dresses", "url": "https://shopwithcarlos.com/stores/lalamira.com/", "category": "Smart Home" } },
+          { "@type": "ListItem", "position": 7, "item": { "@type": "Offer", "name": "RayNeo — 10% Off Smart Glasses", "url": "https://shopwithcarlos.com/stores/rayneo.com/", "category": "Smart Home" } },
+          { "@type": "ListItem", "position": 8, "item": { "@type": "Offer", "name": "RYSE Smart Shades — 15% Off Smart Shades", "url": "https://shopwithcarlos.com/stores/helloryse.com/", "category": "Smart Home" } },
+          { "@type": "ListItem", "position": 9, "item": { "@type": "Offer", "name": "SalusHEAT — 5% Off Saunas", "url": "https://shopwithcarlos.com/stores/salusheat.com/", "category": "Wellness" } },
+          { "@type": "ListItem", "position": 10, "item": { "@type": "Offer", "name": "Salus Saunas — $100 Off Infrared Saunas", "url": "https://shopwithcarlos.com/stores/salussaunas.com/", "category": "Wellness" } },
+          { "@type": "ListItem", "position": 11, "item": { "@type": "Offer", "name": "Vanpowers — $50 Off Storewide", "url": "https://shopwithcarlos.com/stores/vanpowers.com/", "category": "E-Bikes" } },
+          { "@type": "ListItem", "position": 12, "item": { "@type": "Offer", "name": "XSTO Store — $100 Off Mobility Equipment", "url": "https://shopwithcarlos.com/stores/xstostore.com/", "category": "Industrial & Mobility" } },
+          { "@type": "ListItem", "position": 13, "item": { "@type": "Offer", "name": "YUME Scooter — Up to $300 Off Models", "url": "https://shopwithcarlos.com/stores/yumescooter.com/", "category": "E-Mobility" } },
+          { "@type": "ListItem", "position": 14, "item": { "@type": "Offer", "name": "OMORPHO — 15% Off Activewear", "url": "https://shopwithcarlos.com/stores/omorpho.com/", "category": "Wellness" } }
         ]
       }
     ]
@@ -145,6 +165,14 @@
           "@type": "Answer",
           "text": "Check the details page for the store (each card links to a details page) for restrictions and expiration dates. If it still doesn't work, contact us at carlosdavid145@gmail.com and we will retest the code."
         }
+      },
+      {
+        "@type": "Question",
+        "name": "Does ShopWithCarlos earn a commission from these links?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes. Most stores listed here are affiliate partners, and we may earn a commission if you make a purchase after clicking a link — at no extra cost to you. This never affects which codes we list or how we rate them."
+        }
       }
     ]
   }
@@ -152,10 +180,103 @@
 
   <!-- Favicons and social previews (optional additional) -->
   <meta name="msapplication-TileImage" content="/images/swc-logo.svg">
+
+  <style>
+    /* --- Accessibility & UX fixes that don't live in styles.css yet --- */
+
+    /* Visible, functional skip link (was previously hidden with no way to reach it) */
+    .skip-to-content {
+      position: absolute;
+      left: 1rem;
+      top: -3rem;
+      background: #0f172a;
+      color: #fff;
+      padding: 0.6rem 1rem;
+      border-radius: 0.375rem;
+      z-index: 1000;
+      transition: top 0.15s ease-in-out;
+    }
+    .skip-to-content:focus {
+      top: 1rem;
+      outline: 2px solid #ffffff;
+      outline-offset: 2px;
+    }
+
+    /* Visible focus states for keyboard users across interactive elements */
+    a:focus-visible,
+    .pill:focus-visible,
+    .code-copy-btn:focus-visible,
+    input:focus-visible {
+      outline: 2px solid #2563eb;
+      outline-offset: 2px;
+    }
+
+    /* Copy-code control, now a real <button> instead of a <code> nested in a link */
+    .code-copy-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      font: inherit;
+      font-family: inherit;
+      background: #f1f5f9;
+      color: #0f172a;
+      border: 1px solid #cbd5e1;
+      border-radius: 0.375rem;
+      padding: 0.2rem 0.6rem;
+      cursor: pointer;
+    }
+    .code-copy-btn:hover {
+      background: #e2e8f0;
+    }
+    .code-copy-btn.copied {
+      background: #22c55e;
+      border-color: #22c55e;
+      color: #ffffff;
+    }
+    .code-copy-btn .copy-hint {
+      font-size: 0.75rem;
+      color: #64748b;
+    }
+    .code-copy-btn.copied .copy-hint {
+      color: #ffffff;
+    }
+
+    /* Affiliate disclosure banner, shown near the top per FTC best practice */
+    .affiliate-disclosure {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.6rem 1rem;
+      font-size: 0.85rem;
+      color: #475569;
+      text-align: center;
+      border-bottom: 1px solid #e2e8f0;
+    }
+    .affiliate-disclosure a {
+      color: inherit;
+      text-decoration: underline;
+    }
+
+    .visually-hidden {
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      padding: 0;
+      margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
 </head>
 
 <body class="home">
-  <a class="skip-to-content" href="#main" style="position: absolute; left: -999px; top: auto; width: 1px; height: 1px; overflow: hidden;" aria-hidden="false">Skip to content</a>
+  <a class="skip-to-content" href="#main">Skip to content</a>
+
+  <p class="affiliate-disclosure">
+    Some links on this page are affiliate links — ShopWithCarlos may earn a commission on purchases at no extra cost to you.
+    <a href="/privacy-policy/">Learn more</a>
+  </p>
 
 <header class="header" role="banner">
   <a href="/" aria-label="Home — ShopWithCarlos">
@@ -203,11 +324,11 @@
 
         <article class="card store-card" data-name="acopower" data-category="outdoors & energy">
           <a class="store-link" href="https://acopower.com/discount/CARLOSRIVERO?ref=carlos" target="_blank" rel="noopener noreferrer sponsored nofollow" aria-label="ACOPOWER affiliate deal">
-            <img src="/images/acopower.png" alt="ACOPOWER logo" width="300" height="300" loading="lazy" class="store-logo"/>
+            <img src="/images/acopower.png" alt="ACOPOWER logo" width="300" height="300" loading="eager" fetchpriority="high" class="store-logo"/>
             <div class="store-content">
               <h3 class="store-title">ACOPOWER</h3>
               <p class="store-offer">10% Off Solar Gear</p>
-              <p class="store-code"><strong>Code:</strong> <code class="copyable-code" title="Click to copy">CARLOSRIVERO</code></p>
+              <p class="store-code"><strong>Code:</strong> <button type="button" class="code-copy-btn" data-code="CARLOSRIVERO">CARLOSRIVERO <span class="copy-hint">(copy)</span></button></p>
               <p class="store-cta">Go to deal ↗</p>
             </div>
           </a>
@@ -216,11 +337,11 @@
 
         <article class="card store-card" data-name="anthbot" data-category="industrial & mobility">
           <a class="store-link" href="https://us.anthbot.com/discount/CARLOS100?ref=carlos" target="_blank" rel="noopener noreferrer sponsored nofollow" aria-label="Anthbot affiliate deal">
-            <img src="/images/anthbot.png" alt="Anthbot logo" width="300" height="300" loading="lazy" class="store-logo"/>
+            <img src="/images/anthbot.png" alt="Anthbot logo" width="300" height="300" loading="eager" fetchpriority="high" class="store-logo"/>
             <div class="store-content">
               <h3 class="store-title">Anthbot</h3>
               <p class="store-offer">$100 Off Stair Climbers</p>
-              <p class="store-code"><strong>Code:</strong> <code class="copyable-code" title="Click to copy">CARLOS100</code></p>
+              <p class="store-code"><strong>Code:</strong> <button type="button" class="code-copy-btn" data-code="CARLOS100">CARLOS100 <span class="copy-hint">(copy)</span></button></p>
               <p class="store-cta">Go to deal ↗</p>
             </div>
           </a>
@@ -229,11 +350,11 @@
 
         <article class="card store-card" data-name="armada scooters" data-category="e-mobility">
           <a class="store-link" href="https://armadascooters.com/?ref=carlos" target="_blank" rel="noopener noreferrer sponsored nofollow" aria-label="Armada Scooters affiliate deal">
-            <img src="/images/armada.png" alt="Armada Scooters logo" width="300" height="300" loading="lazy" class="store-logo"/>
+            <img src="/images/armada.png" alt="Armada Scooters logo" width="300" height="300" loading="eager" fetchpriority="high" class="store-logo"/>
             <div class="store-content">
               <h3 class="store-title">Armada Scooters</h3>
               <p class="store-offer">$100 Off Electric Scooters</p>
-              <p class="store-code"><strong>Code:</strong> <code class="copyable-code" title="Click to copy">CARLOS100</code></p>
+              <p class="store-code"><strong>Code:</strong> <button type="button" class="code-copy-btn" data-code="CARLOS100">CARLOS100 <span class="copy-hint">(copy)</span></button></p>
               <p class="store-cta">Go to deal ↗</p>
             </div>
           </a>
@@ -246,7 +367,7 @@
             <div class="store-content">
               <h3 class="store-title">Della Home</h3>
               <p class="store-offer">5% Off Furniture</p>
-              <p class="store-code"><strong>Code:</strong> <code class="copyable-code" title="Click to copy">CARLOS5</code></p>
+              <p class="store-code"><strong>Code:</strong> <button type="button" class="code-copy-btn" data-code="CARLOS5">CARLOS5 <span class="copy-hint">(copy)</span></button></p>
               <p class="store-cta">Go to deal ↗</p>
             </div>
           </a>
@@ -259,7 +380,7 @@
             <div class="store-content">
               <h3 class="store-title">Dualtron USA</h3>
               <p class="store-offer">$20 Off Electric Scooters</p>
-              <p class="store-code"><strong>Code:</strong> <code class="copyable-code" title="Click to copy">SHOPWITHCARLOS</code></p>
+              <p class="store-code"><strong>Code:</strong> <button type="button" class="code-copy-btn" data-code="SHOPWITHCARLOS">SHOPWITHCARLOS <span class="copy-hint">(copy)</span></button></p>
               <p class="store-cta">Go to deal ↗</p>
             </div>
           </a>
@@ -272,7 +393,7 @@
             <div class="store-content">
               <h3 class="store-title">LalaMira</h3>
               <p class="store-offer">15% Off Dresses</p>
-              <p class="store-code"><strong>Code:</strong> <code class="copyable-code" title="Click to copy">CARLOS15</code></p>
+              <p class="store-code"><strong>Code:</strong> <button type="button" class="code-copy-btn" data-code="CARLOS15">CARLOS15 <span class="copy-hint">(copy)</span></button></p>
               <p class="store-cta">Go to deal ↗</p>
             </div>
           </a>
@@ -285,7 +406,7 @@
             <div class="store-content">
               <h3 class="store-title">RayNeo</h3>
               <p class="store-offer">10% Off Smart Glasses</p>
-              <p class="store-code"><strong>Code:</strong> <code class="copyable-code" title="Click to copy">CARLOS</code></p>
+              <p class="store-code"><strong>Code:</strong> <button type="button" class="code-copy-btn" data-code="CARLOS">CARLOS <span class="copy-hint">(copy)</span></button></p>
               <p class="store-cta">Go to deal ↗</p>
             </div>
           </a>
@@ -298,7 +419,7 @@
             <div class="store-content">
               <h3 class="store-title">RYSE Smart Shades</h3>
               <p class="store-offer">15% Off Smart Shades</p>
-              <p class="store-code"><strong>Code:</strong> <code class="copyable-code" title="Click to copy">GET15</code></p>
+              <p class="store-code"><strong>Code:</strong> <button type="button" class="code-copy-btn" data-code="GET15">GET15 <span class="copy-hint">(copy)</span></button></p>
               <p class="store-cta">Go to deal ↗</p>
             </div>
           </a>
@@ -311,7 +432,7 @@
             <div class="store-content">
               <h3 class="store-title">SalusHEAT</h3>
               <p class="store-offer">5% Off Saunas</p>
-              <p class="store-code"><strong>Code:</strong> <code class="copyable-code" title="Click to copy">SAVE5CARLOS100</code></p>
+              <p class="store-code"><strong>Code:</strong> <button type="button" class="code-copy-btn" data-code="SAVE5CARLOS100">SAVE5CARLOS100 <span class="copy-hint">(copy)</span></button></p>
               <p class="store-cta">Go to deal ↗</p>
             </div>
           </a>
@@ -324,7 +445,7 @@
             <div class="store-content">
               <h3 class="store-title">Salus Saunas</h3>
               <p class="store-offer">$100 Off Infrared Saunas</p>
-              <p class="store-code"><strong>Code:</strong> <code class="copyable-code" title="Click to copy">CARLOS100</code></p>
+              <p class="store-code"><strong>Code:</strong> <button type="button" class="code-copy-btn" data-code="CARLOS100">CARLOS100 <span class="copy-hint">(copy)</span></button></p>
               <p class="store-cta">Go to deal ↗</p>
             </div>
           </a>
@@ -337,7 +458,7 @@
             <div class="store-content">
               <h3 class="store-title">Vanpowers</h3>
               <p class="store-offer">$50 Off Storewide</p>
-              <p class="store-code"><strong>Code:</strong> <code class="copyable-code" title="Click to copy">CSLA50</code></p>
+              <p class="store-code"><strong>Code:</strong> <button type="button" class="code-copy-btn" data-code="CSLA50">CSLA50 <span class="copy-hint">(copy)</span></button></p>
               <p class="store-cta">Go to deal ↗</p>
             </div>
           </a>
@@ -350,7 +471,7 @@
             <div class="store-content">
               <h3 class="store-title">XSTO Store</h3>
               <p class="store-offer">$100 Off Mobility Equipment</p>
-              <p class="store-code"><strong>Code:</strong> <code class="copyable-code" title="Click to copy">SAVE100</code></p>
+              <p class="store-code"><strong>Code:</strong> <button type="button" class="code-copy-btn" data-code="SAVE100">SAVE100 <span class="copy-hint">(copy)</span></button></p>
               <p class="store-cta">Go to deal ↗</p>
             </div>
           </a>
@@ -363,7 +484,7 @@
             <div class="store-content">
               <h3 class="store-title">YUME Scooter</h3>
               <p class="store-offer">Up to $300 Off Models</p>
-              <p class="store-code"><strong>Code:</strong> <code class="copyable-code" title="Click to copy">Model-specific</code></p>
+              <p class="store-code"><strong>Code:</strong> <span class="code-static">Model-specific</span></p>
               <p class="store-cta">Go to deal ↗</p>
             </div>
           </a>
@@ -376,7 +497,7 @@
             <div class="store-content">
               <h3 class="store-title">OMORPHO</h3>
               <p class="store-offer">15% Off Activewear</p>
-              <p class="store-code"><strong>Code:</strong> <code class="copyable-code" title="Click to copy">No code required</code></p>
+              <p class="store-code"><strong>Code:</strong> <span class="code-static">No code required</span></p>
               <p class="store-cta">Go to deal ↗</p>
             </div>
           </a>
@@ -388,136 +509,181 @@
     </section>
 
     <!-- SEO Content Section to prevent Thin Content -->
-    <section class="seo-info-block" style="margin-top: 3.5rem; border-top: 1px solid #e2e8f0; padding-top: 2.5rem; color: #334155; line-height: 1.6;">
-      <h2 style="font-size: 1.5rem; font-weight: 600; margin-bottom: 1rem; color: #0f172a;">How We Verify & Curate Discount Codes at ShopWithCarlos</h2>
-      <p style="margin-bottom: 1rem;">Finding active discount codes shouldn't feel like a guessing game. At <strong>ShopWithCarlos</strong>, we work closely with top e-commerce brands in tech, smart home, wellness and mobility to test and confirm offers. Each code is validated at checkout and details are provided so you know how to apply it.</p>
+    <section class="seo-info-block">
+      <h2>How We Verify & Curate Discount Codes at ShopWithCarlos</h2>
+      <p>Finding active discount codes shouldn't feel like a guessing game. At <strong>ShopWithCarlos</strong>, we work closely with top e-commerce brands in tech, smart home, wellness and mobility to test and confirm offers. Each code is validated at checkout and details are provided so you know how to apply it.</p>
 
-      <h3 style="font-size: 1.2rem; font-weight: 600; margin-top: 1.5rem; margin-bottom: 0.75rem; color: #0f172a;">Why Trust Our Discount Deals?</h3>
-      <ul style="padding-left: 1.25rem; margin-bottom: 1.5rem;">
-        <li style="margin-bottom: 0.5rem;"><strong>Direct Brand Partnerships:</strong> Many of our listed codes (like <code>CARLOS100</code> or <code>SHOPWITHCARLOS</code>) are assigned directly through brand partnerships and affiliates.</li>
-        <li style="margin-bottom: 0.5rem;"><strong>Tested at Checkout:</strong> Codes are routinely tested on active shopping carts to ensure they apply correctly before being listed.</li>
-        <li style="margin-bottom: 0.5rem;"><strong>Complete Transparency:</strong> Each store has a dedicated details page walking you through step-by-step instructions on where to paste your promo code and any restrictions.</li>
+      <h3>Why Trust Our Discount Deals?</h3>
+      <ul>
+        <li><strong>Direct Brand Partnerships:</strong> Many of our listed codes (like <code>CARLOS100</code> or <code>SHOPWITHCARLOS</code>) are assigned directly through brand partnerships and affiliates.</li>
+        <li><strong>Tested at Checkout:</strong> Codes are routinely tested on active shopping carts to ensure they apply correctly before being listed.</li>
+        <li><strong>Complete Transparency:</strong> Each store has a dedicated details page walking you through step-by-step instructions on where to paste your promo code and any restrictions.</li>
       </ul>
     </section>
   </main>
 
-  <footer class="footer" role="contentinfo" style="text-align: center; padding: 2.5rem 1rem; border-top: 1px solid #e2e8f0; margin-top: 3rem;">
-    <p style="margin-bottom: 0.5rem;">© 2026 ShopWithCarlos. All rights reserved.</p>
-    <p class="small" style="font-size: 0.85rem; color: #64748b; margin-bottom: 1.25rem;">*ShopWithCarlos may receive a commission for purchases made through these links.</p>
+  <footer class="footer" role="contentinfo">
+    <p>© 2026 ShopWithCarlos. All rights reserved.</p>
+    <p class="small">*ShopWithCarlos may receive a commission for purchases made through these links.</p>
 
     <!-- Inline Clean Social Media Footer Buttons -->
-    <div style="display: flex; justify-content: center; align-items: center; gap: 12px; margin: 15px 0; flex-wrap: wrap;">
-      <a href="https://www.tiktok.com/@shopwithcarlos1" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: #334155;">
-        <img src="https://cdn.simpleicons.org/tiktok/111111" alt="TikTok" width="16" height="16" style="display: inline-block; margin: 0; vertical-align: middle;">
+    <div class="social-links">
+      <a href="https://www.tiktok.com/@shopwithcarlos1" target="_blank" rel="noopener noreferrer">
+        <img src="/images/icons/tiktok.svg" alt="" width="16" height="16">
         <span>TikTok</span>
       </a>
-      <a href="https://www.instagram.com/shopwithcarlos" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: #334155;">
-        <img src="https://cdn.simpleicons.org/instagram/111111" alt="Instagram" width="16" height="16" style="display: inline-block; margin: 0; vertical-align: middle;">
+      <a href="https://www.instagram.com/shopwithcarlos" target="_blank" rel="noopener noreferrer">
+        <img src="/images/icons/instagram.svg" alt="" width="16" height="16">
         <span>Instagram</span>
       </a>
-      <a href="https://www.youtube.com/@shopwithcarlos" target="_blank" rel="noopener noreferrer" style="display: inline-flex; align-items: center; gap: 6px; text-decoration: none; color: #334155;">
-        <img src="https://cdn.simpleicons.org/youtube/111111" alt="YouTube" width="16" height="16" style="display: inline-block; margin: 0; vertical-align: middle;">
+      <a href="https://www.youtube.com/@shopwithcarlos" target="_blank" rel="noopener noreferrer">
+        <img src="/images/icons/youtube.svg" alt="" width="16" height="16">
         <span>YouTube</span>
       </a>
     </div>
 
-    <div class="footer-links" style="margin-top: 1rem; font-size: 0.9rem;">
-      <a href="mailto:carlosdavid145@gmail.com">Contact</a> |
+    <div class="footer-links">
+      <a href="/contact/">Contact</a> |
       <a href="/privacy-policy/">Privacy Policy</a> |
       <a href="/terms-use/">Terms of Use</a>
     </div>
   </footer>
 
-  <!-- Instant Search Script & Click-to-Copy Functionality -->
+  <!-- Instant Search, Category Filter (URL-synced) & Copy-to-Clipboard -->
   <script>
-  (function() {
-    const q = document.getElementById('search');
+  (function () {
+    const searchInput = document.getElementById('search');
     const grid = document.getElementById('stores-grid');
     const cards = Array.from(grid.querySelectorAll('.store-card'));
-    const pills = Array.from(document.querySelectorAll('.filters .pill'));
-    let activeFilter = "";
+    const filterPills = Array.from(document.querySelectorAll('.filters .pill'));
+    let activeFilter = '';
 
-    const normalize = (s) => (s || "")
-      .toLowerCase()
-      .normalize('NFKD')
-      .replace(/[\u2010-\u2015]/g, '-')
-      .replace(/&/g, ' and ')
-      .replace(/\s+/g, ' ')
-      .trim();
-
-    const canon = (s) => normalize(s).replace(/[-_\s/]+/g, '');
-
-    function matches(card, term){
-      const name = card.dataset.name || "";
-      const cat  = card.dataset.category || "";
-      const tags = card.dataset.tags || "";
-      const text = card.innerText || "";
-
-      const tNorm  = normalize(term);
-      const tCanon = canon(term);
-
-      const hayFiltro = !!activeFilter;
-      const catIncluyeFiltro = !hayFiltro || normalize(cat).includes(activeFilter);
-
-      const blobNorm  = normalize(name + ' ' + cat + ' ' + tags + ' ' + text);
-      const blobCanon = canon(name + ' ' + cat + ' ' + tags + ' ' + text);
-
-      const txtOk = !tNorm || blobNorm.includes(tNorm) || blobCanon.includes(tCanon);
-      return catIncluyeFiltro && txtOk;
+    function normalize(value) {
+      return (value || '')
+        .toLowerCase()
+        .normalize('NFKD')
+        .replace(/[\u2010-\u2015]/g, '-')
+        .replace(/&/g, ' and ')
+        .replace(/\s+/g, ' ')
+        .trim();
     }
 
-    function render(){
-      const term = q.value;
-      cards.forEach(c => { c.style.display = matches(c, term) ? "" : "none"; });
+    function canonicalize(value) {
+      return normalize(value).replace(/[-_\s/]+/g, '');
     }
 
-    pills.forEach(p => {
-      p.addEventListener('click', (e) => {
-        const openNew = e.ctrlKey || e.metaKey || e.shiftKey || e.altKey || e.button === 1;
-        if (!openNew) {
-          e.preventDefault();
-          activeFilter = normalize(p.dataset.filter);
-          pills.forEach(x => x.classList.remove('active'));
-          p.classList.add('active');
-          render();
-        }
+    function cardMatches(card, term) {
+      const name = card.dataset.name || '';
+      const category = card.dataset.category || '';
+      const text = card.innerText || '';
+
+      const normalizedTerm = normalize(term);
+      const canonicalTerm = canonicalize(term);
+
+      const categoryMatchesFilter = !activeFilter || normalize(category).includes(activeFilter);
+
+      const normalizedHaystack = normalize(name + ' ' + category + ' ' + text);
+      const canonicalHaystack = canonicalize(name + ' ' + category + ' ' + text);
+
+      const textMatches = !normalizedTerm ||
+        normalizedHaystack.includes(normalizedTerm) ||
+        canonicalHaystack.includes(canonicalTerm);
+
+      return categoryMatchesFilter && textMatches;
+    }
+
+    function render() {
+      const term = searchInput ? searchInput.value : '';
+      cards.forEach((card) => {
+        card.style.display = cardMatches(card, term) ? '' : 'none';
+      });
+    }
+
+    function setActiveFilter(filterValue, pillElement) {
+      activeFilter = normalize(filterValue);
+      filterPills.forEach((pill) => pill.classList.remove('active'));
+      if (pillElement) pillElement.classList.add('active');
+      render();
+    }
+
+    function syncFilterToUrl(filterValue) {
+      const url = new URL(window.location.href);
+      if (filterValue) {
+        url.searchParams.set('category', filterValue);
+      } else {
+        url.searchParams.delete('category');
+      }
+      window.history.replaceState({}, '', url);
+    }
+
+    // Restore filter from the URL on load, so filtered links are shareable
+    // and the browser back button works as expected.
+    const initialParams = new URLSearchParams(window.location.search);
+    const initialCategory = initialParams.get('category');
+    if (initialCategory) {
+      const matchingPill = filterPills.find(
+        (pill) => normalize(pill.dataset.filter) === normalize(initialCategory)
+      );
+      if (matchingPill) {
+        setActiveFilter(initialCategory, matchingPill);
+      }
+    }
+
+    filterPills.forEach((pill) => {
+      pill.addEventListener('click', (event) => {
+        const opensInNewContext = event.ctrlKey || event.metaKey || event.shiftKey || event.altKey || event.button === 1;
+        if (opensInNewContext) return;
+        event.preventDefault();
+        setActiveFilter(pill.dataset.filter, pill);
+        syncFilterToUrl(pill.dataset.filter);
       });
     });
 
-    if (q) {
-      q.addEventListener('input', render);
+    window.addEventListener('popstate', () => {
+      const params = new URLSearchParams(window.location.search);
+      const category = params.get('category') || '';
+      const matchingPill = filterPills.find(
+        (pill) => normalize(pill.dataset.filter) === normalize(category)
+      );
+      setActiveFilter(category, matchingPill || filterPills[0]);
+    });
+
+    if (searchInput) {
+      searchInput.addEventListener('input', render);
     }
+
     render();
 
-    // Click-to-Copy Code Functionality
-    document.querySelectorAll('.copyable-code').forEach(codeElement => {
-      codeElement.style.cursor = 'pointer';
-      codeElement.addEventListener('click', (e) => {
-        e.preventDefault();
-        e.stopPropagation();
-        const textToCopy = codeElement.innerText;
-        if (navigator && navigator.clipboard && navigator.clipboard.writeText) {
-          navigator.clipboard.writeText(textToCopy).then(() => {
-            const originalText = codeElement.innerText;
-            codeElement.innerText = 'COPIED!';
-            codeElement.style.background = '#22c55e';
-            codeElement.style.color = '#ffffff';
-            setTimeout(() => {
-              codeElement.innerText = originalText;
-              codeElement.style.background = '';
-              codeElement.style.color = '';
-            }, 1500);
-          }).catch(() => {
-            // Fallback UI: briefly show copied state even if clipboard fails
-            const originalText = codeElement.innerText;
-            codeElement.innerText = 'COPIED!';
-            setTimeout(() => {
-              codeElement.innerText = originalText;
-            }, 1200);
-          });
-        }
+    // Copy-to-clipboard for promo codes — now a real, keyboard-accessible <button>
+    // instead of a non-focusable element nested inside a link.
+    document.querySelectorAll('.code-copy-btn').forEach((button) => {
+      button.addEventListener('click', (event) => {
+        event.preventDefault();
+        event.stopPropagation();
+        copyCode(button);
       });
     });
+
+    function copyCode(button) {
+      const code = button.dataset.code;
+      const hint = button.querySelector('.copy-hint');
+      const originalHintText = hint ? hint.textContent : '';
+
+      const showCopiedState = () => {
+        button.classList.add('copied');
+        if (hint) hint.textContent = 'Copied!';
+        window.setTimeout(() => {
+          button.classList.remove('copied');
+          if (hint) hint.textContent = originalHintText;
+        }, 1500);
+      };
+
+      if (navigator.clipboard && navigator.clipboard.writeText) {
+        navigator.clipboard.writeText(code).then(showCopiedState).catch(showCopiedState);
+      } else {
+        showCopiedState();
+      }
+    }
   })();
   </script>
 
