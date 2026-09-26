@@ -180,94 +180,6 @@
 
   <!-- Favicons and social previews (optional additional) -->
   <meta name="msapplication-TileImage" content="/images/swc-logo.svg">
-
-  <style>
-    /* --- Accessibility & UX fixes that don't live in styles.css yet --- */
-
-    /* Visible, functional skip link (was previously hidden with no way to reach it) */
-    .skip-to-content {
-      position: absolute;
-      left: 1rem;
-      top: -3rem;
-      background: #0f172a;
-      color: #fff;
-      padding: 0.6rem 1rem;
-      border-radius: 0.375rem;
-      z-index: 1000;
-      transition: top 0.15s ease-in-out;
-    }
-    .skip-to-content:focus {
-      top: 1rem;
-      outline: 2px solid #ffffff;
-      outline-offset: 2px;
-    }
-
-    /* Visible focus states for keyboard users across interactive elements */
-    a:focus-visible,
-    .pill:focus-visible,
-    .code-copy-btn:focus-visible,
-    input:focus-visible {
-      outline: 2px solid #2563eb;
-      outline-offset: 2px;
-    }
-
-    /* Copy-code control, now a real <button> instead of a <code> nested in a link */
-    .code-copy-btn {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.4rem;
-      font: inherit;
-      font-family: inherit;
-      background: #f1f5f9;
-      color: #0f172a;
-      border: 1px solid #cbd5e1;
-      border-radius: 0.375rem;
-      padding: 0.2rem 0.6rem;
-      cursor: pointer;
-    }
-    .code-copy-btn:hover {
-      background: #e2e8f0;
-    }
-    .code-copy-btn.copied {
-      background: #22c55e;
-      border-color: #22c55e;
-      color: #ffffff;
-    }
-    .code-copy-btn .copy-hint {
-      font-size: 0.75rem;
-      color: #64748b;
-    }
-    .code-copy-btn.copied .copy-hint {
-      color: #ffffff;
-    }
-
-    /* Affiliate disclosure banner, shown near the top per FTC best practice */
-    .affiliate-disclosure {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 0.6rem 1rem;
-      font-size: 0.85rem;
-      color: #475569;
-      text-align: center;
-      border-bottom: 1px solid #e2e8f0;
-    }
-    .affiliate-disclosure a {
-      color: inherit;
-      text-decoration: underline;
-    }
-
-    .visually-hidden {
-      position: absolute;
-      width: 1px;
-      height: 1px;
-      padding: 0;
-      margin: -1px;
-      overflow: hidden;
-      clip: rect(0, 0, 0, 0);
-      white-space: nowrap;
-      border: 0;
-    }
-  </style>
 </head>
 
 <body class="home">
@@ -527,17 +439,17 @@
     <p class="small">*ShopWithCarlos may receive a commission for purchases made through these links.</p>
 
     <!-- Inline Clean Social Media Footer Buttons -->
-    <div class="social-links">
+    <div class="footer-socials">
       <a href="https://www.tiktok.com/@shopwithcarlos1" target="_blank" rel="noopener noreferrer">
-        <img src="/images/icons/tiktok.svg" alt="" width="16" height="16">
+        <img src="/images/icons/tiktok.svg" alt="" width="18" height="18">
         <span>TikTok</span>
       </a>
       <a href="https://www.instagram.com/shopwithcarlos" target="_blank" rel="noopener noreferrer">
-        <img src="/images/icons/instagram.svg" alt="" width="16" height="16">
+        <img src="/images/icons/instagram.svg" alt="" width="18" height="18">
         <span>Instagram</span>
       </a>
       <a href="https://www.youtube.com/@shopwithcarlos" target="_blank" rel="noopener noreferrer">
-        <img src="/images/icons/youtube.svg" alt="" width="16" height="16">
+        <img src="/images/icons/youtube.svg" alt="" width="18" height="18">
         <span>YouTube</span>
       </a>
     </div>
