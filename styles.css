@@ -90,6 +90,37 @@ summary:focus-visible {
   border: 0;
 }
 
+/* -------- Skip link -------- */
+.skip-to-content {
+  position: absolute;
+  left: 1rem;
+  top: -3rem;
+  background: var(--btn-bg);
+  color: var(--btn-text);
+  padding: .6rem 1rem;
+  border-radius: var(--radius-sm);
+  z-index: 1000;
+  transition: top .15s ease-in-out;
+}
+.skip-to-content:focus {
+  top: 1rem;
+}
+
+/* -------- Affiliate disclosure banner -------- */
+.affiliate-disclosure {
+  max-width: var(--container);
+  margin-inline: auto;
+  padding: .6rem 1.25rem;
+  font-size: .85rem;
+  color: var(--muted);
+  text-align: center;
+  border-bottom: 1px solid var(--border);
+}
+.affiliate-disclosure a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 /* -------- Global Header -------- */
 .header {
   background: linear-gradient(180deg, #fff 0%, var(--surface-alt) 100%);
@@ -254,6 +285,46 @@ button.button {
   justify-self: center;
 }
 
+/* -------- Copy-code button (promo codes) -------- */
+.code-copy-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  background: #f3f4f6;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: .08rem .45rem;
+  font-size: .95em;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+.code-copy-btn:hover {
+  background: #e5e7eb;
+}
+.code-copy-btn.copied {
+  background: #16a34a;
+  border-color: #16a34a;
+  color: #fff;
+}
+.code-copy-btn .copy-hint {
+  font-size: .8rem;
+  font-weight: 400;
+  color: #6b7280;
+}
+.code-copy-btn.copied .copy-hint { color: #fff; }
+
+.code-static {
+  background: #f3f4f6;
+  color: var(--text);
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: .08rem .45rem;
+  font-size: .95em;
+  font-weight: 600;
+}
+
 /* -------- Home page -------- */
 .home .page-title {
   font-size: clamp(1.6rem, 2.5vw, 2.25rem);
@@ -368,6 +439,33 @@ button.button {
   font-size:.95rem;
 }
 .home .store-details a { text-decoration: underline; }
+
+/* -------- SEO info block (home page, below the grid) -------- */
+.seo-info-block {
+  margin-top: 3.5rem;
+  border-top: 1px solid var(--border);
+  padding-top: 2.5rem;
+  color: #334155;
+}
+.seo-info-block h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  color: var(--text);
+}
+.seo-info-block h3 {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: .75rem;
+  color: var(--text);
+}
+.seo-info-block p { margin-bottom: 1rem; }
+.seo-info-block ul {
+  padding-left: 1.25rem;
+  margin-bottom: 1.5rem;
+}
+.seo-info-block li { margin-bottom: .5rem; }
 
 /* -------- Legal pages -------- */
 .legal h1,
@@ -751,6 +849,15 @@ button.button {
     border-color: #26313c;
     color: #e5e7eb;
   }
+  .code-copy-btn,
+  .code-static,
+  code {
+    background: #111827;
+    color: #e5e7eb;
+    border-color: #26313c;
+  }
+  .code-copy-btn:hover { background: #1a2432; }
+  .skip-to-content { background: #e5e7eb; color: #0b1220; }
 }
 
 /* -------- Responsive -------- */
