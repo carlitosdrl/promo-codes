@@ -322,7 +322,10 @@ button.button {
   background:#fff;
   transition:transform .06s ease, box-shadow .2s ease;
   color: inherit;
+  align-items: center;
+  text-align: center;
 }
+
 .home .store-link:hover {
   transform: translateY(-2px);
   box-shadow:0 6px 18px rgba(0,0,0,.06);
@@ -341,9 +344,16 @@ button.button {
   max-height: 80px;
   height: auto;
   margin: .5rem auto 1rem;
+  display: block;
 }
 
-.home .store-title { margin:.25rem 0; color: var(--text); }
+.home .store-title {
+  margin: .25rem 0;
+  color: var(--text);
+  font-weight: 700;
+  text-align: center;
+}
+
 .home .store-offer,
 .home .store-code { margin:.15rem 0; color:#333; }
 .home .store-cta {
