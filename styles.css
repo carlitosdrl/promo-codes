@@ -1,6 +1,6 @@
 /* =========================================================
    ShopWithCarlos — Unified Styles
-   styles.css • v8
+   styles.css • v9
    ========================================================= */
 
 /* -------- Reset & base -------- */
@@ -285,18 +285,27 @@ button.button {
   justify-self: center;
 }
 
-/* -------- Copy-code button (promo codes) -------- */
+/* -------- Copy-code button (promo codes) --------
+   Visually identical to the plain `code` pill above; the only difference
+   is it's a real <button> so it's focusable and works with the keyboard.
+   appearance/border/background are reset here because browsers apply
+   their own native button chrome (padding, border, background) on top
+   of any custom styles unless it's explicitly turned off. */
 .code-copy-btn {
-  display: inline-flex;
-  align-items: center;
-  gap: .4rem;
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  display: inline;
+  margin: 0;
   background: #f3f4f6;
   color: var(--text);
-  border: 1px solid var(--border);
+  border: 1px solid #e5e7eb;
   border-radius: 6px;
   padding: .08rem .45rem;
+  font: inherit;
   font-size: .95em;
   font-weight: 600;
+  line-height: inherit;
   cursor: pointer;
   transition: background-color .2s ease, color .2s ease, border-color .2s ease;
 }
@@ -308,12 +317,6 @@ button.button {
   border-color: #16a34a;
   color: #fff;
 }
-.code-copy-btn .copy-hint {
-  font-size: .8rem;
-  font-weight: 400;
-  color: #6b7280;
-}
-.code-copy-btn.copied .copy-hint { color: #fff; }
 
 .code-static {
   background: #f3f4f6;
