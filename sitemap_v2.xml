@@ -4,56 +4,16 @@
 
   <url>
        <loc>https://shopwithcarlos.com/</loc>
-       <lastmod>2026-09-25T04:18:52+00:00</lastmod>
+       <lastmod>2026-09-30T00:46:05+00:00</lastmod>
        <priority>1.0000</priority>
   </url>
   <url>
-       <loc>https://shopwithcarlos.com/categories/</loc>
-       <lastmod>2026-09-25T04:18:52+00:00</lastmod>
+       <loc>https://shopwithcarlos.com/sitemap_v2.xml</loc>
+       <lastmod>2026-09-30T00:46:05+00:00</lastmod>
        <priority>0.8000</priority>
   </url>
   <url>
-       <loc>https://shopwithcarlos.com/categories/e-mobility/</loc>
-       <lastmod>2026-09-24T00:00:00+00:00</lastmod>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://shopwithcarlos.com/categories/e-bikes/</loc>
-       <lastmod>2026-09-24T00:00:00+00:00</lastmod>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://shopwithcarlos.com/categories/smart-home/</loc>
-       <lastmod>2026-09-24T00:00:00+00:00</lastmod>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://shopwithcarlos.com/categories/home-and-furniture/</loc>
-       <lastmod>2026-09-24T00:00:00+00:00</lastmod>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://shopwithcarlos.com/categories/home-improvement/</loc>
-       <lastmod>2026-09-24T00:00:00+00:00</lastmod>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://shopwithcarlos.com/categories/wellness/</loc>
-       <lastmod>2026-09-24T00:00:00+00:00</lastmod>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://shopwithcarlos.com/categories/industrial-and-mobility/</loc>
-       <lastmod>2026-09-24T00:00:00+00:00</lastmod>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://shopwithcarlos.com/categories/outdoors-and-energy/</loc>
-       <lastmod>2026-09-24T00:00:00+00:00</lastmod>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://shopwithcarlos.com/categories/baby-and-kids/</loc>
+       <loc>https://shopwithcarlos.com/privacy-policy/</loc>
        <lastmod>2026-09-24T00:00:00+00:00</lastmod>
        <priority>0.8000</priority>
   </url>
@@ -74,92 +34,67 @@
   </url>
   <url>
        <loc>https://shopwithcarlos.com/stores/dellahome.com/</loc>
-       <lastmod>2026-09-24T00:00:00+00:00</lastmod>
+       <lastmod>2026-09-27T00:00:00+00:00</lastmod>
        <priority>0.8000</priority>
   </url>
   <url>
        <loc>https://shopwithcarlos.com/stores/dualtronusa.com/</loc>
-       <lastmod>2026-09-24T00:00:00+00:00</lastmod>
+       <lastmod>2026-09-27T00:00:00+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://shopwithcarlos.com/stores/gthost.com/</loc>
+       <lastmod>2026-09-27T00:00:00+00:00</lastmod>
        <priority>0.8000</priority>
   </url>
   <url>
        <loc>https://shopwithcarlos.com/stores/lalamira.com/</loc>
-       <lastmod>2026-09-24T00:00:00+00:00</lastmod>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://shopwithcarlos.com/stores/rayneo.com/</loc>
-       <lastmod>2026-09-24T00:00:00+00:00</lastmod>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://shopwithcarlos.com/stores/helloryse.com/</loc>
-       <lastmod>2026-09-25T04:18:52+00:00</lastmod>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://shopwithcarlos.com/stores/salusheat.com/</loc>
-       <lastmod>2026-09-24T00:00:00+00:00</lastmod>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://shopwithcarlos.com/stores/salussaunas.com/</loc>
-       <lastmod>2026-09-24T00:00:00+00:00</lastmod>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://shopwithcarlos.com/stores/vanpowers.com/</loc>
-       <lastmod>2026-09-24T00:00:00+00:00</lastmod>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://shopwithcarlos.com/stores/xstostore.com/</loc>
-       <lastmod>2026-09-24T00:00:00+00:00</lastmod>
-       <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://shopwithcarlos.com/stores/yumescooter.com/</loc>
-       <lastmod>2026-09-24T00:00:00+00:00</lastmod>
+       <lastmod>2026-09-27T00:00:00+00:00</lastmod>
        <priority>0.8000</priority>
   </url>
   <url>
        <loc>https://shopwithcarlos.com/stores/omorpho.com/</loc>
-       <lastmod>2026-09-24T00:00:00+00:00</lastmod>
+       <lastmod>2026-09-27T00:00:00+00:00</lastmod>
        <priority>0.8000</priority>
   </url>
   <url>
-       <loc>https://shopwithcarlos.com/privacy-policy/</loc>
-       <lastmod>2026-09-24T00:00:00+00:00</lastmod>
+       <loc>https://shopwithcarlos.com/stores/rayneo.com/</loc>
+       <lastmod>2026-09-27T00:00:00+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://shopwithcarlos.com/stores/helloryse.com/</loc>
+       <lastmod>2026-09-27T00:00:00+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://shopwithcarlos.com/stores/salusheat.com/</loc>
+       <lastmod>2026-09-30T00:46:05+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://shopwithcarlos.com/stores/salussaunas.com/</loc>
+       <lastmod>2026-09-27T00:00:00+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://shopwithcarlos.com/stores/vanpowers.com/</loc>
+       <lastmod>2026-09-27T00:00:00+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://shopwithcarlos.com/stores/xstostore.com/</loc>
+       <lastmod>2026-09-27T00:00:00+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url>
+  <url>
+       <loc>https://shopwithcarlos.com/stores/yumescooter.com/</loc>
+       <lastmod>2026-09-27T00:00:00+00:00</lastmod>
        <priority>0.8000</priority>
   </url>
   <url>
        <loc>https://shopwithcarlos.com/terms-use/</loc>
        <lastmod>2026-09-24T00:00:00+00:00</lastmod>
        <priority>0.8000</priority>
-  </url>
-  <url>
-       <loc>https://shopwithcarlos.com/deals/ryse-military-discount/</loc>
-       <lastmod>2026-09-20T00:00:00+00:00</lastmod>
-       <priority>0.6400</priority>
-  </url>
-  <url>
-       <loc>https://shopwithcarlos.com/guides/ryse-smartshade-vs-switchbot/</loc>
-       <lastmod>2026-09-19T00:00:00+00:00</lastmod>
-       <priority>0.6400</priority>
-  </url>
-  <url>
-       <loc>https://shopwithcarlos.com/guides/install-ryse-smartshade/</loc>
-       <lastmod>2026-09-19T00:00:00+00:00</lastmod>
-       <priority>0.6400</priority>
-  </url>
-  <url>
-       <loc>https://shopwithcarlos.com/deals/</loc>
-       <lastmod>2026-09-25T04:18:52+00:00</lastmod>
-       <priority>0.5120</priority>
-  </url>
-  <url>
-       <loc>https://shopwithcarlos.com/guides/</loc>
-       <lastmod>2026-09-25T04:18:52+00:00</lastmod>
-       <priority>0.5120</priority>
   </url>
 </urlset>
